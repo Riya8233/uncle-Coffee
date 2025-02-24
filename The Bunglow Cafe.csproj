@@ -1,0 +1,3062 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FFB728CE-70F1-416B-84F2-8BAFCD85C260}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>The_Bunglow_Cafe</RootNamespace>
+    <AssemblyName>The Bunglow Cafe</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Desktop\project\AJAX .NET4\AJAX .NET4\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Razorpay, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Razorpay.3.0.0\lib\net45\Razorpay.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\anytime anyday\cheese maggi.jpg" />
+    <Content Include="admin\anytime anyday\cheese nachos.jpg" />
+    <Content Include="admin\anytime anyday\chilli garlic bread.jpg" />
+    <Content Include="admin\anytime anyday\french fries.jpg" />
+    <Content Include="admin\anytime anyday\garlic bread.jpg" />
+    <Content Include="admin\anytime anyday\Masala maggi.jpg" />
+    <Content Include="admin\anytime anyday\super loaded nachos.jpg" />
+    <Content Include="admin\anytime anyday\supreme nachos.jpg" />
+    <Content Include="admin\assets\css\animate.css" />
+    <Content Include="admin\assets\css\app-style.css" />
+    <Content Include="admin\assets\css\bootstrap.min.css" />
+    <Content Include="admin\assets\css\icons.css" />
+    <Content Include="admin\assets\css\sidebar-menu.css" />
+    <Content Include="admin\assets\flags\1x1\ad.svg" />
+    <Content Include="admin\assets\flags\1x1\ae.svg" />
+    <Content Include="admin\assets\flags\1x1\af.svg" />
+    <Content Include="admin\assets\flags\1x1\ag.svg" />
+    <Content Include="admin\assets\flags\1x1\ai.svg" />
+    <Content Include="admin\assets\flags\1x1\al.svg" />
+    <Content Include="admin\assets\flags\1x1\am.svg" />
+    <Content Include="admin\assets\flags\1x1\ao.svg" />
+    <Content Include="admin\assets\flags\1x1\aq.svg" />
+    <Content Include="admin\assets\flags\1x1\ar.svg" />
+    <Content Include="admin\assets\flags\1x1\as.svg" />
+    <Content Include="admin\assets\flags\1x1\at.svg" />
+    <Content Include="admin\assets\flags\1x1\au.svg" />
+    <Content Include="admin\assets\flags\1x1\aw.svg" />
+    <Content Include="admin\assets\flags\1x1\ax.svg" />
+    <Content Include="admin\assets\flags\1x1\az.svg" />
+    <Content Include="admin\assets\flags\1x1\ba.svg" />
+    <Content Include="admin\assets\flags\1x1\bb.svg" />
+    <Content Include="admin\assets\flags\1x1\bd.svg" />
+    <Content Include="admin\assets\flags\1x1\be.svg" />
+    <Content Include="admin\assets\flags\1x1\bf.svg" />
+    <Content Include="admin\assets\flags\1x1\bg.svg" />
+    <Content Include="admin\assets\flags\1x1\bh.svg" />
+    <Content Include="admin\assets\flags\1x1\bi.svg" />
+    <Content Include="admin\assets\flags\1x1\bj.svg" />
+    <Content Include="admin\assets\flags\1x1\bl.svg" />
+    <Content Include="admin\assets\flags\1x1\bm.svg" />
+    <Content Include="admin\assets\flags\1x1\bn.svg" />
+    <Content Include="admin\assets\flags\1x1\bo.svg" />
+    <Content Include="admin\assets\flags\1x1\bq.svg" />
+    <Content Include="admin\assets\flags\1x1\br.svg" />
+    <Content Include="admin\assets\flags\1x1\bs.svg" />
+    <Content Include="admin\assets\flags\1x1\bt.svg" />
+    <Content Include="admin\assets\flags\1x1\bv.svg" />
+    <Content Include="admin\assets\flags\1x1\bw.svg" />
+    <Content Include="admin\assets\flags\1x1\by.svg" />
+    <Content Include="admin\assets\flags\1x1\bz.svg" />
+    <Content Include="admin\assets\flags\1x1\ca.svg" />
+    <Content Include="admin\assets\flags\1x1\cc.svg" />
+    <Content Include="admin\assets\flags\1x1\cd.svg" />
+    <Content Include="admin\assets\flags\1x1\cf.svg" />
+    <Content Include="admin\assets\flags\1x1\cg.svg" />
+    <Content Include="admin\assets\flags\1x1\ch.svg" />
+    <Content Include="admin\assets\flags\1x1\ci.svg" />
+    <Content Include="admin\assets\flags\1x1\ck.svg" />
+    <Content Include="admin\assets\flags\1x1\cl.svg" />
+    <Content Include="admin\assets\flags\1x1\cm.svg" />
+    <Content Include="admin\assets\flags\1x1\cn.svg" />
+    <Content Include="admin\assets\flags\1x1\co.svg" />
+    <Content Include="admin\assets\flags\1x1\cr.svg" />
+    <Content Include="admin\assets\flags\1x1\cu.svg" />
+    <Content Include="admin\assets\flags\1x1\cv.svg" />
+    <Content Include="admin\assets\flags\1x1\cw.svg" />
+    <Content Include="admin\assets\flags\1x1\cx.svg" />
+    <Content Include="admin\assets\flags\1x1\cy.svg" />
+    <Content Include="admin\assets\flags\1x1\cz.svg" />
+    <Content Include="admin\assets\flags\1x1\de.svg" />
+    <Content Include="admin\assets\flags\1x1\dj.svg" />
+    <Content Include="admin\assets\flags\1x1\dk.svg" />
+    <Content Include="admin\assets\flags\1x1\dm.svg" />
+    <Content Include="admin\assets\flags\1x1\do.svg" />
+    <Content Include="admin\assets\flags\1x1\dz.svg" />
+    <Content Include="admin\assets\flags\1x1\ec.svg" />
+    <Content Include="admin\assets\flags\1x1\ee.svg" />
+    <Content Include="admin\assets\flags\1x1\eg.svg" />
+    <Content Include="admin\assets\flags\1x1\eh.svg" />
+    <Content Include="admin\assets\flags\1x1\er.svg" />
+    <Content Include="admin\assets\flags\1x1\es-ct.svg" />
+    <Content Include="admin\assets\flags\1x1\es.svg" />
+    <Content Include="admin\assets\flags\1x1\et.svg" />
+    <Content Include="admin\assets\flags\1x1\eu.svg" />
+    <Content Include="admin\assets\flags\1x1\fi.svg" />
+    <Content Include="admin\assets\flags\1x1\fj.svg" />
+    <Content Include="admin\assets\flags\1x1\fk.svg" />
+    <Content Include="admin\assets\flags\1x1\fm.svg" />
+    <Content Include="admin\assets\flags\1x1\fo.svg" />
+    <Content Include="admin\assets\flags\1x1\fr.svg" />
+    <Content Include="admin\assets\flags\1x1\ga.svg" />
+    <Content Include="admin\assets\flags\1x1\gb-eng.svg" />
+    <Content Include="admin\assets\flags\1x1\gb-nir.svg" />
+    <Content Include="admin\assets\flags\1x1\gb-sct.svg" />
+    <Content Include="admin\assets\flags\1x1\gb-wls.svg" />
+    <Content Include="admin\assets\flags\1x1\gb.svg" />
+    <Content Include="admin\assets\flags\1x1\gd.svg" />
+    <Content Include="admin\assets\flags\1x1\ge.svg" />
+    <Content Include="admin\assets\flags\1x1\gf.svg" />
+    <Content Include="admin\assets\flags\1x1\gg.svg" />
+    <Content Include="admin\assets\flags\1x1\gh.svg" />
+    <Content Include="admin\assets\flags\1x1\gi.svg" />
+    <Content Include="admin\assets\flags\1x1\gl.svg" />
+    <Content Include="admin\assets\flags\1x1\gm.svg" />
+    <Content Include="admin\assets\flags\1x1\gn.svg" />
+    <Content Include="admin\assets\flags\1x1\gp.svg" />
+    <Content Include="admin\assets\flags\1x1\gq.svg" />
+    <Content Include="admin\assets\flags\1x1\gr.svg" />
+    <Content Include="admin\assets\flags\1x1\gs.svg" />
+    <Content Include="admin\assets\flags\1x1\gt.svg" />
+    <Content Include="admin\assets\flags\1x1\gu.svg" />
+    <Content Include="admin\assets\flags\1x1\gw.svg" />
+    <Content Include="admin\assets\flags\1x1\gy.svg" />
+    <Content Include="admin\assets\flags\1x1\hk.svg" />
+    <Content Include="admin\assets\flags\1x1\hm.svg" />
+    <Content Include="admin\assets\flags\1x1\hn.svg" />
+    <Content Include="admin\assets\flags\1x1\hr.svg" />
+    <Content Include="admin\assets\flags\1x1\ht.svg" />
+    <Content Include="admin\assets\flags\1x1\hu.svg" />
+    <Content Include="admin\assets\flags\1x1\id.svg" />
+    <Content Include="admin\assets\flags\1x1\ie.svg" />
+    <Content Include="admin\assets\flags\1x1\il.svg" />
+    <Content Include="admin\assets\flags\1x1\im.svg" />
+    <Content Include="admin\assets\flags\1x1\in.svg" />
+    <Content Include="admin\assets\flags\1x1\io.svg" />
+    <Content Include="admin\assets\flags\1x1\iq.svg" />
+    <Content Include="admin\assets\flags\1x1\ir.svg" />
+    <Content Include="admin\assets\flags\1x1\is.svg" />
+    <Content Include="admin\assets\flags\1x1\it.svg" />
+    <Content Include="admin\assets\flags\1x1\je.svg" />
+    <Content Include="admin\assets\flags\1x1\jm.svg" />
+    <Content Include="admin\assets\flags\1x1\jo.svg" />
+    <Content Include="admin\assets\flags\1x1\jp.svg" />
+    <Content Include="admin\assets\flags\1x1\ke.svg" />
+    <Content Include="admin\assets\flags\1x1\kg.svg" />
+    <Content Include="admin\assets\flags\1x1\kh.svg" />
+    <Content Include="admin\assets\flags\1x1\ki.svg" />
+    <Content Include="admin\assets\flags\1x1\km.svg" />
+    <Content Include="admin\assets\flags\1x1\kn.svg" />
+    <Content Include="admin\assets\flags\1x1\kp.svg" />
+    <Content Include="admin\assets\flags\1x1\kr.svg" />
+    <Content Include="admin\assets\flags\1x1\kw.svg" />
+    <Content Include="admin\assets\flags\1x1\ky.svg" />
+    <Content Include="admin\assets\flags\1x1\kz.svg" />
+    <Content Include="admin\assets\flags\1x1\la.svg" />
+    <Content Include="admin\assets\flags\1x1\lb.svg" />
+    <Content Include="admin\assets\flags\1x1\lc.svg" />
+    <Content Include="admin\assets\flags\1x1\li.svg" />
+    <Content Include="admin\assets\flags\1x1\lk.svg" />
+    <Content Include="admin\assets\flags\1x1\lr.svg" />
+    <Content Include="admin\assets\flags\1x1\ls.svg" />
+    <Content Include="admin\assets\flags\1x1\lt.svg" />
+    <Content Include="admin\assets\flags\1x1\lu.svg" />
+    <Content Include="admin\assets\flags\1x1\lv.svg" />
+    <Content Include="admin\assets\flags\1x1\ly.svg" />
+    <Content Include="admin\assets\flags\1x1\ma.svg" />
+    <Content Include="admin\assets\flags\1x1\mc.svg" />
+    <Content Include="admin\assets\flags\1x1\md.svg" />
+    <Content Include="admin\assets\flags\1x1\me.svg" />
+    <Content Include="admin\assets\flags\1x1\mf.svg" />
+    <Content Include="admin\assets\flags\1x1\mg.svg" />
+    <Content Include="admin\assets\flags\1x1\mh.svg" />
+    <Content Include="admin\assets\flags\1x1\mk.svg" />
+    <Content Include="admin\assets\flags\1x1\ml.svg" />
+    <Content Include="admin\assets\flags\1x1\mm.svg" />
+    <Content Include="admin\assets\flags\1x1\mn.svg" />
+    <Content Include="admin\assets\flags\1x1\mo.svg" />
+    <Content Include="admin\assets\flags\1x1\mp.svg" />
+    <Content Include="admin\assets\flags\1x1\mq.svg" />
+    <Content Include="admin\assets\flags\1x1\mr.svg" />
+    <Content Include="admin\assets\flags\1x1\ms.svg" />
+    <Content Include="admin\assets\flags\1x1\mt.svg" />
+    <Content Include="admin\assets\flags\1x1\mu.svg" />
+    <Content Include="admin\assets\flags\1x1\mv.svg" />
+    <Content Include="admin\assets\flags\1x1\mw.svg" />
+    <Content Include="admin\assets\flags\1x1\mx.svg" />
+    <Content Include="admin\assets\flags\1x1\my.svg" />
+    <Content Include="admin\assets\flags\1x1\mz.svg" />
+    <Content Include="admin\assets\flags\1x1\na.svg" />
+    <Content Include="admin\assets\flags\1x1\nc.svg" />
+    <Content Include="admin\assets\flags\1x1\ne.svg" />
+    <Content Include="admin\assets\flags\1x1\nf.svg" />
+    <Content Include="admin\assets\flags\1x1\ng.svg" />
+    <Content Include="admin\assets\flags\1x1\ni.svg" />
+    <Content Include="admin\assets\flags\1x1\nl.svg" />
+    <Content Include="admin\assets\flags\1x1\no.svg" />
+    <Content Include="admin\assets\flags\1x1\np.svg" />
+    <Content Include="admin\assets\flags\1x1\nr.svg" />
+    <Content Include="admin\assets\flags\1x1\nu.svg" />
+    <Content Include="admin\assets\flags\1x1\nz.svg" />
+    <Content Include="admin\assets\flags\1x1\om.svg" />
+    <Content Include="admin\assets\flags\1x1\pa.svg" />
+    <Content Include="admin\assets\flags\1x1\pe.svg" />
+    <Content Include="admin\assets\flags\1x1\pf.svg" />
+    <Content Include="admin\assets\flags\1x1\pg.svg" />
+    <Content Include="admin\assets\flags\1x1\ph.svg" />
+    <Content Include="admin\assets\flags\1x1\pk.svg" />
+    <Content Include="admin\assets\flags\1x1\pl.svg" />
+    <Content Include="admin\assets\flags\1x1\pm.svg" />
+    <Content Include="admin\assets\flags\1x1\pn.svg" />
+    <Content Include="admin\assets\flags\1x1\pr.svg" />
+    <Content Include="admin\assets\flags\1x1\ps.svg" />
+    <Content Include="admin\assets\flags\1x1\pt.svg" />
+    <Content Include="admin\assets\flags\1x1\pw.svg" />
+    <Content Include="admin\assets\flags\1x1\py.svg" />
+    <Content Include="admin\assets\flags\1x1\qa.svg" />
+    <Content Include="admin\assets\flags\1x1\re.svg" />
+    <Content Include="admin\assets\flags\1x1\ro.svg" />
+    <Content Include="admin\assets\flags\1x1\rs.svg" />
+    <Content Include="admin\assets\flags\1x1\ru.svg" />
+    <Content Include="admin\assets\flags\1x1\rw.svg" />
+    <Content Include="admin\assets\flags\1x1\sa.svg" />
+    <Content Include="admin\assets\flags\1x1\sb.svg" />
+    <Content Include="admin\assets\flags\1x1\sc.svg" />
+    <Content Include="admin\assets\flags\1x1\sd.svg" />
+    <Content Include="admin\assets\flags\1x1\se.svg" />
+    <Content Include="admin\assets\flags\1x1\sg.svg" />
+    <Content Include="admin\assets\flags\1x1\sh.svg" />
+    <Content Include="admin\assets\flags\1x1\si.svg" />
+    <Content Include="admin\assets\flags\1x1\sj.svg" />
+    <Content Include="admin\assets\flags\1x1\sk.svg" />
+    <Content Include="admin\assets\flags\1x1\sl.svg" />
+    <Content Include="admin\assets\flags\1x1\sm.svg" />
+    <Content Include="admin\assets\flags\1x1\sn.svg" />
+    <Content Include="admin\assets\flags\1x1\so.svg" />
+    <Content Include="admin\assets\flags\1x1\sr.svg" />
+    <Content Include="admin\assets\flags\1x1\ss.svg" />
+    <Content Include="admin\assets\flags\1x1\st.svg" />
+    <Content Include="admin\assets\flags\1x1\sv.svg" />
+    <Content Include="admin\assets\flags\1x1\sx.svg" />
+    <Content Include="admin\assets\flags\1x1\sy.svg" />
+    <Content Include="admin\assets\flags\1x1\sz.svg" />
+    <Content Include="admin\assets\flags\1x1\tc.svg" />
+    <Content Include="admin\assets\flags\1x1\td.svg" />
+    <Content Include="admin\assets\flags\1x1\tf.svg" />
+    <Content Include="admin\assets\flags\1x1\tg.svg" />
+    <Content Include="admin\assets\flags\1x1\th.svg" />
+    <Content Include="admin\assets\flags\1x1\tj.svg" />
+    <Content Include="admin\assets\flags\1x1\tk.svg" />
+    <Content Include="admin\assets\flags\1x1\tl.svg" />
+    <Content Include="admin\assets\flags\1x1\tm.svg" />
+    <Content Include="admin\assets\flags\1x1\tn.svg" />
+    <Content Include="admin\assets\flags\1x1\to.svg" />
+    <Content Include="admin\assets\flags\1x1\tr.svg" />
+    <Content Include="admin\assets\flags\1x1\tt.svg" />
+    <Content Include="admin\assets\flags\1x1\tv.svg" />
+    <Content Include="admin\assets\flags\1x1\tw.svg" />
+    <Content Include="admin\assets\flags\1x1\tz.svg" />
+    <Content Include="admin\assets\flags\1x1\ua.svg" />
+    <Content Include="admin\assets\flags\1x1\ug.svg" />
+    <Content Include="admin\assets\flags\1x1\um.svg" />
+    <Content Include="admin\assets\flags\1x1\un.svg" />
+    <Content Include="admin\assets\flags\1x1\us.svg" />
+    <Content Include="admin\assets\flags\1x1\uy.svg" />
+    <Content Include="admin\assets\flags\1x1\uz.svg" />
+    <Content Include="admin\assets\flags\1x1\va.svg" />
+    <Content Include="admin\assets\flags\1x1\vc.svg" />
+    <Content Include="admin\assets\flags\1x1\ve.svg" />
+    <Content Include="admin\assets\flags\1x1\vg.svg" />
+    <Content Include="admin\assets\flags\1x1\vi.svg" />
+    <Content Include="admin\assets\flags\1x1\vn.svg" />
+    <Content Include="admin\assets\flags\1x1\vu.svg" />
+    <Content Include="admin\assets\flags\1x1\wf.svg" />
+    <Content Include="admin\assets\flags\1x1\ws.svg" />
+    <Content Include="admin\assets\flags\1x1\ye.svg" />
+    <Content Include="admin\assets\flags\1x1\yt.svg" />
+    <Content Include="admin\assets\flags\1x1\za.svg" />
+    <Content Include="admin\assets\flags\1x1\zm.svg" />
+    <Content Include="admin\assets\flags\1x1\zw.svg" />
+    <Content Include="admin\assets\flags\4x3\ad.svg" />
+    <Content Include="admin\assets\flags\4x3\ae.svg" />
+    <Content Include="admin\assets\flags\4x3\af.svg" />
+    <Content Include="admin\assets\flags\4x3\ag.svg" />
+    <Content Include="admin\assets\flags\4x3\ai.svg" />
+    <Content Include="admin\assets\flags\4x3\al.svg" />
+    <Content Include="admin\assets\flags\4x3\am.svg" />
+    <Content Include="admin\assets\flags\4x3\ao.svg" />
+    <Content Include="admin\assets\flags\4x3\aq.svg" />
+    <Content Include="admin\assets\flags\4x3\ar.svg" />
+    <Content Include="admin\assets\flags\4x3\as.svg" />
+    <Content Include="admin\assets\flags\4x3\at.svg" />
+    <Content Include="admin\assets\flags\4x3\au.svg" />
+    <Content Include="admin\assets\flags\4x3\aw.svg" />
+    <Content Include="admin\assets\flags\4x3\ax.svg" />
+    <Content Include="admin\assets\flags\4x3\az.svg" />
+    <Content Include="admin\assets\flags\4x3\ba.svg" />
+    <Content Include="admin\assets\flags\4x3\bb.svg" />
+    <Content Include="admin\assets\flags\4x3\bd.svg" />
+    <Content Include="admin\assets\flags\4x3\be.svg" />
+    <Content Include="admin\assets\flags\4x3\bf.svg" />
+    <Content Include="admin\assets\flags\4x3\bg.svg" />
+    <Content Include="admin\assets\flags\4x3\bh.svg" />
+    <Content Include="admin\assets\flags\4x3\bi.svg" />
+    <Content Include="admin\assets\flags\4x3\bj.svg" />
+    <Content Include="admin\assets\flags\4x3\bl.svg" />
+    <Content Include="admin\assets\flags\4x3\bm.svg" />
+    <Content Include="admin\assets\flags\4x3\bn.svg" />
+    <Content Include="admin\assets\flags\4x3\bo.svg" />
+    <Content Include="admin\assets\flags\4x3\bq.svg" />
+    <Content Include="admin\assets\flags\4x3\br.svg" />
+    <Content Include="admin\assets\flags\4x3\bs.svg" />
+    <Content Include="admin\assets\flags\4x3\bt.svg" />
+    <Content Include="admin\assets\flags\4x3\bv.svg" />
+    <Content Include="admin\assets\flags\4x3\bw.svg" />
+    <Content Include="admin\assets\flags\4x3\by.svg" />
+    <Content Include="admin\assets\flags\4x3\bz.svg" />
+    <Content Include="admin\assets\flags\4x3\ca.svg" />
+    <Content Include="admin\assets\flags\4x3\cc.svg" />
+    <Content Include="admin\assets\flags\4x3\cd.svg" />
+    <Content Include="admin\assets\flags\4x3\cf.svg" />
+    <Content Include="admin\assets\flags\4x3\cg.svg" />
+    <Content Include="admin\assets\flags\4x3\ch.svg" />
+    <Content Include="admin\assets\flags\4x3\ci.svg" />
+    <Content Include="admin\assets\flags\4x3\ck.svg" />
+    <Content Include="admin\assets\flags\4x3\cl.svg" />
+    <Content Include="admin\assets\flags\4x3\cm.svg" />
+    <Content Include="admin\assets\flags\4x3\cn.svg" />
+    <Content Include="admin\assets\flags\4x3\co.svg" />
+    <Content Include="admin\assets\flags\4x3\cr.svg" />
+    <Content Include="admin\assets\flags\4x3\cu.svg" />
+    <Content Include="admin\assets\flags\4x3\cv.svg" />
+    <Content Include="admin\assets\flags\4x3\cw.svg" />
+    <Content Include="admin\assets\flags\4x3\cx.svg" />
+    <Content Include="admin\assets\flags\4x3\cy.svg" />
+    <Content Include="admin\assets\flags\4x3\cz.svg" />
+    <Content Include="admin\assets\flags\4x3\de.svg" />
+    <Content Include="admin\assets\flags\4x3\dj.svg" />
+    <Content Include="admin\assets\flags\4x3\dk.svg" />
+    <Content Include="admin\assets\flags\4x3\dm.svg" />
+    <Content Include="admin\assets\flags\4x3\do.svg" />
+    <Content Include="admin\assets\flags\4x3\dz.svg" />
+    <Content Include="admin\assets\flags\4x3\ec.svg" />
+    <Content Include="admin\assets\flags\4x3\ee.svg" />
+    <Content Include="admin\assets\flags\4x3\eg.svg" />
+    <Content Include="admin\assets\flags\4x3\eh.svg" />
+    <Content Include="admin\assets\flags\4x3\er.svg" />
+    <Content Include="admin\assets\flags\4x3\es-ct.svg" />
+    <Content Include="admin\assets\flags\4x3\es.svg" />
+    <Content Include="admin\assets\flags\4x3\et.svg" />
+    <Content Include="admin\assets\flags\4x3\eu.svg" />
+    <Content Include="admin\assets\flags\4x3\fi.svg" />
+    <Content Include="admin\assets\flags\4x3\fj.svg" />
+    <Content Include="admin\assets\flags\4x3\fk.svg" />
+    <Content Include="admin\assets\flags\4x3\fm.svg" />
+    <Content Include="admin\assets\flags\4x3\fo.svg" />
+    <Content Include="admin\assets\flags\4x3\fr.svg" />
+    <Content Include="admin\assets\flags\4x3\ga.svg" />
+    <Content Include="admin\assets\flags\4x3\gb-eng.svg" />
+    <Content Include="admin\assets\flags\4x3\gb-nir.svg" />
+    <Content Include="admin\assets\flags\4x3\gb-sct.svg" />
+    <Content Include="admin\assets\flags\4x3\gb-wls.svg" />
+    <Content Include="admin\assets\flags\4x3\gb.svg" />
+    <Content Include="admin\assets\flags\4x3\gd.svg" />
+    <Content Include="admin\assets\flags\4x3\ge.svg" />
+    <Content Include="admin\assets\flags\4x3\gf.svg" />
+    <Content Include="admin\assets\flags\4x3\gg.svg" />
+    <Content Include="admin\assets\flags\4x3\gh.svg" />
+    <Content Include="admin\assets\flags\4x3\gi.svg" />
+    <Content Include="admin\assets\flags\4x3\gl.svg" />
+    <Content Include="admin\assets\flags\4x3\gm.svg" />
+    <Content Include="admin\assets\flags\4x3\gn.svg" />
+    <Content Include="admin\assets\flags\4x3\gp.svg" />
+    <Content Include="admin\assets\flags\4x3\gq.svg" />
+    <Content Include="admin\assets\flags\4x3\gr.svg" />
+    <Content Include="admin\assets\flags\4x3\gs.svg" />
+    <Content Include="admin\assets\flags\4x3\gt.svg" />
+    <Content Include="admin\assets\flags\4x3\gu.svg" />
+    <Content Include="admin\assets\flags\4x3\gw.svg" />
+    <Content Include="admin\assets\flags\4x3\gy.svg" />
+    <Content Include="admin\assets\flags\4x3\hk.svg" />
+    <Content Include="admin\assets\flags\4x3\hm.svg" />
+    <Content Include="admin\assets\flags\4x3\hn.svg" />
+    <Content Include="admin\assets\flags\4x3\hr.svg" />
+    <Content Include="admin\assets\flags\4x3\ht.svg" />
+    <Content Include="admin\assets\flags\4x3\hu.svg" />
+    <Content Include="admin\assets\flags\4x3\id.svg" />
+    <Content Include="admin\assets\flags\4x3\ie.svg" />
+    <Content Include="admin\assets\flags\4x3\il.svg" />
+    <Content Include="admin\assets\flags\4x3\im.svg" />
+    <Content Include="admin\assets\flags\4x3\in.svg" />
+    <Content Include="admin\assets\flags\4x3\io.svg" />
+    <Content Include="admin\assets\flags\4x3\iq.svg" />
+    <Content Include="admin\assets\flags\4x3\ir.svg" />
+    <Content Include="admin\assets\flags\4x3\is.svg" />
+    <Content Include="admin\assets\flags\4x3\it.svg" />
+    <Content Include="admin\assets\flags\4x3\je.svg" />
+    <Content Include="admin\assets\flags\4x3\jm.svg" />
+    <Content Include="admin\assets\flags\4x3\jo.svg" />
+    <Content Include="admin\assets\flags\4x3\jp.svg" />
+    <Content Include="admin\assets\flags\4x3\ke.svg" />
+    <Content Include="admin\assets\flags\4x3\kg.svg" />
+    <Content Include="admin\assets\flags\4x3\kh.svg" />
+    <Content Include="admin\assets\flags\4x3\ki.svg" />
+    <Content Include="admin\assets\flags\4x3\km.svg" />
+    <Content Include="admin\assets\flags\4x3\kn.svg" />
+    <Content Include="admin\assets\flags\4x3\kp.svg" />
+    <Content Include="admin\assets\flags\4x3\kr.svg" />
+    <Content Include="admin\assets\flags\4x3\kw.svg" />
+    <Content Include="admin\assets\flags\4x3\ky.svg" />
+    <Content Include="admin\assets\flags\4x3\kz.svg" />
+    <Content Include="admin\assets\flags\4x3\la.svg" />
+    <Content Include="admin\assets\flags\4x3\lb.svg" />
+    <Content Include="admin\assets\flags\4x3\lc.svg" />
+    <Content Include="admin\assets\flags\4x3\li.svg" />
+    <Content Include="admin\assets\flags\4x3\lk.svg" />
+    <Content Include="admin\assets\flags\4x3\lr.svg" />
+    <Content Include="admin\assets\flags\4x3\ls.svg" />
+    <Content Include="admin\assets\flags\4x3\lt.svg" />
+    <Content Include="admin\assets\flags\4x3\lu.svg" />
+    <Content Include="admin\assets\flags\4x3\lv.svg" />
+    <Content Include="admin\assets\flags\4x3\ly.svg" />
+    <Content Include="admin\assets\flags\4x3\ma.svg" />
+    <Content Include="admin\assets\flags\4x3\mc.svg" />
+    <Content Include="admin\assets\flags\4x3\md.svg" />
+    <Content Include="admin\assets\flags\4x3\me.svg" />
+    <Content Include="admin\assets\flags\4x3\mf.svg" />
+    <Content Include="admin\assets\flags\4x3\mg.svg" />
+    <Content Include="admin\assets\flags\4x3\mh.svg" />
+    <Content Include="admin\assets\flags\4x3\mk.svg" />
+    <Content Include="admin\assets\flags\4x3\ml.svg" />
+    <Content Include="admin\assets\flags\4x3\mm.svg" />
+    <Content Include="admin\assets\flags\4x3\mn.svg" />
+    <Content Include="admin\assets\flags\4x3\mo.svg" />
+    <Content Include="admin\assets\flags\4x3\mp.svg" />
+    <Content Include="admin\assets\flags\4x3\mq.svg" />
+    <Content Include="admin\assets\flags\4x3\mr.svg" />
+    <Content Include="admin\assets\flags\4x3\ms.svg" />
+    <Content Include="admin\assets\flags\4x3\mt.svg" />
+    <Content Include="admin\assets\flags\4x3\mu.svg" />
+    <Content Include="admin\assets\flags\4x3\mv.svg" />
+    <Content Include="admin\assets\flags\4x3\mw.svg" />
+    <Content Include="admin\assets\flags\4x3\mx.svg" />
+    <Content Include="admin\assets\flags\4x3\my.svg" />
+    <Content Include="admin\assets\flags\4x3\mz.svg" />
+    <Content Include="admin\assets\flags\4x3\na.svg" />
+    <Content Include="admin\assets\flags\4x3\nc.svg" />
+    <Content Include="admin\assets\flags\4x3\ne.svg" />
+    <Content Include="admin\assets\flags\4x3\nf.svg" />
+    <Content Include="admin\assets\flags\4x3\ng.svg" />
+    <Content Include="admin\assets\flags\4x3\ni.svg" />
+    <Content Include="admin\assets\flags\4x3\nl.svg" />
+    <Content Include="admin\assets\flags\4x3\no.svg" />
+    <Content Include="admin\assets\flags\4x3\np.svg" />
+    <Content Include="admin\assets\flags\4x3\nr.svg" />
+    <Content Include="admin\assets\flags\4x3\nu.svg" />
+    <Content Include="admin\assets\flags\4x3\nz.svg" />
+    <Content Include="admin\assets\flags\4x3\om.svg" />
+    <Content Include="admin\assets\flags\4x3\pa.svg" />
+    <Content Include="admin\assets\flags\4x3\pe.svg" />
+    <Content Include="admin\assets\flags\4x3\pf.svg" />
+    <Content Include="admin\assets\flags\4x3\pg.svg" />
+    <Content Include="admin\assets\flags\4x3\ph.svg" />
+    <Content Include="admin\assets\flags\4x3\pk.svg" />
+    <Content Include="admin\assets\flags\4x3\pl.svg" />
+    <Content Include="admin\assets\flags\4x3\pm.svg" />
+    <Content Include="admin\assets\flags\4x3\pn.svg" />
+    <Content Include="admin\assets\flags\4x3\pr.svg" />
+    <Content Include="admin\assets\flags\4x3\ps.svg" />
+    <Content Include="admin\assets\flags\4x3\pt.svg" />
+    <Content Include="admin\assets\flags\4x3\pw.svg" />
+    <Content Include="admin\assets\flags\4x3\py.svg" />
+    <Content Include="admin\assets\flags\4x3\qa.svg" />
+    <Content Include="admin\assets\flags\4x3\re.svg" />
+    <Content Include="admin\assets\flags\4x3\ro.svg" />
+    <Content Include="admin\assets\flags\4x3\rs.svg" />
+    <Content Include="admin\assets\flags\4x3\ru.svg" />
+    <Content Include="admin\assets\flags\4x3\rw.svg" />
+    <Content Include="admin\assets\flags\4x3\sa.svg" />
+    <Content Include="admin\assets\flags\4x3\sb.svg" />
+    <Content Include="admin\assets\flags\4x3\sc.svg" />
+    <Content Include="admin\assets\flags\4x3\sd.svg" />
+    <Content Include="admin\assets\flags\4x3\se.svg" />
+    <Content Include="admin\assets\flags\4x3\sg.svg" />
+    <Content Include="admin\assets\flags\4x3\sh.svg" />
+    <Content Include="admin\assets\flags\4x3\si.svg" />
+    <Content Include="admin\assets\flags\4x3\sj.svg" />
+    <Content Include="admin\assets\flags\4x3\sk.svg" />
+    <Content Include="admin\assets\flags\4x3\sl.svg" />
+    <Content Include="admin\assets\flags\4x3\sm.svg" />
+    <Content Include="admin\assets\flags\4x3\sn.svg" />
+    <Content Include="admin\assets\flags\4x3\so.svg" />
+    <Content Include="admin\assets\flags\4x3\sr.svg" />
+    <Content Include="admin\assets\flags\4x3\ss.svg" />
+    <Content Include="admin\assets\flags\4x3\st.svg" />
+    <Content Include="admin\assets\flags\4x3\sv.svg" />
+    <Content Include="admin\assets\flags\4x3\sx.svg" />
+    <Content Include="admin\assets\flags\4x3\sy.svg" />
+    <Content Include="admin\assets\flags\4x3\sz.svg" />
+    <Content Include="admin\assets\flags\4x3\tc.svg" />
+    <Content Include="admin\assets\flags\4x3\td.svg" />
+    <Content Include="admin\assets\flags\4x3\tf.svg" />
+    <Content Include="admin\assets\flags\4x3\tg.svg" />
+    <Content Include="admin\assets\flags\4x3\th.svg" />
+    <Content Include="admin\assets\flags\4x3\tj.svg" />
+    <Content Include="admin\assets\flags\4x3\tk.svg" />
+    <Content Include="admin\assets\flags\4x3\tl.svg" />
+    <Content Include="admin\assets\flags\4x3\tm.svg" />
+    <Content Include="admin\assets\flags\4x3\tn.svg" />
+    <Content Include="admin\assets\flags\4x3\to.svg" />
+    <Content Include="admin\assets\flags\4x3\tr.svg" />
+    <Content Include="admin\assets\flags\4x3\tt.svg" />
+    <Content Include="admin\assets\flags\4x3\tv.svg" />
+    <Content Include="admin\assets\flags\4x3\tw.svg" />
+    <Content Include="admin\assets\flags\4x3\tz.svg" />
+    <Content Include="admin\assets\flags\4x3\ua.svg" />
+    <Content Include="admin\assets\flags\4x3\ug.svg" />
+    <Content Include="admin\assets\flags\4x3\um.svg" />
+    <Content Include="admin\assets\flags\4x3\un.svg" />
+    <Content Include="admin\assets\flags\4x3\us.svg" />
+    <Content Include="admin\assets\flags\4x3\uy.svg" />
+    <Content Include="admin\assets\flags\4x3\uz.svg" />
+    <Content Include="admin\assets\flags\4x3\va.svg" />
+    <Content Include="admin\assets\flags\4x3\vc.svg" />
+    <Content Include="admin\assets\flags\4x3\ve.svg" />
+    <Content Include="admin\assets\flags\4x3\vg.svg" />
+    <Content Include="admin\assets\flags\4x3\vi.svg" />
+    <Content Include="admin\assets\flags\4x3\vn.svg" />
+    <Content Include="admin\assets\flags\4x3\vu.svg" />
+    <Content Include="admin\assets\flags\4x3\wf.svg" />
+    <Content Include="admin\assets\flags\4x3\ws.svg" />
+    <Content Include="admin\assets\flags\4x3\ye.svg" />
+    <Content Include="admin\assets\flags\4x3\yt.svg" />
+    <Content Include="admin\assets\flags\4x3\za.svg" />
+    <Content Include="admin\assets\flags\4x3\zm.svg" />
+    <Content Include="admin\assets\flags\4x3\zw.svg" />
+    <Content Include="admin\assets\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="admin\assets\fonts\Simple-Line-Iconsb26c.svg" />
+    <Content Include="admin\assets\fonts\themify9f24.svg" />
+    <Content Include="admin\assets\font\weathericons-regular-webfont-2.html" />
+    <Content Include="admin\assets\font\weathericons-regular-webfont-3.html" />
+    <Content Include="admin\assets\font\weathericons-regular-webfont.html" />
+    <Content Include="admin\assets\images\avatars\avatar-1.png" />
+    <Content Include="admin\assets\images\avatars\avatar-10.png" />
+    <Content Include="admin\assets\images\avatars\avatar-13.png" />
+    <Content Include="admin\assets\images\avatars\avatar-14.png" />
+    <Content Include="admin\assets\images\avatars\avatar-15.png" />
+    <Content Include="admin\assets\images\avatars\avatar-16.png" />
+    <Content Include="admin\assets\images\avatars\avatar-17.png" />
+    <Content Include="admin\assets\images\avatars\avatar-18.png" />
+    <Content Include="admin\assets\images\avatars\avatar-2.png" />
+    <Content Include="admin\assets\images\avatars\avatar-3.png" />
+    <Content Include="admin\assets\images\avatars\avatar-4.png" />
+    <Content Include="admin\assets\images\avatars\avatar-5.png" />
+    <Content Include="admin\assets\images\avatars\avatar-6.png" />
+    <Content Include="admin\assets\images\avatars\avatar-7.png" />
+    <Content Include="admin\assets\images\avatars\avatar-8.png" />
+    <Content Include="admin\assets\images\avatars\avatar-9.png" />
+    <Content Include="admin\assets\images\bg-sighn-2.jpg" />
+    <Content Include="admin\assets\images\bg-sighn-21.png" />
+    <Content Include="admin\assets\images\bg-themes\1.png" />
+    <Content Include="admin\assets\images\bg-themes\2.png" />
+    <Content Include="admin\assets\images\bg-themes\3.png" />
+    <Content Include="admin\assets\images\bg-themes\4.png" />
+    <Content Include="admin\assets\images\bg-themes\5.png" />
+    <Content Include="admin\assets\images\bg-themes\6.png" />
+    <Content Include="admin\assets\images\coming-soon.png" />
+    <Content Include="admin\assets\images\error-texture.png" />
+    <Content Include="admin\assets\images\fancybox\big\big-img-1.jpg" />
+    <Content Include="admin\assets\images\fancybox\big\big-img-10.jpg" />
+    <Content Include="admin\assets\images\fancybox\big\big-img-11.jpg" />
+    <Content Include="admin\assets\images\fancybox\big\big-img-12.jpg" />
+    <Content Include="admin\assets\images\fancybox\big\big-img-13.jpg" />
+    <Content Include="admin\assets\images\fancybox\big\big-img-14.jpg" />
+    <Content Include="admin\assets\images\fancybox\big\big-img-15.jpg" />
+    <Content Include="admin\assets\images\fancybox\big\big-img-16.jpg" />
+    <Content Include="admin\assets\images\fancybox\big\big-img-2.jpg" />
+    <Content Include="admin\assets\images\fancybox\big\big-img-3.jpg" />
+    <Content Include="admin\assets\images\fancybox\big\big-img-4.jpg" />
+    <Content Include="admin\assets\images\fancybox\big\big-img-5.jpg" />
+    <Content Include="admin\assets\images\fancybox\big\big-img-6.jpg" />
+    <Content Include="admin\assets\images\fancybox\big\big-img-7.jpg" />
+    <Content Include="admin\assets\images\fancybox\big\big-img-8.jpg" />
+    <Content Include="admin\assets\images\fancybox\big\big-img-9.jpg" />
+    <Content Include="admin\assets\images\fancybox\small\small-img-1.jpg" />
+    <Content Include="admin\assets\images\fancybox\small\small-img-10.jpg" />
+    <Content Include="admin\assets\images\fancybox\small\small-img-11.jpg" />
+    <Content Include="admin\assets\images\fancybox\small\small-img-12.jpg" />
+    <Content Include="admin\assets\images\fancybox\small\small-img-13.jpg" />
+    <Content Include="admin\assets\images\fancybox\small\small-img-14.jpg" />
+    <Content Include="admin\assets\images\fancybox\small\small-img-15.jpg" />
+    <Content Include="admin\assets\images\fancybox\small\small-img-16.jpg" />
+    <Content Include="admin\assets\images\fancybox\small\small-img-2.jpg" />
+    <Content Include="admin\assets\images\fancybox\small\small-img-3.jpg" />
+    <Content Include="admin\assets\images\fancybox\small\small-img-4.jpg" />
+    <Content Include="admin\assets\images\fancybox\small\small-img-5.jpg" />
+    <Content Include="admin\assets\images\fancybox\small\small-img-6.jpg" />
+    <Content Include="admin\assets\images\fancybox\small\small-img-7.jpg" />
+    <Content Include="admin\assets\images\fancybox\small\small-img-8.jpg" />
+    <Content Include="admin\assets\images\fancybox\small\small-img-9.jpg" />
+    <Content Include="admin\assets\images\favicon.ico" />
+    <Content Include="admin\assets\images\gallery\1.jpg" />
+    <Content Include="admin\assets\images\gallery\10.jpg" />
+    <Content Include="admin\assets\images\gallery\11.jpg" />
+    <Content Include="admin\assets\images\gallery\12.jpg" />
+    <Content Include="admin\assets\images\gallery\16.jpg" />
+    <Content Include="admin\assets\images\gallery\17.jpg" />
+    <Content Include="admin\assets\images\gallery\18.jpg" />
+    <Content Include="admin\assets\images\gallery\19.jpg" />
+    <Content Include="admin\assets\images\gallery\2.jpg" />
+    <Content Include="admin\assets\images\gallery\20.jpg" />
+    <Content Include="admin\assets\images\gallery\21.jpg" />
+    <Content Include="admin\assets\images\gallery\25.jpg" />
+    <Content Include="admin\assets\images\gallery\26.jpg" />
+    <Content Include="admin\assets\images\gallery\3.jpg" />
+    <Content Include="admin\assets\images\gallery\31.jpg" />
+    <Content Include="admin\assets\images\gallery\4.jpg" />
+    <Content Include="admin\assets\images\gallery\6.jpg" />
+    <Content Include="admin\assets\images\gallery\7.jpg" />
+    <Content Include="admin\assets\images\gallery\8.jpg" />
+    <Content Include="admin\assets\images\gallery\9.jpg" />
+    <Content Include="admin\assets\images\gallery\modal-img.jpg" />
+    <Content Include="admin\assets\images\gallery\slider-1.jpg" />
+    <Content Include="admin\assets\images\gallery\slider-10.jpg" />
+    <Content Include="admin\assets\images\gallery\slider-11.jpg" />
+    <Content Include="admin\assets\images\gallery\slider-12.jpg" />
+    <Content Include="admin\assets\images\gallery\slider-2.jpg" />
+    <Content Include="admin\assets\images\gallery\slider-4.jpg" />
+    <Content Include="admin\assets\images\gallery\slider-5.jpg" />
+    <Content Include="admin\assets\images\gallery\slider-6.jpg" />
+    <Content Include="admin\assets\images\gallery\slider-7.jpg" />
+    <Content Include="admin\assets\images\gallery\slider-8.jpg" />
+    <Content Include="admin\assets\images\gallery\slider-9.jpg" />
+    <Content Include="admin\assets\images\Icon.jpg" />
+    <Content Include="admin\assets\images\logo-icon.png" />
+    <Content Include="admin\assets\images\payment-icons\american-dark.png" />
+    <Content Include="admin\assets\images\payment-icons\mastro-dark.png" />
+    <Content Include="admin\assets\images\payment-icons\paypal-dark.png" />
+    <Content Include="admin\assets\images\payment-icons\visa-dark.png" />
+    <Content Include="admin\assets\images\products\01.png" />
+    <Content Include="admin\assets\images\products\02.png" />
+    <Content Include="admin\assets\images\products\03.png" />
+    <Content Include="admin\assets\images\products\04.png" />
+    <Content Include="admin\assets\images\products\05.png" />
+    <Content Include="admin\assets\images\products\06.png" />
+    <Content Include="admin\assets\images\products\property01.jpg" />
+    <Content Include="admin\assets\images\products\property02.jpg" />
+    <Content Include="admin\assets\images\products\property03.jpg" />
+    <Content Include="admin\assets\images\products\property04.jpg" />
+    <Content Include="admin\assets\images\products\property05.jpg" />
+    <Content Include="admin\assets\images\timeline\angular-icon.svg" />
+    <Content Include="admin\assets\images\timeline\bootstrap-4.svg" />
+    <Content Include="admin\assets\images\timeline\cd-arrow.svg" />
+    <Content Include="admin\assets\images\timeline\cd-icon-location.svg" />
+    <Content Include="admin\assets\images\timeline\cd-icon-movie.svg" />
+    <Content Include="admin\assets\images\timeline\cd-icon-picture.svg" />
+    <Content Include="admin\assets\images\timeline\html5.svg" />
+    <Content Include="admin\assets\images\timeline\react.svg" />
+    <Content Include="admin\assets\js\app-script.js" />
+    <Content Include="admin\assets\js\bootstrap.min.js" />
+    <Content Include="admin\assets\js\index.js" />
+    <Content Include="admin\assets\js\index2.js" />
+    <Content Include="admin\assets\js\jquery.loading-indicator.html" />
+    <Content Include="admin\assets\js\jquery.min.js" />
+    <Content Include="admin\assets\js\logistics.js" />
+    <Content Include="admin\assets\js\popper.min.js" />
+    <Content Include="admin\assets\js\service-support.js" />
+    <Content Include="admin\assets\js\sidebar-menu.js" />
+    <Content Include="admin\assets\js\widgets.js" />
+    <Content Include="admin\assets\plugins\alerts-boxes\js\sweet-alert-script.js" />
+    <Content Include="admin\assets\plugins\alerts-boxes\js\sweetalert.min.js" />
+    <Content Include="admin\assets\plugins\bootstrap-datatable\css\buttons.bootstrap4.min.css" />
+    <Content Include="admin\assets\plugins\bootstrap-datatable\css\dataTables.bootstrap4.min.css" />
+    <Content Include="admin\assets\plugins\bootstrap-datatable\js\buttons.bootstrap4.min.js" />
+    <Content Include="admin\assets\plugins\bootstrap-datatable\js\buttons.colVis.min.js" />
+    <Content Include="admin\assets\plugins\bootstrap-datatable\js\buttons.html5.min.js" />
+    <Content Include="admin\assets\plugins\bootstrap-datatable\js\buttons.print.min.js" />
+    <Content Include="admin\assets\plugins\bootstrap-datatable\js\dataTables.bootstrap4.min.js" />
+    <Content Include="admin\assets\plugins\bootstrap-datatable\js\dataTables.buttons.min.js" />
+    <Content Include="admin\assets\plugins\bootstrap-datatable\js\jquery.dataTables.min.js" />
+    <Content Include="admin\assets\plugins\bootstrap-datatable\js\jszip.min.js" />
+    <Content Include="admin\assets\plugins\bootstrap-datatable\js\pdfmake.min.js" />
+    <Content Include="admin\assets\plugins\bootstrap-datatable\js\vfs_fonts.js" />
+    <Content Include="admin\assets\plugins\bootstrap-datepicker\css\bootstrap-datepicker.min.css" />
+    <Content Include="admin\Category.aspx" />
+    <Content Include="admin\dispcategory.aspx" />
+    <Content Include="admin\Editcategory.aspx" />
+    <Content Include="admin\delcategory.aspx" />
+    <Content Include="admin\forgotpass.aspx" />
+    <Content Include="admin\product.aspx" />
+    <Content Include="admin\editproduct.aspx" />
+    <Content Include="admin\delproduct.aspx" />
+    <Content Include="admin\team.aspx" />
+    <Content Include="admin\dispteam.aspx" />
+    <Content Include="admin\editteam.aspx" />
+    <Content Include="admin\delteam.aspx" />
+    <Content Include="admin\blog_mstr.aspx" />
+    <Content Include="admin\dispblog.aspx" />
+    <Content Include="admin\editblog.aspx" />
+    <Content Include="admin\delblog.aspx" />
+    <Content Include="admin\service_mstr.aspx" />
+    <Content Include="admin\editservice.aspx" />
+    <Content Include="admin\delservice.aspx" />
+    <Content Include="admin\dispservice.aspx" />
+    <Content Include="admin\dispproduct.aspx" />
+    <Content Include="admin\vieworder.aspx" />
+    <Content Include="admin\viewmessage.aspx" />
+    <Content Include="admin\dashboard.aspx" />
+    <Content Include="admin\viewpayment.aspx" />
+    <Content Include="admin\viewreservation.aspx" />
+    <Content Include="admin\viewreviews.aspx" />
+    <Content Include="App_Data\Ahome.mdf" />
+    <Content Include="App_Data\Ahome_log.ldf">
+      <DependentUpon>Ahome.mdf</DependentUpon>
+    </Content>
+    <Content Include="blog\blog-list4.jpg" />
+    <Content Include="blog\blog-list.jpg" />
+    <Content Include="blog\food waste.jpg" />
+    <Content Include="chef\sanjeev kapoor.jpeg" />
+    <Content Include="chef\saransh goila.jpeg" />
+    <Content Include="chef\vikas khana.jpeg" />
+    <Content Include="logo\favicon.ico" />
+    <Content Include="logo\logo1.png" />
+    <Content Include="logo\logo2.png" />
+    <Content Include="logo\logo_intro.png" />
+    <Content Include="logo\black.png" />
+    <Content Include="logo\white.png" />
+    <Content Include="product\alfredo white sauce.jpg" />
+    <Content Include="product\arrabbiata red sauce.jpg" />
+    <Content Include="product\bbq paneer.jpg" />
+    <Content Include="product\blue lagoon.jpg" />
+    <Content Include="product\cheese maggi.jpg" />
+    <Content Include="product\cheese nachos.jpg" />
+    <Content Include="product\chilli garlic bread.jpg" />
+    <Content Include="product\cold coffee.jpg" />
+    <Content Include="product\combination pink sauce.jpg" />
+    <Content Include="product\cookis and cream.jpg" />
+    <Content Include="product\cranberry mojito.jpg" />
+    <Content Include="product\farm fresh.jpg" />
+    <Content Include="product\ferrero rocher shake.jpg" />
+    <Content Include="product\french fries.jpg" />
+    <Content Include="product\garlic bread.jpg" />
+    <Content Include="product\green tea.jpg" />
+    <Content Include="product\hot chocolate.jpg" />
+    <Content Include="product\hot coffee.jpg" />
+    <Content Include="product\iced frappe.jpg" />
+    <Content Include="product\kitkat moment.jpg" />
+    <Content Include="product\kiwi lemonade.jpg" />
+    <Content Include="product\kulhad chai.jpg" />
+    <Content Include="product\lemon iced tea.jpg" />
+    <Content Include="product\margherita.jpg" />
+    <Content Include="product\Masala maggi.jpg" />
+    <Content Include="product\mint mojito.jpg" />
+    <Content Include="product\nutella fantasy shake.jpg" />
+    <Content Include="product\oreo blast.jpg" />
+    <Content Include="product\peach iced tea.jpg" />
+    <Content Include="product\pesto and basil veg.jpg" />
+    <Content Include="product\pesto green sauce.jpg" />
+    <Content Include="product\super loaded nachos.jpg" />
+    <Content Include="product\supreme nachos.jpg" />
+    <Content Include="product\tandoori paneer.jpg" />
+    <Content Include="product\TBC special.jpg" />
+    <Content Include="product\toblerone shake.jpg" />
+    <Content Include="user\assets\css\animate.css" />
+    <Content Include="user\assets\css\app-style.css" />
+    <Content Include="user\assets\css\bootstrap.min.css" />
+    <Content Include="user\assets\css\icons.css" />
+    <Content Include="user\assets\css\sidebar-menu.css" />
+    <Content Include="user\assets\flags\1x1\ad.svg" />
+    <Content Include="user\assets\flags\1x1\ae.svg" />
+    <Content Include="user\assets\flags\1x1\af.svg" />
+    <Content Include="user\assets\flags\1x1\ag.svg" />
+    <Content Include="user\assets\flags\1x1\ai.svg" />
+    <Content Include="user\assets\flags\1x1\al.svg" />
+    <Content Include="user\assets\flags\1x1\am.svg" />
+    <Content Include="user\assets\flags\1x1\ao.svg" />
+    <Content Include="user\assets\flags\1x1\aq.svg" />
+    <Content Include="user\assets\flags\1x1\ar.svg" />
+    <Content Include="user\assets\flags\1x1\as.svg" />
+    <Content Include="user\assets\flags\1x1\at.svg" />
+    <Content Include="user\assets\flags\1x1\au.svg" />
+    <Content Include="user\assets\flags\1x1\aw.svg" />
+    <Content Include="user\assets\flags\1x1\ax.svg" />
+    <Content Include="user\assets\flags\1x1\az.svg" />
+    <Content Include="user\assets\flags\1x1\ba.svg" />
+    <Content Include="user\assets\flags\1x1\bb.svg" />
+    <Content Include="user\assets\flags\1x1\bd.svg" />
+    <Content Include="user\assets\flags\1x1\be.svg" />
+    <Content Include="user\assets\flags\1x1\bf.svg" />
+    <Content Include="user\assets\flags\1x1\bg.svg" />
+    <Content Include="user\assets\flags\1x1\bh.svg" />
+    <Content Include="user\assets\flags\1x1\bi.svg" />
+    <Content Include="user\assets\flags\1x1\bj.svg" />
+    <Content Include="user\assets\flags\1x1\bl.svg" />
+    <Content Include="user\assets\flags\1x1\bm.svg" />
+    <Content Include="user\assets\flags\1x1\bn.svg" />
+    <Content Include="user\assets\flags\1x1\bo.svg" />
+    <Content Include="user\assets\flags\1x1\bq.svg" />
+    <Content Include="user\assets\flags\1x1\br.svg" />
+    <Content Include="user\assets\flags\1x1\bs.svg" />
+    <Content Include="user\assets\flags\1x1\bt.svg" />
+    <Content Include="user\assets\flags\1x1\bv.svg" />
+    <Content Include="user\assets\flags\1x1\bw.svg" />
+    <Content Include="user\assets\flags\1x1\by.svg" />
+    <Content Include="user\assets\flags\1x1\bz.svg" />
+    <Content Include="user\assets\flags\1x1\ca.svg" />
+    <Content Include="user\assets\flags\1x1\cc.svg" />
+    <Content Include="user\assets\flags\1x1\cd.svg" />
+    <Content Include="user\assets\flags\1x1\cf.svg" />
+    <Content Include="user\assets\flags\1x1\cg.svg" />
+    <Content Include="user\assets\flags\1x1\ch.svg" />
+    <Content Include="user\assets\flags\1x1\ci.svg" />
+    <Content Include="user\assets\flags\1x1\ck.svg" />
+    <Content Include="user\assets\flags\1x1\cl.svg" />
+    <Content Include="user\assets\flags\1x1\cm.svg" />
+    <Content Include="user\assets\flags\1x1\cn.svg" />
+    <Content Include="user\assets\flags\1x1\co.svg" />
+    <Content Include="user\assets\flags\1x1\cr.svg" />
+    <Content Include="user\assets\flags\1x1\cu.svg" />
+    <Content Include="user\assets\flags\1x1\cv.svg" />
+    <Content Include="user\assets\flags\1x1\cw.svg" />
+    <Content Include="user\assets\flags\1x1\cx.svg" />
+    <Content Include="user\assets\flags\1x1\cy.svg" />
+    <Content Include="user\assets\flags\1x1\cz.svg" />
+    <Content Include="user\assets\flags\1x1\de.svg" />
+    <Content Include="user\assets\flags\1x1\dj.svg" />
+    <Content Include="user\assets\flags\1x1\dk.svg" />
+    <Content Include="user\assets\flags\1x1\dm.svg" />
+    <Content Include="user\assets\flags\1x1\do.svg" />
+    <Content Include="user\assets\flags\1x1\dz.svg" />
+    <Content Include="user\assets\flags\1x1\ec.svg" />
+    <Content Include="user\assets\flags\1x1\ee.svg" />
+    <Content Include="user\assets\flags\1x1\eg.svg" />
+    <Content Include="user\assets\flags\1x1\eh.svg" />
+    <Content Include="user\assets\flags\1x1\er.svg" />
+    <Content Include="user\assets\flags\1x1\es-ct.svg" />
+    <Content Include="user\assets\flags\1x1\es.svg" />
+    <Content Include="user\assets\flags\1x1\et.svg" />
+    <Content Include="user\assets\flags\1x1\eu.svg" />
+    <Content Include="user\assets\flags\1x1\fi.svg" />
+    <Content Include="user\assets\flags\1x1\fj.svg" />
+    <Content Include="user\assets\flags\1x1\fk.svg" />
+    <Content Include="user\assets\flags\1x1\fm.svg" />
+    <Content Include="user\assets\flags\1x1\fo.svg" />
+    <Content Include="user\assets\flags\1x1\fr.svg" />
+    <Content Include="user\assets\flags\1x1\ga.svg" />
+    <Content Include="user\assets\flags\1x1\gb-eng.svg" />
+    <Content Include="user\assets\flags\1x1\gb-nir.svg" />
+    <Content Include="user\assets\flags\1x1\gb-sct.svg" />
+    <Content Include="user\assets\flags\1x1\gb-wls.svg" />
+    <Content Include="user\assets\flags\1x1\gb.svg" />
+    <Content Include="user\assets\flags\1x1\gd.svg" />
+    <Content Include="user\assets\flags\1x1\ge.svg" />
+    <Content Include="user\assets\flags\1x1\gf.svg" />
+    <Content Include="user\assets\flags\1x1\gg.svg" />
+    <Content Include="user\assets\flags\1x1\gh.svg" />
+    <Content Include="user\assets\flags\1x1\gi.svg" />
+    <Content Include="user\assets\flags\1x1\gl.svg" />
+    <Content Include="user\assets\flags\1x1\gm.svg" />
+    <Content Include="user\assets\flags\1x1\gn.svg" />
+    <Content Include="user\assets\flags\1x1\gp.svg" />
+    <Content Include="user\assets\flags\1x1\gq.svg" />
+    <Content Include="user\assets\flags\1x1\gr.svg" />
+    <Content Include="user\assets\flags\1x1\gs.svg" />
+    <Content Include="user\assets\flags\1x1\gt.svg" />
+    <Content Include="user\assets\flags\1x1\gu.svg" />
+    <Content Include="user\assets\flags\1x1\gw.svg" />
+    <Content Include="user\assets\flags\1x1\gy.svg" />
+    <Content Include="user\assets\flags\1x1\hk.svg" />
+    <Content Include="user\assets\flags\1x1\hm.svg" />
+    <Content Include="user\assets\flags\1x1\hn.svg" />
+    <Content Include="user\assets\flags\1x1\hr.svg" />
+    <Content Include="user\assets\flags\1x1\ht.svg" />
+    <Content Include="user\assets\flags\1x1\hu.svg" />
+    <Content Include="user\assets\flags\1x1\id.svg" />
+    <Content Include="user\assets\flags\1x1\ie.svg" />
+    <Content Include="user\assets\flags\1x1\il.svg" />
+    <Content Include="user\assets\flags\1x1\im.svg" />
+    <Content Include="user\assets\flags\1x1\in.svg" />
+    <Content Include="user\assets\flags\1x1\io.svg" />
+    <Content Include="user\assets\flags\1x1\iq.svg" />
+    <Content Include="user\assets\flags\1x1\ir.svg" />
+    <Content Include="user\assets\flags\1x1\is.svg" />
+    <Content Include="user\assets\flags\1x1\it.svg" />
+    <Content Include="user\assets\flags\1x1\je.svg" />
+    <Content Include="user\assets\flags\1x1\jm.svg" />
+    <Content Include="user\assets\flags\1x1\jo.svg" />
+    <Content Include="user\assets\flags\1x1\jp.svg" />
+    <Content Include="user\assets\flags\1x1\ke.svg" />
+    <Content Include="user\assets\flags\1x1\kg.svg" />
+    <Content Include="user\assets\flags\1x1\kh.svg" />
+    <Content Include="user\assets\flags\1x1\ki.svg" />
+    <Content Include="user\assets\flags\1x1\km.svg" />
+    <Content Include="user\assets\flags\1x1\kn.svg" />
+    <Content Include="user\assets\flags\1x1\kp.svg" />
+    <Content Include="user\assets\flags\1x1\kr.svg" />
+    <Content Include="user\assets\flags\1x1\kw.svg" />
+    <Content Include="user\assets\flags\1x1\ky.svg" />
+    <Content Include="user\assets\flags\1x1\kz.svg" />
+    <Content Include="user\assets\flags\1x1\la.svg" />
+    <Content Include="user\assets\flags\1x1\lb.svg" />
+    <Content Include="user\assets\flags\1x1\lc.svg" />
+    <Content Include="user\assets\flags\1x1\li.svg" />
+    <Content Include="user\assets\flags\1x1\lk.svg" />
+    <Content Include="user\assets\flags\1x1\lr.svg" />
+    <Content Include="user\assets\flags\1x1\ls.svg" />
+    <Content Include="user\assets\flags\1x1\lt.svg" />
+    <Content Include="user\assets\flags\1x1\lu.svg" />
+    <Content Include="user\assets\flags\1x1\lv.svg" />
+    <Content Include="user\assets\flags\1x1\ly.svg" />
+    <Content Include="user\assets\flags\1x1\ma.svg" />
+    <Content Include="user\assets\flags\1x1\mc.svg" />
+    <Content Include="user\assets\flags\1x1\md.svg" />
+    <Content Include="user\assets\flags\1x1\me.svg" />
+    <Content Include="user\assets\flags\1x1\mf.svg" />
+    <Content Include="user\assets\flags\1x1\mg.svg" />
+    <Content Include="user\assets\flags\1x1\mh.svg" />
+    <Content Include="user\assets\flags\1x1\mk.svg" />
+    <Content Include="user\assets\flags\1x1\ml.svg" />
+    <Content Include="user\assets\flags\1x1\mm.svg" />
+    <Content Include="user\assets\flags\1x1\mn.svg" />
+    <Content Include="user\assets\flags\1x1\mo.svg" />
+    <Content Include="user\assets\flags\1x1\mp.svg" />
+    <Content Include="user\assets\flags\1x1\mq.svg" />
+    <Content Include="user\assets\flags\1x1\mr.svg" />
+    <Content Include="user\assets\flags\1x1\ms.svg" />
+    <Content Include="user\assets\flags\1x1\mt.svg" />
+    <Content Include="user\assets\flags\1x1\mu.svg" />
+    <Content Include="user\assets\flags\1x1\mv.svg" />
+    <Content Include="user\assets\flags\1x1\mw.svg" />
+    <Content Include="user\assets\flags\1x1\mx.svg" />
+    <Content Include="user\assets\flags\1x1\my.svg" />
+    <Content Include="user\assets\flags\1x1\mz.svg" />
+    <Content Include="user\assets\flags\1x1\na.svg" />
+    <Content Include="user\assets\flags\1x1\nc.svg" />
+    <Content Include="user\assets\flags\1x1\ne.svg" />
+    <Content Include="user\assets\flags\1x1\nf.svg" />
+    <Content Include="user\assets\flags\1x1\ng.svg" />
+    <Content Include="user\assets\flags\1x1\ni.svg" />
+    <Content Include="user\assets\flags\1x1\nl.svg" />
+    <Content Include="user\assets\flags\1x1\no.svg" />
+    <Content Include="user\assets\flags\1x1\np.svg" />
+    <Content Include="user\assets\flags\1x1\nr.svg" />
+    <Content Include="user\assets\flags\1x1\nu.svg" />
+    <Content Include="user\assets\flags\1x1\nz.svg" />
+    <Content Include="user\assets\flags\1x1\om.svg" />
+    <Content Include="user\assets\flags\1x1\pa.svg" />
+    <Content Include="user\assets\flags\1x1\pe.svg" />
+    <Content Include="user\assets\flags\1x1\pf.svg" />
+    <Content Include="user\assets\flags\1x1\pg.svg" />
+    <Content Include="user\assets\flags\1x1\ph.svg" />
+    <Content Include="user\assets\flags\1x1\pk.svg" />
+    <Content Include="user\assets\flags\1x1\pl.svg" />
+    <Content Include="user\assets\flags\1x1\pm.svg" />
+    <Content Include="user\assets\flags\1x1\pn.svg" />
+    <Content Include="user\assets\flags\1x1\pr.svg" />
+    <Content Include="user\assets\flags\1x1\ps.svg" />
+    <Content Include="user\assets\flags\1x1\pt.svg" />
+    <Content Include="user\assets\flags\1x1\pw.svg" />
+    <Content Include="user\assets\flags\1x1\py.svg" />
+    <Content Include="user\assets\flags\1x1\qa.svg" />
+    <Content Include="user\assets\flags\1x1\re.svg" />
+    <Content Include="user\assets\flags\1x1\ro.svg" />
+    <Content Include="user\assets\flags\1x1\rs.svg" />
+    <Content Include="user\assets\flags\1x1\ru.svg" />
+    <Content Include="user\assets\flags\1x1\rw.svg" />
+    <Content Include="user\assets\flags\1x1\sa.svg" />
+    <Content Include="user\assets\flags\1x1\sb.svg" />
+    <Content Include="user\assets\flags\1x1\sc.svg" />
+    <Content Include="user\assets\flags\1x1\sd.svg" />
+    <Content Include="user\assets\flags\1x1\se.svg" />
+    <Content Include="user\assets\flags\1x1\sg.svg" />
+    <Content Include="user\assets\flags\1x1\sh.svg" />
+    <Content Include="user\assets\flags\1x1\si.svg" />
+    <Content Include="user\assets\flags\1x1\sj.svg" />
+    <Content Include="user\assets\flags\1x1\sk.svg" />
+    <Content Include="user\assets\flags\1x1\sl.svg" />
+    <Content Include="user\assets\flags\1x1\sm.svg" />
+    <Content Include="user\assets\flags\1x1\sn.svg" />
+    <Content Include="user\assets\flags\1x1\so.svg" />
+    <Content Include="user\assets\flags\1x1\sr.svg" />
+    <Content Include="user\assets\flags\1x1\ss.svg" />
+    <Content Include="user\assets\flags\1x1\st.svg" />
+    <Content Include="user\assets\flags\1x1\sv.svg" />
+    <Content Include="user\assets\flags\1x1\sx.svg" />
+    <Content Include="user\assets\flags\1x1\sy.svg" />
+    <Content Include="user\assets\flags\1x1\sz.svg" />
+    <Content Include="user\assets\flags\1x1\tc.svg" />
+    <Content Include="user\assets\flags\1x1\td.svg" />
+    <Content Include="user\assets\flags\1x1\tf.svg" />
+    <Content Include="user\assets\flags\1x1\tg.svg" />
+    <Content Include="user\assets\flags\1x1\th.svg" />
+    <Content Include="user\assets\flags\1x1\tj.svg" />
+    <Content Include="user\assets\flags\1x1\tk.svg" />
+    <Content Include="user\assets\flags\1x1\tl.svg" />
+    <Content Include="user\assets\flags\1x1\tm.svg" />
+    <Content Include="user\assets\flags\1x1\tn.svg" />
+    <Content Include="user\assets\flags\1x1\to.svg" />
+    <Content Include="user\assets\flags\1x1\tr.svg" />
+    <Content Include="user\assets\flags\1x1\tt.svg" />
+    <Content Include="user\assets\flags\1x1\tv.svg" />
+    <Content Include="user\assets\flags\1x1\tw.svg" />
+    <Content Include="user\assets\flags\1x1\tz.svg" />
+    <Content Include="user\assets\flags\1x1\ua.svg" />
+    <Content Include="user\assets\flags\1x1\ug.svg" />
+    <Content Include="user\assets\flags\1x1\um.svg" />
+    <Content Include="user\assets\flags\1x1\un.svg" />
+    <Content Include="user\assets\flags\1x1\us.svg" />
+    <Content Include="user\assets\flags\1x1\uy.svg" />
+    <Content Include="user\assets\flags\1x1\uz.svg" />
+    <Content Include="user\assets\flags\1x1\va.svg" />
+    <Content Include="user\assets\flags\1x1\vc.svg" />
+    <Content Include="user\assets\flags\1x1\ve.svg" />
+    <Content Include="user\assets\flags\1x1\vg.svg" />
+    <Content Include="user\assets\flags\1x1\vi.svg" />
+    <Content Include="user\assets\flags\1x1\vn.svg" />
+    <Content Include="user\assets\flags\1x1\vu.svg" />
+    <Content Include="user\assets\flags\1x1\wf.svg" />
+    <Content Include="user\assets\flags\1x1\ws.svg" />
+    <Content Include="user\assets\flags\1x1\ye.svg" />
+    <Content Include="user\assets\flags\1x1\yt.svg" />
+    <Content Include="user\assets\flags\1x1\za.svg" />
+    <Content Include="user\assets\flags\1x1\zm.svg" />
+    <Content Include="user\assets\flags\1x1\zw.svg" />
+    <Content Include="user\assets\flags\4x3\ad.svg" />
+    <Content Include="user\assets\flags\4x3\ae.svg" />
+    <Content Include="user\assets\flags\4x3\af.svg" />
+    <Content Include="user\assets\flags\4x3\ag.svg" />
+    <Content Include="user\assets\flags\4x3\ai.svg" />
+    <Content Include="user\assets\flags\4x3\al.svg" />
+    <Content Include="user\assets\flags\4x3\am.svg" />
+    <Content Include="user\assets\flags\4x3\ao.svg" />
+    <Content Include="user\assets\flags\4x3\aq.svg" />
+    <Content Include="user\assets\flags\4x3\ar.svg" />
+    <Content Include="user\assets\flags\4x3\as.svg" />
+    <Content Include="user\assets\flags\4x3\at.svg" />
+    <Content Include="user\assets\flags\4x3\au.svg" />
+    <Content Include="user\assets\flags\4x3\aw.svg" />
+    <Content Include="user\assets\flags\4x3\ax.svg" />
+    <Content Include="user\assets\flags\4x3\az.svg" />
+    <Content Include="user\assets\flags\4x3\ba.svg" />
+    <Content Include="user\assets\flags\4x3\bb.svg" />
+    <Content Include="user\assets\flags\4x3\bd.svg" />
+    <Content Include="user\assets\flags\4x3\be.svg" />
+    <Content Include="user\assets\flags\4x3\bf.svg" />
+    <Content Include="user\assets\flags\4x3\bg.svg" />
+    <Content Include="user\assets\flags\4x3\bh.svg" />
+    <Content Include="user\assets\flags\4x3\bi.svg" />
+    <Content Include="user\assets\flags\4x3\bj.svg" />
+    <Content Include="user\assets\flags\4x3\bl.svg" />
+    <Content Include="user\assets\flags\4x3\bm.svg" />
+    <Content Include="user\assets\flags\4x3\bn.svg" />
+    <Content Include="user\assets\flags\4x3\bo.svg" />
+    <Content Include="user\assets\flags\4x3\bq.svg" />
+    <Content Include="user\assets\flags\4x3\br.svg" />
+    <Content Include="user\assets\flags\4x3\bs.svg" />
+    <Content Include="user\assets\flags\4x3\bt.svg" />
+    <Content Include="user\assets\flags\4x3\bv.svg" />
+    <Content Include="user\assets\flags\4x3\bw.svg" />
+    <Content Include="user\assets\flags\4x3\by.svg" />
+    <Content Include="user\assets\flags\4x3\bz.svg" />
+    <Content Include="user\assets\flags\4x3\ca.svg" />
+    <Content Include="user\assets\flags\4x3\cc.svg" />
+    <Content Include="user\assets\flags\4x3\cd.svg" />
+    <Content Include="user\assets\flags\4x3\cf.svg" />
+    <Content Include="user\assets\flags\4x3\cg.svg" />
+    <Content Include="user\assets\flags\4x3\ch.svg" />
+    <Content Include="user\assets\flags\4x3\ci.svg" />
+    <Content Include="user\assets\flags\4x3\ck.svg" />
+    <Content Include="user\assets\flags\4x3\cl.svg" />
+    <Content Include="user\assets\flags\4x3\cm.svg" />
+    <Content Include="user\assets\flags\4x3\cn.svg" />
+    <Content Include="user\assets\flags\4x3\co.svg" />
+    <Content Include="user\assets\flags\4x3\cr.svg" />
+    <Content Include="user\assets\flags\4x3\cu.svg" />
+    <Content Include="user\assets\flags\4x3\cv.svg" />
+    <Content Include="user\assets\flags\4x3\cw.svg" />
+    <Content Include="user\assets\flags\4x3\cx.svg" />
+    <Content Include="user\assets\flags\4x3\cy.svg" />
+    <Content Include="user\assets\flags\4x3\cz.svg" />
+    <Content Include="user\assets\flags\4x3\de.svg" />
+    <Content Include="user\assets\flags\4x3\dj.svg" />
+    <Content Include="user\assets\flags\4x3\dk.svg" />
+    <Content Include="user\assets\flags\4x3\dm.svg" />
+    <Content Include="user\assets\flags\4x3\do.svg" />
+    <Content Include="user\assets\flags\4x3\dz.svg" />
+    <Content Include="user\assets\flags\4x3\ec.svg" />
+    <Content Include="user\assets\flags\4x3\ee.svg" />
+    <Content Include="user\assets\flags\4x3\eg.svg" />
+    <Content Include="user\assets\flags\4x3\eh.svg" />
+    <Content Include="user\assets\flags\4x3\er.svg" />
+    <Content Include="user\assets\flags\4x3\es-ct.svg" />
+    <Content Include="user\assets\flags\4x3\es.svg" />
+    <Content Include="user\assets\flags\4x3\et.svg" />
+    <Content Include="user\assets\flags\4x3\eu.svg" />
+    <Content Include="user\assets\flags\4x3\fi.svg" />
+    <Content Include="user\assets\flags\4x3\fj.svg" />
+    <Content Include="user\assets\flags\4x3\fk.svg" />
+    <Content Include="user\assets\flags\4x3\fm.svg" />
+    <Content Include="user\assets\flags\4x3\fo.svg" />
+    <Content Include="user\assets\flags\4x3\fr.svg" />
+    <Content Include="user\assets\flags\4x3\ga.svg" />
+    <Content Include="user\assets\flags\4x3\gb-eng.svg" />
+    <Content Include="user\assets\flags\4x3\gb-nir.svg" />
+    <Content Include="user\assets\flags\4x3\gb-sct.svg" />
+    <Content Include="user\assets\flags\4x3\gb-wls.svg" />
+    <Content Include="user\assets\flags\4x3\gb.svg" />
+    <Content Include="user\assets\flags\4x3\gd.svg" />
+    <Content Include="user\assets\flags\4x3\ge.svg" />
+    <Content Include="user\assets\flags\4x3\gf.svg" />
+    <Content Include="user\assets\flags\4x3\gg.svg" />
+    <Content Include="user\assets\flags\4x3\gh.svg" />
+    <Content Include="user\assets\flags\4x3\gi.svg" />
+    <Content Include="user\assets\flags\4x3\gl.svg" />
+    <Content Include="user\assets\flags\4x3\gm.svg" />
+    <Content Include="user\assets\flags\4x3\gn.svg" />
+    <Content Include="user\assets\flags\4x3\gp.svg" />
+    <Content Include="user\assets\flags\4x3\gq.svg" />
+    <Content Include="user\assets\flags\4x3\gr.svg" />
+    <Content Include="user\assets\flags\4x3\gs.svg" />
+    <Content Include="user\assets\flags\4x3\gt.svg" />
+    <Content Include="user\assets\flags\4x3\gu.svg" />
+    <Content Include="user\assets\flags\4x3\gw.svg" />
+    <Content Include="user\assets\flags\4x3\gy.svg" />
+    <Content Include="user\assets\flags\4x3\hk.svg" />
+    <Content Include="user\assets\flags\4x3\hm.svg" />
+    <Content Include="user\assets\flags\4x3\hn.svg" />
+    <Content Include="user\assets\flags\4x3\hr.svg" />
+    <Content Include="user\assets\flags\4x3\ht.svg" />
+    <Content Include="user\assets\flags\4x3\hu.svg" />
+    <Content Include="user\assets\flags\4x3\id.svg" />
+    <Content Include="user\assets\flags\4x3\ie.svg" />
+    <Content Include="user\assets\flags\4x3\il.svg" />
+    <Content Include="user\assets\flags\4x3\im.svg" />
+    <Content Include="user\assets\flags\4x3\in.svg" />
+    <Content Include="user\assets\flags\4x3\io.svg" />
+    <Content Include="user\assets\flags\4x3\iq.svg" />
+    <Content Include="user\assets\flags\4x3\ir.svg" />
+    <Content Include="user\assets\flags\4x3\is.svg" />
+    <Content Include="user\assets\flags\4x3\it.svg" />
+    <Content Include="user\assets\flags\4x3\je.svg" />
+    <Content Include="user\assets\flags\4x3\jm.svg" />
+    <Content Include="user\assets\flags\4x3\jo.svg" />
+    <Content Include="user\assets\flags\4x3\jp.svg" />
+    <Content Include="user\assets\flags\4x3\ke.svg" />
+    <Content Include="user\assets\flags\4x3\kg.svg" />
+    <Content Include="user\assets\flags\4x3\kh.svg" />
+    <Content Include="user\assets\flags\4x3\ki.svg" />
+    <Content Include="user\assets\flags\4x3\km.svg" />
+    <Content Include="user\assets\flags\4x3\kn.svg" />
+    <Content Include="user\assets\flags\4x3\kp.svg" />
+    <Content Include="user\assets\flags\4x3\kr.svg" />
+    <Content Include="user\assets\flags\4x3\kw.svg" />
+    <Content Include="user\assets\flags\4x3\ky.svg" />
+    <Content Include="user\assets\flags\4x3\kz.svg" />
+    <Content Include="user\assets\flags\4x3\la.svg" />
+    <Content Include="user\assets\flags\4x3\lb.svg" />
+    <Content Include="user\assets\flags\4x3\lc.svg" />
+    <Content Include="user\assets\flags\4x3\li.svg" />
+    <Content Include="user\assets\flags\4x3\lk.svg" />
+    <Content Include="user\assets\flags\4x3\lr.svg" />
+    <Content Include="user\assets\flags\4x3\ls.svg" />
+    <Content Include="user\assets\flags\4x3\lt.svg" />
+    <Content Include="user\assets\flags\4x3\lu.svg" />
+    <Content Include="user\assets\flags\4x3\lv.svg" />
+    <Content Include="user\assets\flags\4x3\ly.svg" />
+    <Content Include="user\assets\flags\4x3\ma.svg" />
+    <Content Include="user\assets\flags\4x3\mc.svg" />
+    <Content Include="user\assets\flags\4x3\md.svg" />
+    <Content Include="user\assets\flags\4x3\me.svg" />
+    <Content Include="user\assets\flags\4x3\mf.svg" />
+    <Content Include="user\assets\flags\4x3\mg.svg" />
+    <Content Include="user\assets\flags\4x3\mh.svg" />
+    <Content Include="user\assets\flags\4x3\mk.svg" />
+    <Content Include="user\assets\flags\4x3\ml.svg" />
+    <Content Include="user\assets\flags\4x3\mm.svg" />
+    <Content Include="user\assets\flags\4x3\mn.svg" />
+    <Content Include="user\assets\flags\4x3\mo.svg" />
+    <Content Include="user\assets\flags\4x3\mp.svg" />
+    <Content Include="user\assets\flags\4x3\mq.svg" />
+    <Content Include="user\assets\flags\4x3\mr.svg" />
+    <Content Include="user\assets\flags\4x3\ms.svg" />
+    <Content Include="user\assets\flags\4x3\mt.svg" />
+    <Content Include="user\assets\flags\4x3\mu.svg" />
+    <Content Include="user\assets\flags\4x3\mv.svg" />
+    <Content Include="user\assets\flags\4x3\mw.svg" />
+    <Content Include="user\assets\flags\4x3\mx.svg" />
+    <Content Include="user\assets\flags\4x3\my.svg" />
+    <Content Include="user\assets\flags\4x3\mz.svg" />
+    <Content Include="user\assets\flags\4x3\na.svg" />
+    <Content Include="user\assets\flags\4x3\nc.svg" />
+    <Content Include="user\assets\flags\4x3\ne.svg" />
+    <Content Include="user\assets\flags\4x3\nf.svg" />
+    <Content Include="user\assets\flags\4x3\ng.svg" />
+    <Content Include="user\assets\flags\4x3\ni.svg" />
+    <Content Include="user\assets\flags\4x3\nl.svg" />
+    <Content Include="user\assets\flags\4x3\no.svg" />
+    <Content Include="user\assets\flags\4x3\np.svg" />
+    <Content Include="user\assets\flags\4x3\nr.svg" />
+    <Content Include="user\assets\flags\4x3\nu.svg" />
+    <Content Include="user\assets\flags\4x3\nz.svg" />
+    <Content Include="user\assets\flags\4x3\om.svg" />
+    <Content Include="user\assets\flags\4x3\pa.svg" />
+    <Content Include="user\assets\flags\4x3\pe.svg" />
+    <Content Include="user\assets\flags\4x3\pf.svg" />
+    <Content Include="user\assets\flags\4x3\pg.svg" />
+    <Content Include="user\assets\flags\4x3\ph.svg" />
+    <Content Include="user\assets\flags\4x3\pk.svg" />
+    <Content Include="user\assets\flags\4x3\pl.svg" />
+    <Content Include="user\assets\flags\4x3\pm.svg" />
+    <Content Include="user\assets\flags\4x3\pn.svg" />
+    <Content Include="user\assets\flags\4x3\pr.svg" />
+    <Content Include="user\assets\flags\4x3\ps.svg" />
+    <Content Include="user\assets\flags\4x3\pt.svg" />
+    <Content Include="user\assets\flags\4x3\pw.svg" />
+    <Content Include="user\assets\flags\4x3\py.svg" />
+    <Content Include="user\assets\flags\4x3\qa.svg" />
+    <Content Include="user\assets\flags\4x3\re.svg" />
+    <Content Include="user\assets\flags\4x3\ro.svg" />
+    <Content Include="user\assets\flags\4x3\rs.svg" />
+    <Content Include="user\assets\flags\4x3\ru.svg" />
+    <Content Include="user\assets\flags\4x3\rw.svg" />
+    <Content Include="user\assets\flags\4x3\sa.svg" />
+    <Content Include="user\assets\flags\4x3\sb.svg" />
+    <Content Include="user\assets\flags\4x3\sc.svg" />
+    <Content Include="user\assets\flags\4x3\sd.svg" />
+    <Content Include="user\assets\flags\4x3\se.svg" />
+    <Content Include="user\assets\flags\4x3\sg.svg" />
+    <Content Include="user\assets\flags\4x3\sh.svg" />
+    <Content Include="user\assets\flags\4x3\si.svg" />
+    <Content Include="user\assets\flags\4x3\sj.svg" />
+    <Content Include="user\assets\flags\4x3\sk.svg" />
+    <Content Include="user\assets\flags\4x3\sl.svg" />
+    <Content Include="user\assets\flags\4x3\sm.svg" />
+    <Content Include="user\assets\flags\4x3\sn.svg" />
+    <Content Include="user\assets\flags\4x3\so.svg" />
+    <Content Include="user\assets\flags\4x3\sr.svg" />
+    <Content Include="user\assets\flags\4x3\ss.svg" />
+    <Content Include="user\assets\flags\4x3\st.svg" />
+    <Content Include="user\assets\flags\4x3\sv.svg" />
+    <Content Include="user\assets\flags\4x3\sx.svg" />
+    <Content Include="user\assets\flags\4x3\sy.svg" />
+    <Content Include="user\assets\flags\4x3\sz.svg" />
+    <Content Include="user\assets\flags\4x3\tc.svg" />
+    <Content Include="user\assets\flags\4x3\td.svg" />
+    <Content Include="user\assets\flags\4x3\tf.svg" />
+    <Content Include="user\assets\flags\4x3\tg.svg" />
+    <Content Include="user\assets\flags\4x3\th.svg" />
+    <Content Include="user\assets\flags\4x3\tj.svg" />
+    <Content Include="user\assets\flags\4x3\tk.svg" />
+    <Content Include="user\assets\flags\4x3\tl.svg" />
+    <Content Include="user\assets\flags\4x3\tm.svg" />
+    <Content Include="user\assets\flags\4x3\tn.svg" />
+    <Content Include="user\assets\flags\4x3\to.svg" />
+    <Content Include="user\assets\flags\4x3\tr.svg" />
+    <Content Include="user\assets\flags\4x3\tt.svg" />
+    <Content Include="user\assets\flags\4x3\tv.svg" />
+    <Content Include="user\assets\flags\4x3\tw.svg" />
+    <Content Include="user\assets\flags\4x3\tz.svg" />
+    <Content Include="user\assets\flags\4x3\ua.svg" />
+    <Content Include="user\assets\flags\4x3\ug.svg" />
+    <Content Include="user\assets\flags\4x3\um.svg" />
+    <Content Include="user\assets\flags\4x3\un.svg" />
+    <Content Include="user\assets\flags\4x3\us.svg" />
+    <Content Include="user\assets\flags\4x3\uy.svg" />
+    <Content Include="user\assets\flags\4x3\uz.svg" />
+    <Content Include="user\assets\flags\4x3\va.svg" />
+    <Content Include="user\assets\flags\4x3\vc.svg" />
+    <Content Include="user\assets\flags\4x3\ve.svg" />
+    <Content Include="user\assets\flags\4x3\vg.svg" />
+    <Content Include="user\assets\flags\4x3\vi.svg" />
+    <Content Include="user\assets\flags\4x3\vn.svg" />
+    <Content Include="user\assets\flags\4x3\vu.svg" />
+    <Content Include="user\assets\flags\4x3\wf.svg" />
+    <Content Include="user\assets\flags\4x3\ws.svg" />
+    <Content Include="user\assets\flags\4x3\ye.svg" />
+    <Content Include="user\assets\flags\4x3\yt.svg" />
+    <Content Include="user\assets\flags\4x3\za.svg" />
+    <Content Include="user\assets\flags\4x3\zm.svg" />
+    <Content Include="user\assets\flags\4x3\zw.svg" />
+    <Content Include="user\assets\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="user\assets\fonts\Simple-Line-Iconsb26c.svg" />
+    <Content Include="user\assets\fonts\themify9f24.svg" />
+    <Content Include="user\assets\font\weathericons-regular-webfont-2.html" />
+    <Content Include="user\assets\font\weathericons-regular-webfont-3.html" />
+    <Content Include="user\assets\font\weathericons-regular-webfont.html" />
+    <Content Include="user\assets\images\avatars\avatar-1.png" />
+    <Content Include="user\assets\images\avatars\avatar-10.png" />
+    <Content Include="user\assets\images\avatars\avatar-13.png" />
+    <Content Include="user\assets\images\avatars\avatar-14.png" />
+    <Content Include="user\assets\images\avatars\avatar-15.png" />
+    <Content Include="user\assets\images\avatars\avatar-16.png" />
+    <Content Include="user\assets\images\avatars\avatar-17.png" />
+    <Content Include="user\assets\images\avatars\avatar-18.png" />
+    <Content Include="user\assets\images\avatars\avatar-2.png" />
+    <Content Include="user\assets\images\avatars\avatar-3.png" />
+    <Content Include="user\assets\images\avatars\avatar-4.png" />
+    <Content Include="user\assets\images\avatars\avatar-5.png" />
+    <Content Include="user\assets\images\avatars\avatar-6.png" />
+    <Content Include="user\assets\images\avatars\avatar-7.png" />
+    <Content Include="user\assets\images\avatars\avatar-8.png" />
+    <Content Include="user\assets\images\avatars\avatar-9.png" />
+    <Content Include="user\assets\images\bg-sighn-2.jpg" />
+    <Content Include="user\assets\images\bg-sighn-21.png" />
+    <Content Include="user\assets\images\bg-themes\1.png" />
+    <Content Include="user\assets\images\bg-themes\2.png" />
+    <Content Include="user\assets\images\bg-themes\3.png" />
+    <Content Include="user\assets\images\bg-themes\4.png" />
+    <Content Include="user\assets\images\bg-themes\5.png" />
+    <Content Include="user\assets\images\bg-themes\6.png" />
+    <Content Include="user\assets\images\coming-soon.png" />
+    <Content Include="user\assets\images\error-texture.png" />
+    <Content Include="user\assets\images\fancybox\big\big-img-1.jpg" />
+    <Content Include="user\assets\images\fancybox\big\big-img-10.jpg" />
+    <Content Include="user\assets\images\fancybox\big\big-img-11.jpg" />
+    <Content Include="user\assets\images\fancybox\big\big-img-12.jpg" />
+    <Content Include="user\assets\images\fancybox\big\big-img-13.jpg" />
+    <Content Include="user\assets\images\fancybox\big\big-img-14.jpg" />
+    <Content Include="user\assets\images\fancybox\big\big-img-15.jpg" />
+    <Content Include="user\assets\images\fancybox\big\big-img-16.jpg" />
+    <Content Include="user\assets\images\fancybox\big\big-img-2.jpg" />
+    <Content Include="user\assets\images\fancybox\big\big-img-3.jpg" />
+    <Content Include="user\assets\images\fancybox\big\big-img-4.jpg" />
+    <Content Include="user\assets\images\fancybox\big\big-img-5.jpg" />
+    <Content Include="user\assets\images\fancybox\big\big-img-6.jpg" />
+    <Content Include="user\assets\images\fancybox\big\big-img-7.jpg" />
+    <Content Include="user\assets\images\fancybox\big\big-img-8.jpg" />
+    <Content Include="user\assets\images\fancybox\big\big-img-9.jpg" />
+    <Content Include="user\assets\images\fancybox\small\small-img-1.jpg" />
+    <Content Include="user\assets\images\fancybox\small\small-img-10.jpg" />
+    <Content Include="user\assets\images\fancybox\small\small-img-11.jpg" />
+    <Content Include="user\assets\images\fancybox\small\small-img-12.jpg" />
+    <Content Include="user\assets\images\fancybox\small\small-img-13.jpg" />
+    <Content Include="user\assets\images\fancybox\small\small-img-14.jpg" />
+    <Content Include="user\assets\images\fancybox\small\small-img-15.jpg" />
+    <Content Include="user\assets\images\fancybox\small\small-img-16.jpg" />
+    <Content Include="user\assets\images\fancybox\small\small-img-2.jpg" />
+    <Content Include="user\assets\images\fancybox\small\small-img-3.jpg" />
+    <Content Include="user\assets\images\fancybox\small\small-img-4.jpg" />
+    <Content Include="user\assets\images\fancybox\small\small-img-5.jpg" />
+    <Content Include="user\assets\images\fancybox\small\small-img-6.jpg" />
+    <Content Include="user\assets\images\fancybox\small\small-img-7.jpg" />
+    <Content Include="user\assets\images\fancybox\small\small-img-8.jpg" />
+    <Content Include="user\assets\images\fancybox\small\small-img-9.jpg" />
+    <Content Include="user\assets\images\favicon.ico" />
+    <Content Include="user\assets\images\gallery\1.jpg" />
+    <Content Include="user\assets\images\gallery\10.jpg" />
+    <Content Include="user\assets\images\gallery\11.jpg" />
+    <Content Include="user\assets\images\gallery\12.jpg" />
+    <Content Include="user\assets\images\gallery\16.jpg" />
+    <Content Include="user\assets\images\gallery\17.jpg" />
+    <Content Include="user\assets\images\gallery\18.jpg" />
+    <Content Include="user\assets\images\gallery\19.jpg" />
+    <Content Include="user\assets\images\gallery\2.jpg" />
+    <Content Include="user\assets\images\gallery\20.jpg" />
+    <Content Include="user\assets\images\gallery\21.jpg" />
+    <Content Include="user\assets\images\gallery\25.jpg" />
+    <Content Include="user\assets\images\gallery\26.jpg" />
+    <Content Include="user\assets\images\gallery\3.jpg" />
+    <Content Include="user\assets\images\gallery\31.jpg" />
+    <Content Include="user\assets\images\gallery\4.jpg" />
+    <Content Include="user\assets\images\gallery\6.jpg" />
+    <Content Include="user\assets\images\gallery\7.jpg" />
+    <Content Include="user\assets\images\gallery\8.jpg" />
+    <Content Include="user\assets\images\gallery\9.jpg" />
+    <Content Include="user\assets\images\gallery\modal-img.jpg" />
+    <Content Include="user\assets\images\gallery\slider-1.jpg" />
+    <Content Include="user\assets\images\gallery\slider-10.jpg" />
+    <Content Include="user\assets\images\gallery\slider-11.jpg" />
+    <Content Include="user\assets\images\gallery\slider-12.jpg" />
+    <Content Include="user\assets\images\gallery\slider-2.jpg" />
+    <Content Include="user\assets\images\gallery\slider-4.jpg" />
+    <Content Include="user\assets\images\gallery\slider-5.jpg" />
+    <Content Include="user\assets\images\gallery\slider-6.jpg" />
+    <Content Include="user\assets\images\gallery\slider-7.jpg" />
+    <Content Include="user\assets\images\gallery\slider-8.jpg" />
+    <Content Include="user\assets\images\gallery\slider-9.jpg" />
+    <Content Include="user\assets\images\Icon.jpg" />
+    <Content Include="user\assets\images\logo-icon.png" />
+    <Content Include="user\assets\images\payment-icons\american-dark.png" />
+    <Content Include="user\assets\images\payment-icons\mastro-dark.png" />
+    <Content Include="user\assets\images\payment-icons\paypal-dark.png" />
+    <Content Include="user\assets\images\payment-icons\visa-dark.png" />
+    <Content Include="user\assets\images\products\01.png" />
+    <Content Include="user\assets\images\products\02.png" />
+    <Content Include="user\assets\images\products\03.png" />
+    <Content Include="user\assets\images\products\04.png" />
+    <Content Include="user\assets\images\products\05.png" />
+    <Content Include="user\assets\images\products\06.png" />
+    <Content Include="user\assets\images\products\property01.jpg" />
+    <Content Include="user\assets\images\products\property02.jpg" />
+    <Content Include="user\assets\images\products\property03.jpg" />
+    <Content Include="user\assets\images\products\property04.jpg" />
+    <Content Include="user\assets\images\products\property05.jpg" />
+    <Content Include="user\assets\images\timeline\angular-icon.svg" />
+    <Content Include="user\assets\images\timeline\bootstrap-4.svg" />
+    <Content Include="user\assets\images\timeline\cd-arrow.svg" />
+    <Content Include="user\assets\images\timeline\cd-icon-location.svg" />
+    <Content Include="user\assets\images\timeline\cd-icon-movie.svg" />
+    <Content Include="user\assets\images\timeline\cd-icon-picture.svg" />
+    <Content Include="user\assets\images\timeline\html5.svg" />
+    <Content Include="user\assets\images\timeline\react.svg" />
+    <Content Include="user\assets\js\app-script.js" />
+    <Content Include="user\assets\js\bootstrap.min.js" />
+    <Content Include="user\assets\js\index.js" />
+    <Content Include="user\assets\js\index2.js" />
+    <Content Include="user\assets\js\jquery.loading-indicator.html" />
+    <Content Include="user\assets\js\jquery.min.js" />
+    <Content Include="user\assets\js\logistics.js" />
+    <Content Include="user\assets\js\popper.min.js" />
+    <Content Include="user\assets\js\service-support.js" />
+    <Content Include="user\assets\js\sidebar-menu.js" />
+    <Content Include="user\assets\js\widgets.js" />
+    <Content Include="user\assets\plugins\alerts-boxes\js\sweet-alert-script.js" />
+    <Content Include="user\assets\plugins\alerts-boxes\js\sweetalert.min.js" />
+    <Content Include="user\assets\plugins\bootstrap-datatable\css\buttons.bootstrap4.min.css" />
+    <Content Include="user\assets\plugins\bootstrap-datatable\css\dataTables.bootstrap4.min.css" />
+    <Content Include="user\assets\plugins\bootstrap-datatable\js\buttons.bootstrap4.min.js" />
+    <Content Include="user\assets\plugins\bootstrap-datatable\js\buttons.colVis.min.js" />
+    <Content Include="user\assets\plugins\bootstrap-datatable\js\buttons.html5.min.js" />
+    <Content Include="user\assets\plugins\bootstrap-datatable\js\buttons.print.min.js" />
+    <Content Include="user\assets\plugins\bootstrap-datatable\js\dataTables.bootstrap4.min.js" />
+    <Content Include="user\assets\plugins\bootstrap-datatable\js\dataTables.buttons.min.js" />
+    <Content Include="user\assets\plugins\bootstrap-datatable\js\jquery.dataTables.min.js" />
+    <Content Include="user\assets\plugins\bootstrap-datatable\js\jszip.min.js" />
+    <Content Include="user\assets\plugins\bootstrap-datatable\js\pdfmake.min.js" />
+    <Content Include="user\assets\plugins\bootstrap-datatable\js\vfs_fonts.js" />
+    <Content Include="user\assets\plugins\bootstrap-datepicker\css\bootstrap-datepicker.min.css" />
+    <Content Include="user\bootstrap\css\bootstrap.min.css" />
+    <Content Include="user\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="user\boxed\404_animate_bg.html" />
+    <Content Include="user\boxed\404_default.html" />
+    <Content Include="user\boxed\404_video.html" />
+    <Content Include="user\boxed\about.html" />
+    <Content Include="user\boxed\blank_page.html" />
+    <Content Include="user\boxed\blog_gird_full_width_cloumn.html" />
+    <Content Include="user\boxed\blog_gird_three_cloumn.html" />
+    <Content Include="user\boxed\blog_gird_two_cloumn.html" />
+    <Content Include="user\boxed\blog_list_style_1.html" />
+    <Content Include="user\boxed\blog_list_style_2.html" />
+    <Content Include="user\boxed\blog_masonry_fullwidth.html" />
+    <Content Include="user\boxed\blog_masonry_three_cloumn.html" />
+    <Content Include="user\boxed\blog_masonry_two_cloumn.html" />
+    <Content Include="user\boxed\blog_single_blockquote.html" />
+    <Content Include="user\boxed\blog_single_gallery.html" />
+    <Content Include="user\boxed\blog_single_image.html" />
+    <Content Include="user\boxed\blog_single_leftsidebar.html" />
+    <Content Include="user\boxed\blog_single_lightbox.html" />
+    <Content Include="user\boxed\blog_single_rightsidebar.html" />
+    <Content Include="user\boxed\blog_single_slider.html" />
+    <Content Include="user\boxed\blog_single_soundclouds.html" />
+    <Content Include="user\boxed\blog_single_video.html" />
+    <Content Include="user\boxed\blog_single_viemo.html" />
+    <Content Include="user\boxed\blog_single_youtube.html" />
+    <Content Include="user\boxed\bootstrap\css\bootstrap.min.css" />
+    <Content Include="user\boxed\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="user\boxed\clients.html" />
+    <Content Include="user\boxed\coming_soon_default.html" />
+    <Content Include="user\boxed\coming_soon_slider.html" />
+    <Content Include="user\boxed\coming_soon_video.html" />
+    <Content Include="user\boxed\contact.html" />
+    <Content Include="user\boxed\events.html" />
+    <Content Include="user\boxed\fonts\fonts.css" />
+    <Content Include="user\boxed\fonts\font_icons\fontawesome-webfonte0a5.svg" />
+    <Content Include="user\boxed\fonts\font_icons\icomoon3627.svg" />
+    <Content Include="user\boxed\img\ajax-loader.gif" />
+    <Content Include="user\boxed\img\app.png" />
+    <Content Include="user\boxed\img\background\404.jpg" />
+    <Content Include="user\boxed\img\background\bg_1.jpg" />
+    <Content Include="user\boxed\img\background\bg_10.jpg" />
+    <Content Include="user\boxed\img\background\bg_11.jpg" />
+    <Content Include="user\boxed\img\background\bg_12.jpg" />
+    <Content Include="user\boxed\img\background\bg_13.jpg" />
+    <Content Include="user\boxed\img\background\bg_17.jpg" />
+    <Content Include="user\boxed\img\background\bg_18.jpg" />
+    <Content Include="user\boxed\img\background\bg_19.jpg" />
+    <Content Include="user\boxed\img\background\bg_2.jpg" />
+    <Content Include="user\boxed\img\background\bg_3.jpg" />
+    <Content Include="user\boxed\img\background\bg_4.jpg" />
+    <Content Include="user\boxed\img\background\bg_6.jpg" />
+    <Content Include="user\boxed\img\background\bg_8.jpg" />
+    <Content Include="user\boxed\img\background\bg_9.jpg" />
+    <Content Include="user\boxed\img\background\coming.jpg" />
+    <Content Include="user\boxed\img\background\left_bg.png" />
+    <Content Include="user\boxed\img\background\message-bg.jpg" />
+    <Content Include="user\boxed\img\background\poster.jpg" />
+    <Content Include="user\boxed\img\background\right_bg.png" />
+    <Content Include="user\boxed\img\background\right_bg2.png" />
+    <Content Include="user\boxed\img\background\styles\bg_10.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_11.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_12.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_13.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_14.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_15.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_16.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_17.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_19.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_2.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_20.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_21.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_22.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_23.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_25.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_26.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_27.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_28.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_29.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_3.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_4.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_5.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_6.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_8.jpg" />
+    <Content Include="user\boxed\img\background\styles\bg_9.jpg" />
+    <Content Include="user\boxed\img\banner\about.jpg" />
+    <Content Include="user\boxed\img\banner\blog.jpg" />
+    <Content Include="user\boxed\img\banner\blog2.jpg" />
+    <Content Include="user\boxed\img\banner\blog3.jpg" />
+    <Content Include="user\boxed\img\banner\breakfast_banner.jpg" />
+    <Content Include="user\boxed\img\banner\carts.jpg" />
+    <Content Include="user\boxed\img\banner\certification.jpg" />
+    <Content Include="user\boxed\img\banner\contact.jpg" />
+    <Content Include="user\boxed\img\banner\desert_banner.jpg" />
+    <Content Include="user\boxed\img\banner\dinner_banner.jpg" />
+    <Content Include="user\boxed\img\banner\launch_banner.jpg" />
+    <Content Include="user\boxed\img\banner\menu.jpg" />
+    <Content Include="user\boxed\img\banner\menu_single.jpg" />
+    <Content Include="user\boxed\img\banner\services.jpg" />
+    <Content Include="user\boxed\img\banner\shortcodes.jpg" />
+    <Content Include="user\boxed\img\banner\team.jpg" />
+    <Content Include="user\boxed\img\block1.jpg" />
+    <Content Include="user\boxed\img\block2.jpg" />
+    <Content Include="user\boxed\img\block3.jpg" />
+    <Content Include="user\boxed\img\blog\block10.jpg" />
+    <Content Include="user\boxed\img\blog\block11.jpg" />
+    <Content Include="user\boxed\img\blog\block12.jpg" />
+    <Content Include="user\boxed\img\blog\block13.jpg" />
+    <Content Include="user\boxed\img\blog\block14.jpg" />
+    <Content Include="user\boxed\img\blog\block15.jpg" />
+    <Content Include="user\boxed\img\blog\block16.jpg" />
+    <Content Include="user\boxed\img\blog\block17.jpg" />
+    <Content Include="user\boxed\img\blog\block4.jpg" />
+    <Content Include="user\boxed\img\blog\block5.jpg" />
+    <Content Include="user\boxed\img\blog\block6.jpg" />
+    <Content Include="user\boxed\img\blog\block7.jpg" />
+    <Content Include="user\boxed\img\blog\block8.jpg" />
+    <Content Include="user\boxed\img\blog\block9.jpg" />
+    <Content Include="user\boxed\img\blog\blog-large.jpg" />
+    <Content Include="user\boxed\img\blog\blog-large2.jpg" />
+    <Content Include="user\boxed\img\blog\blog-large3.jpg" />
+    <Content Include="user\boxed\img\blog\blog-list.jpg" />
+    <Content Include="user\boxed\img\blog\blog-list2.jpg" />
+    <Content Include="user\boxed\img\blog\blog-list3.jpg" />
+    <Content Include="user\boxed\img\blog\blog-list4.jpg" />
+    <Content Include="user\boxed\img\blog\blog-list5.jpg" />
+    <Content Include="user\boxed\img\blog\blog_list_1.jpg" />
+    <Content Include="user\boxed\img\blog\blog_list_2.jpg" />
+    <Content Include="user\boxed\img\blog\blog_list_3.jpg" />
+    <Content Include="user\boxed\img\blog\blog_list_4.jpg" />
+    <Content Include="user\boxed\img\blog\blog_list_5.jpg" />
+    <Content Include="user\boxed\img\blog\full_width_gallery.jpg" />
+    <Content Include="user\boxed\img\breakfast.png" />
+    <Content Include="user\boxed\img\breakfast_dark.png" />
+    <Content Include="user\boxed\img\carts\1.jpg" />
+    <Content Include="user\boxed\img\carts\2.jpg" />
+    <Content Include="user\boxed\img\carts\3.jpg" />
+    <Content Include="user\boxed\img\carts\4.jpg" />
+    <Content Include="user\boxed\img\carts\5.jpg" />
+    <Content Include="user\boxed\img\clients\1.jpg" />
+    <Content Include="user\boxed\img\clients\2.jpg" />
+    <Content Include="user\boxed\img\clients\3.jpg" />
+    <Content Include="user\boxed\img\clients\4.jpg" />
+    <Content Include="user\boxed\img\clients\5.jpg" />
+    <Content Include="user\boxed\img\clients\client_1.jpg" />
+    <Content Include="user\boxed\img\clients\client_10.png" />
+    <Content Include="user\boxed\img\clients\client_11.png" />
+    <Content Include="user\boxed\img\clients\client_12.png" />
+    <Content Include="user\boxed\img\clients\client_13.png" />
+    <Content Include="user\boxed\img\clients\client_14.png" />
+    <Content Include="user\boxed\img\clients\client_15.png" />
+    <Content Include="user\boxed\img\clients\client_2.jpg" />
+    <Content Include="user\boxed\img\clients\client_3.jpg" />
+    <Content Include="user\boxed\img\clients\client_4.jpg" />
+    <Content Include="user\boxed\img\clients\client_7.png" />
+    <Content Include="user\boxed\img\clients\client_8.png" />
+    <Content Include="user\boxed\img\clients\client_9.png" />
+    <Content Include="user\boxed\img\comment\1.jpg" />
+    <Content Include="user\boxed\img\comment\2.jpg" />
+    <Content Include="user\boxed\img\comment\3.jpg" />
+    <Content Include="user\boxed\img\dessert.png" />
+    <Content Include="user\boxed\img\dessert_dark.png" />
+    <Content Include="user\boxed\img\dinner.png" />
+    <Content Include="user\boxed\img\dinner_dark.png" />
+    <Content Include="user\boxed\img\divider_1.png" />
+    <Content Include="user\boxed\img\divider_2.png" />
+    <Content Include="user\boxed\img\drop_menu\combo.jpg" />
+    <Content Include="user\boxed\img\drop_menu\deserts.jpg" />
+    <Content Include="user\boxed\img\drop_menu\dishes.jpg" />
+    <Content Include="user\boxed\img\drop_menu\drinks.jpg" />
+    <Content Include="user\boxed\img\drop_menu\fishes.jpg" />
+    <Content Include="user\boxed\img\drop_menu\salads.jpg" />
+    <Content Include="user\boxed\img\drop_menu\soup.jpg" />
+    <Content Include="user\boxed\img\drop_menu\starter.jpg" />
+    <Content Include="user\boxed\img\favicon\apple-touch-icon-114x114.png" />
+    <Content Include="user\boxed\img\favicon\apple-touch-icon-144x144.png" />
+    <Content Include="user\boxed\img\favicon\apple-touch-icon-57x57.png" />
+    <Content Include="user\boxed\img\favicon\apple-touch-icon-72x72.png" />
+    <Content Include="user\boxed\img\favicon\favicon.ico" />
+    <Content Include="user\boxed\img\footer_logo.png" />
+    <Content Include="user\boxed\img\grabbing.png" />
+    <Content Include="user\boxed\img\home2\art.jpg" />
+    <Content Include="user\boxed\img\home2\chef.png" />
+    <Content Include="user\boxed\img\home3\center-intro.jpg" />
+    <Content Include="user\boxed\img\home3\chef.jpg" />
+    <Content Include="user\boxed\img\home3\left-intro.jpg" />
+    <Content Include="user\boxed\img\home3\right-intro.jpg" />
+    <Content Include="user\boxed\img\iconCaution.png" />
+    <Content Include="user\boxed\img\Left-Image.jpg" />
+    <Content Include="user\boxed\img\left.png" />
+    <Content Include="user\boxed\img\logo.png" />
+    <Content Include="user\boxed\img\logo_dark.png" />
+    <Content Include="user\boxed\img\logo_intro.png" />
+    <Content Include="user\boxed\img\logo_intro_dark.png" />
+    <Content Include="user\boxed\img\lunch.png" />
+    <Content Include="user\boxed\img\lunch_dark.png" />
+    <Content Include="user\boxed\img\map.png" />
+    <Content Include="user\boxed\img\masonry\1.jpg" />
+    <Content Include="user\boxed\img\masonry\10.jpg" />
+    <Content Include="user\boxed\img\masonry\2.jpg" />
+    <Content Include="user\boxed\img\masonry\3.jpg" />
+    <Content Include="user\boxed\img\masonry\4.jpg" />
+    <Content Include="user\boxed\img\masonry\5.jpg" />
+    <Content Include="user\boxed\img\masonry\6.jpg" />
+    <Content Include="user\boxed\img\masonry\7.jpg" />
+    <Content Include="user\boxed\img\masonry\8.jpg" />
+    <Content Include="user\boxed\img\masonry\9.jpg" />
+    <Content Include="user\boxed\img\menu\bg1.jpg" />
+    <Content Include="user\boxed\img\menu\bg2.jpg" />
+    <Content Include="user\boxed\img\menu\bg3.jpg" />
+    <Content Include="user\boxed\img\menu\breakfast.jpg" />
+    <Content Include="user\boxed\img\menu\breakfast_1.jpg" />
+    <Content Include="user\boxed\img\menu\breakfast_2.jpg" />
+    <Content Include="user\boxed\img\menu\breakfast_3.jpg" />
+    <Content Include="user\boxed\img\menu\breakfast_4.jpg" />
+    <Content Include="user\boxed\img\menu\breakfast_5.jpg" />
+    <Content Include="user\boxed\img\menu\breakfast_6.jpg" />
+    <Content Include="user\boxed\img\menu\breakfast_7.jpg" />
+    <Content Include="user\boxed\img\menu\breakfast_8.jpg" />
+    <Content Include="user\boxed\img\menu\desert.jpg" />
+    <Content Include="user\boxed\img\menu\desert1.jpg" />
+    <Content Include="user\boxed\img\menu\desert2.jpg" />
+    <Content Include="user\boxed\img\menu\desert3.jpg" />
+    <Content Include="user\boxed\img\menu\desert4.jpg" />
+    <Content Include="user\boxed\img\menu\desert5.jpg" />
+    <Content Include="user\boxed\img\menu\desert\desert1.jpg" />
+    <Content Include="user\boxed\img\menu\desert\desert2.jpg" />
+    <Content Include="user\boxed\img\menu\desert\desert3.jpg" />
+    <Content Include="user\boxed\img\menu\desert\desert4.jpg" />
+    <Content Include="user\boxed\img\menu\desert\desert5.jpg" />
+    <Content Include="user\boxed\img\menu\desert\desert6.jpg" />
+    <Content Include="user\boxed\img\menu\desert_1.jpg" />
+    <Content Include="user\boxed\img\menu\desert_2.jpg" />
+    <Content Include="user\boxed\img\menu\desert_3.jpg" />
+    <Content Include="user\boxed\img\menu\desert_4.jpg" />
+    <Content Include="user\boxed\img\menu\desert_5.jpg" />
+    <Content Include="user\boxed\img\menu\desert_6.jpg" />
+    <Content Include="user\boxed\img\menu\desert_7.jpg" />
+    <Content Include="user\boxed\img\menu\desert_8.jpg" />
+    <Content Include="user\boxed\img\menu\dinner.jpg" />
+    <Content Include="user\boxed\img\menu\dinner_1.jpg" />
+    <Content Include="user\boxed\img\menu\dinner_2.jpg" />
+    <Content Include="user\boxed\img\menu\dinner_3.jpg" />
+    <Content Include="user\boxed\img\menu\dinner_4.jpg" />
+    <Content Include="user\boxed\img\menu\dinner_5.jpg" />
+    <Content Include="user\boxed\img\menu\dinner_6.jpg" />
+    <Content Include="user\boxed\img\menu\dinner_7.jpg" />
+    <Content Include="user\boxed\img\menu\dinner_8.jpg" />
+    <Content Include="user\boxed\img\menu\dishes\dishes1.jpg" />
+    <Content Include="user\boxed\img\menu\dishes\dishes2.jpg" />
+    <Content Include="user\boxed\img\menu\dishes\dishes3.jpg" />
+    <Content Include="user\boxed\img\menu\dishes\dishes4.jpg" />
+    <Content Include="user\boxed\img\menu\dishes\dishes5.jpg" />
+    <Content Include="user\boxed\img\menu\dishes\dishes6.jpg" />
+    <Content Include="user\boxed\img\menu\launch.jpg" />
+    <Content Include="user\boxed\img\menu\launch_1.jpg" />
+    <Content Include="user\boxed\img\menu\launch_2.jpg" />
+    <Content Include="user\boxed\img\menu\launch_3.jpg" />
+    <Content Include="user\boxed\img\menu\launch_4.jpg" />
+    <Content Include="user\boxed\img\menu\launch_5.jpg" />
+    <Content Include="user\boxed\img\menu\launch_6.jpg" />
+    <Content Include="user\boxed\img\menu\launch_7.jpg" />
+    <Content Include="user\boxed\img\menu\launch_8.jpg" />
+    <Content Include="user\boxed\img\menu\menu-single.jpg" />
+    <Content Include="user\boxed\img\menu\menu-single2.jpg" />
+    <Content Include="user\boxed\img\menu\menu-single3.jpg" />
+    <Content Include="user\boxed\img\menu\menu-single4.jpg" />
+    <Content Include="user\boxed\img\menu\menu_home_1\desert_1.jpg" />
+    <Content Include="user\boxed\img\menu\menu_home_1\desert_2.jpg" />
+    <Content Include="user\boxed\img\menu\menu_home_1\desert_3.jpg" />
+    <Content Include="user\boxed\img\menu\menu_home_1\desert_4.jpg" />
+    <Content Include="user\boxed\img\menu\menu_home_1\dishes_1.jpg" />
+    <Content Include="user\boxed\img\menu\menu_home_1\dishes_2.jpg" />
+    <Content Include="user\boxed\img\menu\menu_home_1\dishes_3.jpg" />
+    <Content Include="user\boxed\img\menu\menu_home_1\dishes_4.jpg" />
+    <Content Include="user\boxed\img\menu\menu_home_1\drinks_1.jpg" />
+    <Content Include="user\boxed\img\menu\menu_home_1\drinks_2.jpg" />
+    <Content Include="user\boxed\img\menu\menu_home_1\drinks_3.jpg" />
+    <Content Include="user\boxed\img\menu\menu_home_1\drinks_4.jpg" />
+    <Content Include="user\boxed\img\menu\menu_home_1\starter_1.jpg" />
+    <Content Include="user\boxed\img\menu\menu_home_1\starter_2.jpg" />
+    <Content Include="user\boxed\img\menu\menu_home_1\starter_3.jpg" />
+    <Content Include="user\boxed\img\menu\menu_home_1\starter_4.jpg" />
+    <Content Include="user\boxed\img\menu\starter\starter1.jpg" />
+    <Content Include="user\boxed\img\menu\starter\starter2.jpg" />
+    <Content Include="user\boxed\img\menu\starter\starter3.jpg" />
+    <Content Include="user\boxed\img\menu\starter\starter4.jpg" />
+    <Content Include="user\boxed\img\menu\starter\starter5.jpg" />
+    <Content Include="user\boxed\img\menu\starter\starter6.jpg" />
+    <Content Include="user\boxed\img\move-bg.jpg" />
+    <Content Include="user\boxed\img\pattern-bg.png" />
+    <Content Include="user\boxed\img\pattern.jpg" />
+    <Content Include="user\boxed\img\pattern.png" />
+    <Content Include="user\boxed\img\poster.html" />
+    <Content Include="user\boxed\img\post_thumb.jpg" />
+    <Content Include="user\boxed\img\post_thumb2.jpg" />
+    <Content Include="user\boxed\img\post_thumb3.jpg" />
+    <Content Include="user\boxed\img\progress.gif" />
+    <Content Include="user\boxed\img\right-image.jpg" />
+    <Content Include="user\boxed\img\right.png" />
+    <Content Include="user\boxed\img\slide1.jpg" />
+    <Content Include="user\boxed\img\slide2.jpg" />
+    <Content Include="user\boxed\img\slide3.jpg" />
+    <Content Include="user\boxed\img\socials\arim.png" />
+    <Content Include="user\boxed\img\socials\bebo.png" />
+    <Content Include="user\boxed\img\socials\behance.png" />
+    <Content Include="user\boxed\img\socials\blogger.png" />
+    <Content Include="user\boxed\img\socials\delicious.png" />
+    <Content Include="user\boxed\img\socials\deviantart.png" />
+    <Content Include="user\boxed\img\socials\digg.png" />
+    <Content Include="user\boxed\img\socials\facebook.png" />
+    <Content Include="user\boxed\img\socials\fastfm.png" />
+    <Content Include="user\boxed\img\socials\flikr.png" />
+    <Content Include="user\boxed\img\socials\formspring.png" />
+    <Content Include="user\boxed\img\socials\google_plus.png" />
+    <Content Include="user\boxed\img\socials\linkedin.png" />
+    <Content Include="user\boxed\img\socials\myspace.png" />
+    <Content Include="user\boxed\img\socials\path.png" />
+    <Content Include="user\boxed\img\socials\pinterest.png" />
+    <Content Include="user\boxed\img\socials\quora.png" />
+    <Content Include="user\boxed\img\socials\rss.png" />
+    <Content Include="user\boxed\img\socials\stumblepun.png" />
+    <Content Include="user\boxed\img\socials\technorati.png" />
+    <Content Include="user\boxed\img\socials\vimeo.png" />
+    <Content Include="user\boxed\img\socials\wordpress.png" />
+    <Content Include="user\boxed\img\socials\yelp.png" />
+    <Content Include="user\boxed\img\socials\youtube.png" />
+    <Content Include="user\boxed\img\sub-menu-dark.png" />
+    <Content Include="user\boxed\img\sub-menu.png" />
+    <Content Include="user\boxed\img\team\1.jpg" />
+    <Content Include="user\boxed\img\team\2.jpg" />
+    <Content Include="user\boxed\img\team\3.jpg" />
+    <Content Include="user\boxed\img\team\4.jpg" />
+    <Content Include="user\boxed\img\team\5.jpg" />
+    <Content Include="user\boxed\img\team\6.jpg" />
+    <Content Include="user\boxed\img\team\7.jpg" />
+    <Content Include="user\boxed\img\team\8.jpg" />
+    <Content Include="user\boxed\img\team\9.jpg" />
+    <Content Include="user\boxed\img\themes\amrican\center-intro.jpg" />
+    <Content Include="user\boxed\img\themes\amrican\left-intro.jpg" />
+    <Content Include="user\boxed\img\themes\amrican\right-intro.jpg" />
+    <Content Include="user\boxed\img\themes\asian\1.jpg" />
+    <Content Include="user\boxed\img\themes\asian\appetizers.jpg" />
+    <Content Include="user\boxed\img\themes\asian\diet.jpg" />
+    <Content Include="user\boxed\img\themes\asian\meals.jpg" />
+    <Content Include="user\boxed\img\themes\asian\triple.jpg" />
+    <Content Include="user\boxed\img\themes\bakery\diet.jpg" />
+    <Content Include="user\boxed\img\themes\bakery\img.png" />
+    <Content Include="user\boxed\img\themes\bakery\intro.jpg" />
+    <Content Include="user\boxed\img\themes\bakery\menu_1.jpg" />
+    <Content Include="user\boxed\img\themes\bakery\menu_10.jpg" />
+    <Content Include="user\boxed\img\themes\bakery\menu_2.jpg" />
+    <Content Include="user\boxed\img\themes\bakery\menu_3.jpg" />
+    <Content Include="user\boxed\img\themes\bakery\menu_4.jpg" />
+    <Content Include="user\boxed\img\themes\bakery\menu_5.jpg" />
+    <Content Include="user\boxed\img\themes\bakery\menu_6.jpg" />
+    <Content Include="user\boxed\img\themes\bakery\menu_7.jpg" />
+    <Content Include="user\boxed\img\themes\bakery\menu_8.jpg" />
+    <Content Include="user\boxed\img\themes\bakery\menu_9.jpg" />
+    <Content Include="user\boxed\img\themes\bakery\rest.jpg" />
+    <Content Include="user\boxed\img\themes\burger\diet.jpg" />
+    <Content Include="user\boxed\img\themes\burger\menu_1.jpg" />
+    <Content Include="user\boxed\img\themes\burger\menu_2.jpg" />
+    <Content Include="user\boxed\img\themes\burger\menu_3.jpg" />
+    <Content Include="user\boxed\img\themes\burger\menu_4.jpg" />
+    <Content Include="user\boxed\img\themes\burger\menu_5.jpg" />
+    <Content Include="user\boxed\img\themes\burger\menu_6.jpg" />
+    <Content Include="user\boxed\img\themes\burger\menu_7.jpg" />
+    <Content Include="user\boxed\img\themes\burger\menu_8.jpg" />
+    <Content Include="user\boxed\img\themes\burger\rest.jpg" />
+    <Content Include="user\boxed\img\themes\burger\right_img.jpg" />
+    <Content Include="user\boxed\img\themes\cafe\1.jpg" />
+    <Content Include="user\boxed\img\themes\cafe\10.jpg" />
+    <Content Include="user\boxed\img\themes\cafe\2.jpg" />
+    <Content Include="user\boxed\img\themes\cafe\3.jpg" />
+    <Content Include="user\boxed\img\themes\cafe\4.jpg" />
+    <Content Include="user\boxed\img\themes\cafe\5.jpg" />
+    <Content Include="user\boxed\img\themes\cafe\6.jpg" />
+    <Content Include="user\boxed\img\themes\cafe\7.jpg" />
+    <Content Include="user\boxed\img\themes\cafe\8.jpg" />
+    <Content Include="user\boxed\img\themes\cafe\9.jpg" />
+    <Content Include="user\boxed\img\themes\cafe\espresso.jpg" />
+    <Content Include="user\boxed\img\themes\cafe\Left-Image.jpg" />
+    <Content Include="user\boxed\img\themes\cafe\right-image.jpg" />
+    <Content Include="user\boxed\img\themes\pizza\1.jpg" />
+    <Content Include="user\boxed\img\themes\pizza\10.jpg" />
+    <Content Include="user\boxed\img\themes\pizza\2.jpg" />
+    <Content Include="user\boxed\img\themes\pizza\3.jpg" />
+    <Content Include="user\boxed\img\themes\pizza\4.jpg" />
+    <Content Include="user\boxed\img\themes\pizza\5.jpg" />
+    <Content Include="user\boxed\img\themes\pizza\6.jpg" />
+    <Content Include="user\boxed\img\themes\pizza\7.jpg" />
+    <Content Include="user\boxed\img\themes\pizza\8.jpg" />
+    <Content Include="user\boxed\img\themes\pizza\9.jpg" />
+    <Content Include="user\boxed\img\themes\pizza\art.jpg" />
+    <Content Include="user\boxed\img\vertical-logo.png" />
+    <Content Include="user\boxed\img\videos\explore-poster.jpg" />
+    <Content Include="user\boxed\img\videos\explore.mp4" />
+    <Content Include="user\boxed\index01.html" />
+    <Content Include="user\boxed\index02.html" />
+    <Content Include="user\boxed\index03.html" />
+    <Content Include="user\boxed\index_01.html" />
+    <Content Include="user\boxed\index_amrican.html" />
+    <Content Include="user\boxed\index_animate.html" />
+    <Content Include="user\boxed\index_asian.html" />
+    <Content Include="user\boxed\index_bakery.html" />
+    <Content Include="user\boxed\index_bg_color.html" />
+    <Content Include="user\boxed\index_bg_img.html" />
+    <Content Include="user\boxed\index_burger.html" />
+    <Content Include="user\boxed\index_cafe.html" />
+    <Content Include="user\boxed\index_onepage_animation.html" />
+    <Content Include="user\boxed\index_onepage_animation_bg.html" />
+    <Content Include="user\boxed\index_onepage_fade.html" />
+    <Content Include="user\boxed\index_onepage_fullscreen.html" />
+    <Content Include="user\boxed\index_onepage_fullwidth.html" />
+    <Content Include="user\boxed\index_onepage_horizental.html" />
+    <Content Include="user\boxed\index_onepage_interactive.html" />
+    <Content Include="user\boxed\index_onepage_parallax.html" />
+    <Content Include="user\boxed\index_onepage_slider.html" />
+    <Content Include="user\boxed\index_onepage_slide_top.html" />
+    <Content Include="user\boxed\index_onepage_vertical.html" />
+    <Content Include="user\boxed\index_onepage_video.html" />
+    <Content Include="user\boxed\index_onepage_viemo.html" />
+    <Content Include="user\boxed\index_onepage_youtube.html" />
+    <Content Include="user\boxed\index_onepage_zooming.html" />
+    <Content Include="user\boxed\index_pizza.html" />
+    <Content Include="user\boxed\javascripts\custom\main.js" />
+    <Content Include="user\boxed\javascripts\custom\mbBgGallery_init.js" />
+    <Content Include="user\boxed\javascripts\libs\fullcalendar.min.js" />
+    <Content Include="user\boxed\javascripts\libs\jquery.countdown.min.js" />
+    <Content Include="user\boxed\javascripts\libs\jquery.min.js" />
+    <Content Include="user\boxed\javascripts\libs\jquery.plugin.min.js" />
+    <Content Include="user\boxed\javascripts\libs\modernizr.js" />
+    <Content Include="user\boxed\javascripts\libs\moment.min.js" />
+    <Content Include="user\boxed\javascripts\libs\plugins.js" />
+    <Content Include="user\boxed\login_default.html" />
+    <Content Include="user\boxed\login_fullscreen.html" />
+    <Content Include="user\boxed\login_slider.html" />
+    <Content Include="user\boxed\login_video.html" />
+    <Content Include="user\boxed\menu_gird.html" />
+    <Content Include="user\boxed\menu_gird_fullwidth.html" />
+    <Content Include="user\boxed\menu_grid.html" />
+    <Content Include="user\boxed\menu_list.html" />
+    <Content Include="user\boxed\menu_masonry.html" />
+    <Content Include="user\boxed\menu_masonry_fullwidth.html" />
+    <Content Include="user\boxed\menu_scroll.html" />
+    <Content Include="user\boxed\menu_shown_all.html" />
+    <Content Include="user\boxed\menu_single-2.html" />
+    <Content Include="user\boxed\menu_single.html" />
+    <Content Include="user\boxed\menu_single_leftsidebar.html" />
+    <Content Include="user\boxed\menu_single_rightsidebar.html" />
+    <Content Include="user\boxed\menu_tabs-2.html" />
+    <Content Include="user\boxed\menu_tabs.html" />
+    <Content Include="user\boxed\privacy.html" />
+    <Content Include="user\boxed\register.html" />
+    <Content Include="user\boxed\reservation.html" />
+    <Content Include="user\boxed\services.html" />
+    <Content Include="user\boxed\shop_carts.html" />
+    <Content Include="user\boxed\shop_checkout.html" />
+    <Content Include="user\boxed\shop_myaccount.html" />
+    <Content Include="user\boxed\shop_wishlist.html" />
+    <Content Include="user\boxed\shortcodes.html" />
+    <Content Include="user\boxed\shortcodes_accordion.html" />
+    <Content Include="user\boxed\shortcodes_alert_message.html" />
+    <Content Include="user\boxed\shortcodes_animation.html" />
+    <Content Include="user\boxed\shortcodes_blockquote.html" />
+    <Content Include="user\boxed\shortcodes_button.html" />
+    <Content Include="user\boxed\shortcodes_carousal.html" />
+    <Content Include="user\boxed\shortcodes_columns.html" />
+    <Content Include="user\boxed\shortcodes_divider.html" />
+    <Content Include="user\boxed\shortcodes_icons.html" />
+    <Content Include="user\boxed\shortcodes_light_box.html" />
+    <Content Include="user\boxed\shortcodes_list.html" />
+    <Content Include="user\boxed\shortcodes_maps.html" />
+    <Content Include="user\boxed\shortcodes_media.html" />
+    <Content Include="user\boxed\shortcodes_modal_box.html" />
+    <Content Include="user\boxed\shortcodes_pagination.html" />
+    <Content Include="user\boxed\shortcodes_panels.html" />
+    <Content Include="user\boxed\shortcodes_popovers.html" />
+    <Content Include="user\boxed\shortcodes_pricing.html" />
+    <Content Include="user\boxed\shortcodes_progress_bar.html" />
+    <Content Include="user\boxed\shortcodes_sections.html" />
+    <Content Include="user\boxed\shortcodes_social.html" />
+    <Content Include="user\boxed\shortcodes_tables.html" />
+    <Content Include="user\boxed\shortcodes_tabs.html" />
+    <Content Include="user\boxed\shortcodes_typography.html" />
+    <Content Include="user\boxed\sitemap.html" />
+    <Content Include="user\boxed\stylesheets\AjaxLoader.html" />
+    <Content Include="user\boxed\stylesheets\animate.css" />
+    <Content Include="user\boxed\stylesheets\font-awesome.min.css" />
+    <Content Include="user\boxed\stylesheets\fullcalendar.css" />
+    <Content Include="user\boxed\stylesheets\jquery.datetimepicker.css" />
+    <Content Include="user\boxed\stylesheets\main-responsive.css" />
+    <Content Include="user\boxed\stylesheets\main.css" />
+    <Content Include="user\boxed\stylesheets\owl.carousel.css" />
+    <Content Include="user\boxed\stylesheets\owl.theme.css" />
+    <Content Include="user\boxed\stylesheets\prettyPhoto.css" />
+    <Content Include="user\boxed\stylesheets\themes\asian.css" />
+    <Content Include="user\boxed\stylesheets\themes\bakery.css" />
+    <Content Include="user\boxed\stylesheets\themes\burger.css" />
+    <Content Include="user\boxed\stylesheets\themes\cafe.css" />
+    <Content Include="user\boxed\stylesheets\themes\grill.css" />
+    <Content Include="user\boxed\stylesheets\themes\pizza.css" />
+    <Content Include="user\boxed\team.html" />
+    <Content Include="user\boxed\team_single.html" />
+    <Content Include="user\boxed\testimonials.html" />
+    <Content Include="user\css\color.css" />
+    <Content Include="user\css\plugins.css" />
+    <Content Include="user\css\style.css" />
+    <Content Include="user\fonts\fonts.css" />
+    <Content Include="user\fonts\font_icons\fontawesome-webfonte0a5.svg" />
+    <Content Include="user\fonts\font_icons\icomoon3627.svg" />
+    <Content Include="user\gmag.kwst.net\404.html" />
+    <Content Include="user\gmag.kwst.net\about.html" />
+    <Content Include="user\gmag.kwst.net\ajax\author-single.html" />
+    <Content Include="user\gmag.kwst.net\ajax\category1.html" />
+    <Content Include="user\gmag.kwst.net\ajax\category2.html" />
+    <Content Include="user\gmag.kwst.net\ajax\category3.html" />
+    <Content Include="user\gmag.kwst.net\ajax\category4.html" />
+    <Content Include="user\gmag.kwst.net\ajax\images\all\13.html" />
+    <Content Include="user\gmag.kwst.net\ajax\images\all\15.html" />
+    <Content Include="user\gmag.kwst.net\ajax\images\all\17.html" />
+    <Content Include="user\gmag.kwst.net\ajax\images\all\2.html" />
+    <Content Include="user\gmag.kwst.net\ajax\images\all\23.html" />
+    <Content Include="user\gmag.kwst.net\ajax\images\all\25.html" />
+    <Content Include="user\gmag.kwst.net\ajax\images\all\26.html" />
+    <Content Include="user\gmag.kwst.net\ajax\images\all\27.html" />
+    <Content Include="user\gmag.kwst.net\ajax\images\all\28.html" />
+    <Content Include="user\gmag.kwst.net\ajax\images\all\29.html" />
+    <Content Include="user\gmag.kwst.net\ajax\images\all\30.html" />
+    <Content Include="user\gmag.kwst.net\ajax\images\all\31.html" />
+    <Content Include="user\gmag.kwst.net\ajax\images\all\34.html" />
+    <Content Include="user\gmag.kwst.net\ajax\images\all\35.html" />
+    <Content Include="user\gmag.kwst.net\ajax\images\all\37.html" />
+    <Content Include="user\gmag.kwst.net\ajax\images\all\38.html" />
+    <Content Include="user\gmag.kwst.net\ajax\images\avatar\1.html" />
+    <Content Include="user\gmag.kwst.net\ajax\images\avatar\2.html" />
+    <Content Include="user\gmag.kwst.net\ajax\images\avatar\3.html" />
+    <Content Include="user\gmag.kwst.net\ajax\images\avatar\4.html" />
+    <Content Include="user\gmag.kwst.net\ajax\post-single.html" />
+    <Content Include="user\gmag.kwst.net\author-single.html" />
+    <Content Include="user\gmag.kwst.net\blog.html" />
+    <Content Include="user\gmag.kwst.net\blog2.html" />
+    <Content Include="user\gmag.kwst.net\blog3.html" />
+    <Content Include="user\gmag.kwst.net\blog4.html" />
+    <Content Include="user\gmag.kwst.net\blog5.html" />
+    <Content Include="user\gmag.kwst.net\cart.html" />
+    <Content Include="user\gmag.kwst.net\category-single.html" />
+    <Content Include="user\gmag.kwst.net\category.html" />
+    <Content Include="user\gmag.kwst.net\checkout.html" />
+    <Content Include="user\gmag.kwst.net\contacts.html" />
+    <Content Include="user\gmag.kwst.net\css\color.css" />
+    <Content Include="user\gmag.kwst.net\css\plugins.css" />
+    <Content Include="user\gmag.kwst.net\css\style.css" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-brands-400.svg" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-light-300.svg" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-regular-400.svg" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-solid-900.svg" />
+    <Content Include="user\gmag.kwst.net\fonts\lgd641.svg" />
+    <Content Include="user\gmag.kwst.net\images\all\1.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\13.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\14.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\15.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\16.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\17.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\18.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\19.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\1slide.jpeg" />
+    <Content Include="user\gmag.kwst.net\images\all\2.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\20.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\21.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\22.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\24.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\2slide.jpeg" />
+    <Content Include="user\gmag.kwst.net\images\all\3.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\3.png" />
+    <Content Include="user\gmag.kwst.net\images\all\31.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\33.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\35.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\36.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\37.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\38.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\39.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\3slide.jpeg" />
+    <Content Include="user\gmag.kwst.net\images\all\4.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\40.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\41.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\42.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\43.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\44.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\46.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\48.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\49.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\4slide.jpeg" />
+    <Content Include="user\gmag.kwst.net\images\all\5.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\50.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\52.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\53.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\54.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\55.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\56.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\57.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\6.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\7.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\a1.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\a4.png" />
+    <Content Include="user\gmag.kwst.net\images\all\banner.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\thumbs\1.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\thumbs\2.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\thumbs\3.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\thumbs\4.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\thumbs\5.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\thumbs\6.jpg" />
+    <Content Include="user\gmag.kwst.net\images\all\thumbs\7.jpg" />
+    <Content Include="user\gmag.kwst.net\images\avatar\1.jpg" />
+    <Content Include="user\gmag.kwst.net\images\avatar\2.jpg" />
+    <Content Include="user\gmag.kwst.net\images\avatar\3.jpg" />
+    <Content Include="user\gmag.kwst.net\images\avatar\4.jpg" />
+    <Content Include="user\gmag.kwst.net\images\avatar\5.jpg" />
+    <Content Include="user\gmag.kwst.net\images\bg\1.jpg" />
+    <Content Include="user\gmag.kwst.net\images\bg\10.jpg" />
+    <Content Include="user\gmag.kwst.net\images\bg\11.jpg" />
+    <Content Include="user\gmag.kwst.net\images\bg\4.jpg" />
+    <Content Include="user\gmag.kwst.net\images\bg\6.jpg" />
+    <Content Include="user\gmag.kwst.net\images\bg\7.jpg" />
+    <Content Include="user\gmag.kwst.net\images\bg\8.jpg" />
+    <Content Include="user\gmag.kwst.net\images\bg\9.jpg" />
+    <Content Include="user\gmag.kwst.net\images\city-bg.png" />
+    <Content Include="user\gmag.kwst.net\images\favicon.ico" />
+    <Content Include="user\gmag.kwst.net\images\loading.gif" />
+    <Content Include="user\gmag.kwst.net\images\loading2.gif" />
+    <Content Include="user\gmag.kwst.net\images\logo.png" />
+    <Content Include="user\gmag.kwst.net\images\logo2.png" />
+    <Content Include="user\gmag.kwst.net\images\shop\1.jpg" />
+    <Content Include="user\gmag.kwst.net\images\shop\2.jpg" />
+    <Content Include="user\gmag.kwst.net\images\shop\3.jpg" />
+    <Content Include="user\gmag.kwst.net\images\shop\4.jpg" />
+    <Content Include="user\gmag.kwst.net\images\shop\5.jpg" />
+    <Content Include="user\gmag.kwst.net\images\shop\6.jpg" />
+    <Content Include="user\gmag.kwst.net\img\video-play.html" />
+    <Content Include="user\gmag.kwst.net\img\vimeo-play.html" />
+    <Content Include="user\gmag.kwst.net\img\youtube-play.html" />
+    <Content Include="user\gmag.kwst.net\index.html" />
+    <Content Include="user\gmag.kwst.net\index2.html" />
+    <Content Include="user\gmag.kwst.net\index3.html" />
+    <Content Include="user\gmag.kwst.net\js\jquery.min.js" />
+    <Content Include="user\gmag.kwst.net\js\plugins.js" />
+    <Content Include="user\gmag.kwst.net\js\scripts.js" />
+    <Content Include="user\gmag.kwst.net\post-single.html" />
+    <Content Include="user\gmag.kwst.net\post-single2.html" />
+    <Content Include="user\gmag.kwst.net\product-single.html" />
+    <Content Include="user\gmag.kwst.net\shop.html" />
+    <Content Include="user\gmag.kwst.net\_images\bg\7.html" />
+    <Content Include="user\img\ajax-loader.gif" />
+    <Content Include="user\img\app.png" />
+    <Content Include="user\img\background\404.jpg" />
+    <Content Include="user\img\background\bg_1.jpg" />
+    <Content Include="user\img\background\bg_10.jpg" />
+    <Content Include="user\img\background\bg_11.jpg" />
+    <Content Include="user\img\background\bg_12.jpg" />
+    <Content Include="user\img\background\bg_13.jpg" />
+    <Content Include="user\img\background\bg_17.jpg" />
+    <Content Include="user\img\background\bg_18.jpg" />
+    <Content Include="user\img\background\bg_19.jpg" />
+    <Content Include="user\img\background\bg_2.jpg" />
+    <Content Include="user\img\background\bg_3.jpg" />
+    <Content Include="user\img\background\bg_4.jpg" />
+    <Content Include="user\img\background\bg_6.jpg" />
+    <Content Include="user\img\background\bg_8.jpg" />
+    <Content Include="user\img\background\bg_9.jpg" />
+    <Content Include="user\img\background\coming.jpg" />
+    <Content Include="user\img\background\left_bg.png" />
+    <Content Include="user\img\background\message-bg.jpg" />
+    <Content Include="user\img\background\poster.jpg" />
+    <Content Include="user\img\background\right_bg.png" />
+    <Content Include="user\img\background\right_bg2.png" />
+    <Content Include="user\img\background\styles\bg_10.jpg" />
+    <Content Include="user\img\background\styles\bg_11.jpg" />
+    <Content Include="user\img\background\styles\bg_12.jpg" />
+    <Content Include="user\img\background\styles\bg_13.jpg" />
+    <Content Include="user\img\background\styles\bg_14.jpg" />
+    <Content Include="user\img\background\styles\bg_15.jpg" />
+    <Content Include="user\img\background\styles\bg_16.jpg" />
+    <Content Include="user\img\background\styles\bg_17.jpg" />
+    <Content Include="user\img\background\styles\bg_19.jpg" />
+    <Content Include="user\img\background\styles\bg_2.jpg" />
+    <Content Include="user\img\background\styles\bg_20.jpg" />
+    <Content Include="user\img\background\styles\bg_21.jpg" />
+    <Content Include="user\img\background\styles\bg_22.jpg" />
+    <Content Include="user\img\background\styles\bg_23.jpg" />
+    <Content Include="user\img\background\styles\bg_25.jpg" />
+    <Content Include="user\img\background\styles\bg_26.jpg" />
+    <Content Include="user\img\background\styles\bg_27.jpg" />
+    <Content Include="user\img\background\styles\bg_28.jpg" />
+    <Content Include="user\img\background\styles\bg_29.jpg" />
+    <Content Include="user\img\background\styles\bg_3.jpg" />
+    <Content Include="user\img\background\styles\bg_4.jpg" />
+    <Content Include="user\img\background\styles\bg_5.jpg" />
+    <Content Include="user\img\background\styles\bg_6.jpg" />
+    <Content Include="user\img\background\styles\bg_8.jpg" />
+    <Content Include="user\img\background\styles\bg_9.jpg" />
+    <Content Include="user\img\banner\about.jpg" />
+    <Content Include="user\img\banner\blog.jpg" />
+    <Content Include="user\img\banner\blog2.jpg" />
+    <Content Include="user\img\banner\blog3.jpg" />
+    <Content Include="user\img\banner\breakfast_banner.jpg" />
+    <Content Include="user\img\banner\carts.jpg" />
+    <Content Include="user\img\banner\certification.jpg" />
+    <Content Include="user\img\banner\contact.jpg" />
+    <Content Include="user\img\banner\desert_banner.jpg" />
+    <Content Include="user\img\banner\dinner_banner.jpg" />
+    <Content Include="user\img\banner\launch_banner.jpg" />
+    <Content Include="user\img\banner\menu.jpg" />
+    <Content Include="user\img\banner\menu_single.jpg" />
+    <Content Include="user\img\banner\services.jpg" />
+    <Content Include="user\img\banner\shortcodes.jpg" />
+    <Content Include="user\img\banner\team.jpg" />
+    <Content Include="user\img\block1.jpg" />
+    <Content Include="user\img\block2.jpg" />
+    <Content Include="user\img\block3.jpg" />
+    <Content Include="user\img\blog\block10.jpg" />
+    <Content Include="user\img\blog\block11.jpg" />
+    <Content Include="user\img\blog\block12.jpg" />
+    <Content Include="user\img\blog\block13.jpg" />
+    <Content Include="user\img\blog\block14.jpg" />
+    <Content Include="user\img\blog\block15.jpg" />
+    <Content Include="user\img\blog\block16.jpg" />
+    <Content Include="user\img\blog\block17.jpg" />
+    <Content Include="user\img\blog\block4.jpg" />
+    <Content Include="user\img\blog\block5.jpg" />
+    <Content Include="user\img\blog\block6.jpg" />
+    <Content Include="user\img\blog\block7.jpg" />
+    <Content Include="user\img\blog\block8.jpg" />
+    <Content Include="user\img\blog\block9.jpg" />
+    <Content Include="user\img\blog\blog-large.jpg" />
+    <Content Include="user\img\blog\blog-large2.jpg" />
+    <Content Include="user\img\blog\blog-large3.jpg" />
+    <Content Include="user\img\blog\blog-list.jpg" />
+    <Content Include="user\img\blog\blog-list2.jpg" />
+    <Content Include="user\img\blog\blog-list3.jpg" />
+    <Content Include="user\img\blog\blog-list4.jpg" />
+    <Content Include="user\img\blog\blog-list5.jpg" />
+    <Content Include="user\img\blog\blog_list_1.jpg" />
+    <Content Include="user\img\blog\blog_list_2.jpg" />
+    <Content Include="user\img\blog\blog_list_3.jpg" />
+    <Content Include="user\img\blog\blog_list_4.jpg" />
+    <Content Include="user\img\blog\blog_list_5.jpg" />
+    <Content Include="user\img\blog\CA_Home_Coffee_in_cafe%402x.png" />
+    <Content Include="user\img\blog\full_width_gallery.jpg" />
+    <Content Include="user\img\breakfast.png" />
+    <Content Include="user\img\breakfast_dark.png" />
+    <Content Include="user\img\carts\1.jpg" />
+    <Content Include="user\img\carts\2.jpg" />
+    <Content Include="user\img\carts\3.jpg" />
+    <Content Include="user\img\carts\4.jpg" />
+    <Content Include="user\img\carts\5.jpg" />
+    <Content Include="user\img\clients\1.jpg" />
+    <Content Include="user\img\clients\2.jpg" />
+    <Content Include="user\img\clients\3.jpg" />
+    <Content Include="user\img\clients\4.jpg" />
+    <Content Include="user\img\clients\5.jpg" />
+    <Content Include="user\img\clients\client_1.jpg" />
+    <Content Include="user\img\clients\client_10.png" />
+    <Content Include="user\img\clients\client_11.png" />
+    <Content Include="user\img\clients\client_12.png" />
+    <Content Include="user\img\clients\client_13.png" />
+    <Content Include="user\img\clients\client_14.png" />
+    <Content Include="user\img\clients\client_15.png" />
+    <Content Include="user\img\clients\client_2.jpg" />
+    <Content Include="user\img\clients\client_3.jpg" />
+    <Content Include="user\img\clients\client_4.jpg" />
+    <Content Include="user\img\clients\client_7.png" />
+    <Content Include="user\img\clients\client_8.png" />
+    <Content Include="user\img\clients\client_9.png" />
+    <Content Include="user\img\comment\1.jpg" />
+    <Content Include="user\img\comment\2.jpg" />
+    <Content Include="user\img\comment\3.jpg" />
+    <Content Include="user\img\dessert.png" />
+    <Content Include="user\img\dessert_dark.png" />
+    <Content Include="user\img\dinner.png" />
+    <Content Include="user\img\dinner_dark.png" />
+    <Content Include="user\img\divider_1.png" />
+    <Content Include="user\img\divider_2.png" />
+    <Content Include="user\img\drop_menu\combo.jpg" />
+    <Content Include="user\img\drop_menu\deserts.jpg" />
+    <Content Include="user\img\drop_menu\dishes.jpg" />
+    <Content Include="user\img\drop_menu\drinks.jpg" />
+    <Content Include="user\img\drop_menu\fishes.jpg" />
+    <Content Include="user\img\drop_menu\salads.jpg" />
+    <Content Include="user\img\drop_menu\soup.jpg" />
+    <Content Include="user\img\drop_menu\starter.jpg" />
+    <Content Include="user\img\favicon\apple-touch-icon-114x114.png" />
+    <Content Include="user\img\favicon\apple-touch-icon-144x144.png" />
+    <Content Include="user\img\favicon\apple-touch-icon-57x57.png" />
+    <Content Include="user\img\favicon\apple-touch-icon-72x72.png" />
+    <Content Include="user\img\favicon\favicon.ico" />
+    <Content Include="user\img\footer_logo.png" />
+    <Content Include="user\img\grabbing.png" />
+    <Content Include="user\img\home2\art.jpg" />
+    <Content Include="user\img\home2\chef.png" />
+    <Content Include="user\img\home3\center-intro.jpg" />
+    <Content Include="user\img\home3\chef.jpg" />
+    <Content Include="user\img\home3\left-intro.jpg" />
+    <Content Include="user\img\home3\right-intro.jpg" />
+    <Content Include="user\img\iconCaution.png" />
+    <Content Include="user\img\Left-Image.jpg" />
+    <Content Include="user\img\left.png" />
+    <Content Include="user\img\logo.png" />
+    <Content Include="user\img\logo_dark.png" />
+    <Content Include="user\img\logo_intro.png" />
+    <Content Include="user\img\logo_intro_dark.png" />
+    <Content Include="user\img\lunch.png" />
+    <Content Include="user\img\lunch_dark.png" />
+    <Content Include="user\img\map.png" />
+    <Content Include="user\img\masonry\1.jpg" />
+    <Content Include="user\img\masonry\10.jpg" />
+    <Content Include="user\img\masonry\2.jpg" />
+    <Content Include="user\img\masonry\3.jpg" />
+    <Content Include="user\img\masonry\4.jpg" />
+    <Content Include="user\img\masonry\5.jpg" />
+    <Content Include="user\img\masonry\6.jpg" />
+    <Content Include="user\img\masonry\7.jpg" />
+    <Content Include="user\img\masonry\8.jpg" />
+    <Content Include="user\img\masonry\9.jpg" />
+    <Content Include="user\img\menu\bg1.jpg" />
+    <Content Include="user\img\menu\bg2.jpg" />
+    <Content Include="user\img\menu\bg3.jpg" />
+    <Content Include="user\img\menu\breakfast.jpg" />
+    <Content Include="user\img\menu\breakfast_1.jpg" />
+    <Content Include="user\img\menu\breakfast_2.jpg" />
+    <Content Include="user\img\menu\breakfast_3.jpg" />
+    <Content Include="user\img\menu\breakfast_4.jpg" />
+    <Content Include="user\img\menu\breakfast_5.jpg" />
+    <Content Include="user\img\menu\breakfast_6.jpg" />
+    <Content Include="user\img\menu\breakfast_7.jpg" />
+    <Content Include="user\img\menu\breakfast_8.jpg" />
+    <Content Include="user\img\menu\desert.jpg" />
+    <Content Include="user\img\menu\desert1.jpg" />
+    <Content Include="user\img\menu\desert2.jpg" />
+    <Content Include="user\img\menu\desert3.jpg" />
+    <Content Include="user\img\menu\desert4.jpg" />
+    <Content Include="user\img\menu\desert5.jpg" />
+    <Content Include="user\img\menu\desert\desert1.jpg" />
+    <Content Include="user\img\menu\desert\desert2.jpg" />
+    <Content Include="user\img\menu\desert\desert3.jpg" />
+    <Content Include="user\img\menu\desert\desert4.jpg" />
+    <Content Include="user\img\menu\desert\desert5.jpg" />
+    <Content Include="user\img\menu\desert\desert6.jpg" />
+    <Content Include="user\img\menu\desert_1.jpg" />
+    <Content Include="user\img\menu\desert_2.jpg" />
+    <Content Include="user\img\menu\desert_3.jpg" />
+    <Content Include="user\img\menu\desert_4.jpg" />
+    <Content Include="user\img\menu\desert_5.jpg" />
+    <Content Include="user\img\menu\desert_6.jpg" />
+    <Content Include="user\img\menu\desert_7.jpg" />
+    <Content Include="user\img\menu\desert_8.jpg" />
+    <Content Include="user\img\menu\dinner.jpg" />
+    <Content Include="user\img\menu\dinner_1.jpg" />
+    <Content Include="user\img\menu\dinner_2.jpg" />
+    <Content Include="user\img\menu\dinner_3.jpg" />
+    <Content Include="user\img\menu\dinner_4.jpg" />
+    <Content Include="user\img\menu\dinner_5.jpg" />
+    <Content Include="user\img\menu\dinner_6.jpg" />
+    <Content Include="user\img\menu\dinner_7.jpg" />
+    <Content Include="user\img\menu\dinner_8.jpg" />
+    <Content Include="user\img\menu\dishes\dishes1.jpg" />
+    <Content Include="user\img\menu\dishes\dishes2.jpg" />
+    <Content Include="user\img\menu\dishes\dishes3.jpg" />
+    <Content Include="user\img\menu\dishes\dishes4.jpg" />
+    <Content Include="user\img\menu\dishes\dishes5.jpg" />
+    <Content Include="user\img\menu\dishes\dishes6.jpg" />
+    <Content Include="user\img\menu\launch.jpg" />
+    <Content Include="user\img\menu\launch_1.jpg" />
+    <Content Include="user\img\menu\launch_2.jpg" />
+    <Content Include="user\img\menu\launch_3.jpg" />
+    <Content Include="user\img\menu\launch_4.jpg" />
+    <Content Include="user\img\menu\launch_5.jpg" />
+    <Content Include="user\img\menu\launch_6.jpg" />
+    <Content Include="user\img\menu\launch_7.jpg" />
+    <Content Include="user\img\menu\launch_8.jpg" />
+    <Content Include="user\img\menu\maggi\cheese nachos.jpg" />
+    <Content Include="user\img\menu\maggi\chilli garlic bread.jpg" />
+    <Content Include="user\img\menu\maggi\french fries.jpg" />
+    <Content Include="user\img\menu\maggi\garlic bread.jpg" />
+    <Content Include="user\img\menu\maggi\Maggi-Masala-Noodles.jpg" />
+    <Content Include="user\img\menu\maggi\cheese maggi.jpg" />
+    <Content Include="user\img\menu\maggi\super loaded nachos.jpg" />
+    <Content Include="user\img\menu\maggi\supreme nachos.jpg" />
+    <Content Include="user\img\menu\menu-single.jpg" />
+    <Content Include="user\img\menu\menu-single2.jpg" />
+    <Content Include="user\img\menu\menu-single3.jpg" />
+    <Content Include="user\img\menu\menu-single4.jpg" />
+    <Content Include="user\img\menu\menu_home_1\desert_1.jpg" />
+    <Content Include="user\img\menu\menu_home_1\desert_2.jpg" />
+    <Content Include="user\img\menu\menu_home_1\desert_3.jpg" />
+    <Content Include="user\img\menu\menu_home_1\desert_4.jpg" />
+    <Content Include="user\img\menu\menu_home_1\dishes_1.jpg" />
+    <Content Include="user\img\menu\menu_home_1\dishes_2.jpg" />
+    <Content Include="user\img\menu\menu_home_1\dishes_3.jpg" />
+    <Content Include="user\img\menu\menu_home_1\dishes_4.jpg" />
+    <Content Include="user\img\menu\menu_home_1\drinks_1.jpg" />
+    <Content Include="user\img\menu\menu_home_1\drinks_2.jpg" />
+    <Content Include="user\img\menu\menu_home_1\drinks_3.jpg" />
+    <Content Include="user\img\menu\menu_home_1\drinks_4.jpg" />
+    <Content Include="user\img\menu\menu_home_1\starter_1.jpg" />
+    <Content Include="user\img\menu\menu_home_1\starter_2.jpg" />
+    <Content Include="user\img\menu\menu_home_1\starter_3.jpg" />
+    <Content Include="user\img\menu\menu_home_1\starter_4.jpg" />
+    <Content Include="user\img\menu\starter\coffee_3.jpg" />
+    <Content Include="user\img\menu\starter\pizza.jpg" />
+    <Content Include="user\img\menu\starter\starter1.jpg" />
+    <Content Include="user\img\menu\starter\starter2.jpg" />
+    <Content Include="user\img\menu\starter\starter3.jpg" />
+    <Content Include="user\img\menu\starter\starter4.jpg" />
+    <Content Include="user\img\menu\starter\starter5.jpg" />
+    <Content Include="user\img\menu\starter\starter6.jpg" />
+    <Content Include="user\img\move-bg.jpg" />
+    <Content Include="user\img\pattern-bg.png" />
+    <Content Include="user\img\pattern.html" />
+    <Content Include="user\img\pattern.png" />
+    <Content Include="user\img\poster.html" />
+    <Content Include="user\img\post_thumb.jpg" />
+    <Content Include="user\img\post_thumb2.jpg" />
+    <Content Include="user\img\post_thumb3.jpg" />
+    <Content Include="user\img\progress.gif" />
+    <Content Include="user\img\right-image.jpg" />
+    <Content Include="user\img\right.png" />
+    <Content Include="user\img\slide1.jpg" />
+    <Content Include="user\img\slide2.jpg" />
+    <Content Include="user\img\slide3.jpg" />
+    <Content Include="user\img\socials\arim.png" />
+    <Content Include="user\img\socials\bebo.png" />
+    <Content Include="user\img\socials\behance.png" />
+    <Content Include="user\img\socials\blogger.png" />
+    <Content Include="user\img\socials\delicious.png" />
+    <Content Include="user\img\socials\deviantart.png" />
+    <Content Include="user\img\socials\digg.png" />
+    <Content Include="user\img\socials\facebook.png" />
+    <Content Include="user\img\socials\fastfm.png" />
+    <Content Include="user\img\socials\flikr.png" />
+    <Content Include="user\img\socials\formspring.png" />
+    <Content Include="user\img\socials\google_plus.png" />
+    <Content Include="user\img\socials\linkedin.png" />
+    <Content Include="user\img\socials\myspace.png" />
+    <Content Include="user\img\socials\path.png" />
+    <Content Include="user\img\socials\pinterest.png" />
+    <Content Include="user\img\socials\quora.png" />
+    <Content Include="user\img\socials\rss.png" />
+    <Content Include="user\img\socials\stumblepun.png" />
+    <Content Include="user\img\socials\technorati.png" />
+    <Content Include="user\img\socials\vimeo.png" />
+    <Content Include="user\img\socials\wordpress.png" />
+    <Content Include="user\img\socials\yelp.png" />
+    <Content Include="user\img\socials\youtube.png" />
+    <Content Include="user\img\sub-menu-dark.png" />
+    <Content Include="user\img\sub-menu.png" />
+    <Content Include="user\img\team\1.jpg" />
+    <Content Include="user\img\team\2.jpg" />
+    <Content Include="user\img\team\3.jpg" />
+    <Content Include="user\img\team\4.jpg" />
+    <Content Include="user\img\team\5.jpg" />
+    <Content Include="user\img\team\6.jpg" />
+    <Content Include="user\img\team\7.jpg" />
+    <Content Include="user\img\team\8.jpg" />
+    <Content Include="user\img\team\9.jpg" />
+    <Content Include="user\img\themes\amrican\center-intro.jpg" />
+    <Content Include="user\img\themes\amrican\left-intro.jpg" />
+    <Content Include="user\img\themes\amrican\right-intro.jpg" />
+    <Content Include="user\img\themes\asian\1.jpg" />
+    <Content Include="user\img\themes\asian\appetizers.jpg" />
+    <Content Include="user\img\themes\asian\diet.jpg" />
+    <Content Include="user\img\themes\asian\meals.jpg" />
+    <Content Include="user\img\themes\asian\triple.jpg" />
+    <Content Include="user\img\themes\bakery\diet.jpg" />
+    <Content Include="user\img\themes\bakery\img.png" />
+    <Content Include="user\img\themes\bakery\intro.jpg" />
+    <Content Include="user\img\themes\bakery\menu_1.jpg" />
+    <Content Include="user\img\themes\bakery\menu_10.jpg" />
+    <Content Include="user\img\themes\bakery\menu_2.jpg" />
+    <Content Include="user\img\themes\bakery\menu_3.jpg" />
+    <Content Include="user\img\themes\bakery\menu_4.jpg" />
+    <Content Include="user\img\themes\bakery\menu_5.jpg" />
+    <Content Include="user\img\themes\bakery\menu_6.jpg" />
+    <Content Include="user\img\themes\bakery\menu_7.jpg" />
+    <Content Include="user\img\themes\bakery\menu_8.jpg" />
+    <Content Include="user\img\themes\bakery\menu_9.jpg" />
+    <Content Include="user\img\themes\bakery\rest.jpg" />
+    <Content Include="user\img\themes\burger\diet.jpg" />
+    <Content Include="user\img\themes\burger\menu_1.jpg" />
+    <Content Include="user\img\themes\burger\menu_2.jpg" />
+    <Content Include="user\img\themes\burger\menu_3.jpg" />
+    <Content Include="user\img\themes\burger\menu_4.jpg" />
+    <Content Include="user\img\themes\burger\menu_5.jpg" />
+    <Content Include="user\img\themes\burger\menu_6.jpg" />
+    <Content Include="user\img\themes\burger\menu_7.jpg" />
+    <Content Include="user\img\themes\burger\menu_8.jpg" />
+    <Content Include="user\img\themes\burger\rest.jpg" />
+    <Content Include="user\img\themes\burger\right_img.jpg" />
+    <Content Include="user\img\themes\cafe\1.jpg" />
+    <Content Include="user\img\themes\cafe\10.jpg" />
+    <Content Include="user\img\themes\cafe\2.jpg" />
+    <Content Include="user\img\themes\cafe\3.jpg" />
+    <Content Include="user\img\themes\cafe\4.jpg" />
+    <Content Include="user\img\themes\cafe\5.jpg" />
+    <Content Include="user\img\themes\cafe\6.jpg" />
+    <Content Include="user\img\themes\cafe\7.jpg" />
+    <Content Include="user\img\themes\cafe\8.jpg" />
+    <Content Include="user\img\themes\cafe\9.jpg" />
+    <Content Include="user\img\themes\cafe\espresso.jpg" />
+    <Content Include="user\img\themes\cafe\Left-Image.jpg" />
+    <Content Include="user\img\themes\cafe\right-image.jpg" />
+    <Content Include="user\img\themes\pizza\1.jpg" />
+    <Content Include="user\img\themes\pizza\10.jpg" />
+    <Content Include="user\img\themes\pizza\2.jpg" />
+    <Content Include="user\img\themes\pizza\3.jpg" />
+    <Content Include="user\img\themes\pizza\4.jpg" />
+    <Content Include="user\img\themes\pizza\5.jpg" />
+    <Content Include="user\img\themes\pizza\6.jpg" />
+    <Content Include="user\img\themes\pizza\7.jpg" />
+    <Content Include="user\img\themes\pizza\8.jpg" />
+    <Content Include="user\img\themes\pizza\9.jpg" />
+    <Content Include="user\img\themes\pizza\art.jpg" />
+    <Content Include="user\img\vertical-logo.png" />
+    <Content Include="user\img\videos\explore-poster.jpg" />
+    <Content Include="user\img\videos\explore.mp4" />
+    <Content Include="user\javascripts\custom\main.js" />
+    <Content Include="user\javascripts\custom\mbBgGallery_init.js" />
+    <Content Include="user\javascripts\libs\fullcalendar.min.js" />
+    <Content Include="user\javascripts\libs\jquery.countdown.min.js" />
+    <Content Include="user\javascripts\libs\jquery.min.js" />
+    <Content Include="user\javascripts\libs\jquery.plugin.min.js" />
+    <Content Include="user\javascripts\libs\modernizr.js" />
+    <Content Include="user\javascripts\libs\moment.min.js" />
+    <Content Include="user\javascripts\libs\plugins.js" />
+    <Content Include="user\login.aspx" />
+    <Content Include="user\signup.aspx" />
+    <Content Include="user\forgotpass.aspx" />
+    <Content Include="user\reservation.aspx" />
+    <Content Include="user\blog.aspx" />
+    <Content Include="user\stylesheets\AjaxLoader.html" />
+    <Content Include="user\stylesheets\animate.css" />
+    <Content Include="user\stylesheets\font-awesome.min.css" />
+    <Content Include="user\stylesheets\fullcalendar.css" />
+    <Content Include="user\stylesheets\jquery.datetimepicker.css" />
+    <Content Include="user\stylesheets\main-responsive.css" />
+    <Content Include="user\stylesheets\main.css" />
+    <Content Include="user\stylesheets\owl.carousel.css" />
+    <Content Include="user\stylesheets\owl.theme.css" />
+    <Content Include="user\stylesheets\prettyPhoto.css" />
+    <Content Include="user\stylesheets\themes\asian.css" />
+    <Content Include="user\stylesheets\themes\bakery.css" />
+    <Content Include="user\stylesheets\themes\burger.css" />
+    <Content Include="user\stylesheets\themes\cafe.css" />
+    <Content Include="user\stylesheets\themes\grill.css" />
+    <Content Include="user\stylesheets\themes\pizza.css" />
+    <Content Include="user\contactus.aspx" />
+    <Content Include="user\Uhome.aspx" />
+    <Content Include="user\menu.aspx" />
+    <Content Include="user\team.aspx" />
+    <Content Include="user\aboutus.aspx" />
+    <Content Include="user\add_to_cart.aspx" />
+    <Content Include="user\view_cart.aspx" />
+    <Content Include="user\delete_cart.aspx" />
+    <Content Include="user\increment.aspx" />
+    <Content Include="user\decrement.aspx" />
+    <Content Include="user\testimonial.aspx" />
+    <Content Include="user\payment.aspx" />
+    <Content Include="user\ChechOut.aspx" />
+    <Content Include="user\PayCallBack.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="admin\alogin.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="admin\admin.Master.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin.Master.designer.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Category.aspx.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Category.aspx.designer.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\dispcategory.aspx.cs">
+      <DependentUpon>dispcategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\dispcategory.aspx.designer.cs">
+      <DependentUpon>dispcategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Editcategory.aspx.cs">
+      <DependentUpon>Editcategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Editcategory.aspx.designer.cs">
+      <DependentUpon>Editcategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\delcategory.aspx.cs">
+      <DependentUpon>delcategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\delcategory.aspx.designer.cs">
+      <DependentUpon>delcategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\forgotpass.aspx.cs">
+      <DependentUpon>forgotpass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\forgotpass.aspx.designer.cs">
+      <DependentUpon>forgotpass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\product.aspx.cs">
+      <DependentUpon>product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\product.aspx.designer.cs">
+      <DependentUpon>product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\editproduct.aspx.cs">
+      <DependentUpon>editproduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\editproduct.aspx.designer.cs">
+      <DependentUpon>editproduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\delproduct.aspx.cs">
+      <DependentUpon>delproduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\delproduct.aspx.designer.cs">
+      <DependentUpon>delproduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\team.aspx.cs">
+      <DependentUpon>team.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\team.aspx.designer.cs">
+      <DependentUpon>team.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\dispteam.aspx.cs">
+      <DependentUpon>dispteam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\dispteam.aspx.designer.cs">
+      <DependentUpon>dispteam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\editteam.aspx.cs">
+      <DependentUpon>editteam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\editteam.aspx.designer.cs">
+      <DependentUpon>editteam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\delteam.aspx.cs">
+      <DependentUpon>delteam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\delteam.aspx.designer.cs">
+      <DependentUpon>delteam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\blog_mstr.aspx.cs">
+      <DependentUpon>blog_mstr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\blog_mstr.aspx.designer.cs">
+      <DependentUpon>blog_mstr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\dispblog.aspx.cs">
+      <DependentUpon>dispblog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\dispblog.aspx.designer.cs">
+      <DependentUpon>dispblog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\editblog.aspx.cs">
+      <DependentUpon>editblog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\editblog.aspx.designer.cs">
+      <DependentUpon>editblog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\delblog.aspx.cs">
+      <DependentUpon>delblog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\delblog.aspx.designer.cs">
+      <DependentUpon>delblog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\service_mstr.aspx.cs">
+      <DependentUpon>service_mstr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\service_mstr.aspx.designer.cs">
+      <DependentUpon>service_mstr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\editservice.aspx.cs">
+      <DependentUpon>editservice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\editservice.aspx.designer.cs">
+      <DependentUpon>editservice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\delservice.aspx.cs">
+      <DependentUpon>delservice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\delservice.aspx.designer.cs">
+      <DependentUpon>delservice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\dispservice.aspx.cs">
+      <DependentUpon>dispservice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\dispservice.aspx.designer.cs">
+      <DependentUpon>dispservice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\dispproduct.aspx.cs">
+      <DependentUpon>dispproduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\dispproduct.aspx.designer.cs">
+      <DependentUpon>dispproduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\vieworder.aspx.cs">
+      <DependentUpon>vieworder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\vieworder.aspx.designer.cs">
+      <DependentUpon>vieworder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\viewmessage.aspx.cs">
+      <DependentUpon>viewmessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\viewmessage.aspx.designer.cs">
+      <DependentUpon>viewmessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\dashboard.aspx.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\dashboard.aspx.designer.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\viewpayment.aspx.cs">
+      <DependentUpon>viewpayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\viewpayment.aspx.designer.cs">
+      <DependentUpon>viewpayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\viewreservation.aspx.cs">
+      <DependentUpon>viewreservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\viewreservation.aspx.designer.cs">
+      <DependentUpon>viewreservation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\viewreviews.aspx.cs">
+      <DependentUpon>viewreviews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\viewreviews.aspx.designer.cs">
+      <DependentUpon>viewreviews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="admin\alogin.aspx.cs">
+      <DependentUpon>alogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\alogin.aspx.designer.cs">
+      <DependentUpon>alogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\signup.aspx.cs">
+      <DependentUpon>signup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\signup.aspx.designer.cs">
+      <DependentUpon>signup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\forgotpass.aspx.cs">
+      <DependentUpon>forgotpass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\forgotpass.aspx.designer.cs">
+      <DependentUpon>forgotpass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\umaster.Master.cs">
+      <DependentUpon>umaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\umaster.Master.designer.cs">
+      <DependentUpon>umaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="user\reservation.aspx.cs">
+      <DependentUpon>reservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\reservation.aspx.designer.cs">
+      <DependentUpon>reservation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\blog.aspx.cs">
+      <DependentUpon>blog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\blog.aspx.designer.cs">
+      <DependentUpon>blog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\contactus.aspx.cs">
+      <DependentUpon>contactus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\contactus.aspx.designer.cs">
+      <DependentUpon>contactus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\Uhome.aspx.cs">
+      <DependentUpon>Uhome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\Uhome.aspx.designer.cs">
+      <DependentUpon>Uhome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\menu.aspx.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\menu.aspx.designer.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\team.aspx.cs">
+      <DependentUpon>team.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\team.aspx.designer.cs">
+      <DependentUpon>team.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\aboutus.aspx.cs">
+      <DependentUpon>aboutus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\aboutus.aspx.designer.cs">
+      <DependentUpon>aboutus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\add_to_cart.aspx.cs">
+      <DependentUpon>add_to_cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\add_to_cart.aspx.designer.cs">
+      <DependentUpon>add_to_cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\view_cart.aspx.cs">
+      <DependentUpon>view_cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\view_cart.aspx.designer.cs">
+      <DependentUpon>view_cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\delete_cart.aspx.cs">
+      <DependentUpon>delete_cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\delete_cart.aspx.designer.cs">
+      <DependentUpon>delete_cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\increment.aspx.cs">
+      <DependentUpon>increment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\increment.aspx.designer.cs">
+      <DependentUpon>increment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\decrement.aspx.cs">
+      <DependentUpon>decrement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\decrement.aspx.designer.cs">
+      <DependentUpon>decrement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\testimonial.aspx.cs">
+      <DependentUpon>testimonial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\testimonial.aspx.designer.cs">
+      <DependentUpon>testimonial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\payment.aspx.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\payment.aspx.designer.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\ChechOut.aspx.cs">
+      <DependentUpon>ChechOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\ChechOut.aspx.designer.cs">
+      <DependentUpon>ChechOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\PayCallBack.aspx.cs">
+      <DependentUpon>PayCallBack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\PayCallBack.aspx.designer.cs">
+      <DependentUpon>PayCallBack.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\admin.Master" />
+    <Content Include="admin\assets\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="admin\assets\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="admin\assets\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="admin\assets\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="admin\assets\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="admin\assets\fonts\Material-Design-Iconic-Fontd1f1.ttf" />
+    <Content Include="admin\assets\fonts\Material-Design-Iconic-Fontd1f1.woff" />
+    <Content Include="admin\assets\fonts\Material-Design-Iconic-Fontd1f1.woff2" />
+    <Content Include="admin\assets\fonts\Simple-Line-Iconsb26c.eot" />
+    <Content Include="admin\assets\fonts\Simple-Line-Iconsb26c.ttf" />
+    <Content Include="admin\assets\fonts\Simple-Line-Iconsb26c.woff" />
+    <Content Include="admin\assets\fonts\Simple-Line-Iconsb26c.woff2" />
+    <Content Include="admin\assets\fonts\themify9f24.eot" />
+    <Content Include="admin\assets\fonts\themify9f24.ttf" />
+    <Content Include="admin\assets\fonts\themify9f24.woff" />
+    <Content Include="admin\assets\fonts\themifyd41d.eot" />
+    <Content Include="admin\assets\fonts\weathericons-regular-webfont.eot" />
+    <Content Include="admin\assets\fonts\weathericons-regular-webfont.woff2" />
+    <Content Include="admin\assets\fonts\weathericons-regular-webfontd41d.eot" />
+    <None Include="packages.config" />
+    <Content Include="user\umaster.Master" />
+    <Content Include="user\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="user\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="user\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="user\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="user\bootstrap\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="user\boxed\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="user\boxed\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="user\boxed\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="user\boxed\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="user\boxed\bootstrap\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="user\boxed\fonts\font_icons\fontawesome-webfontd41d.eot" />
+    <Content Include="user\boxed\fonts\font_icons\fontawesome-webfonte0a5.eot" />
+    <Content Include="user\boxed\fonts\font_icons\fontawesome-webfonte0a5.ttf" />
+    <Content Include="user\boxed\fonts\font_icons\fontawesome-webfonte0a5.woff" />
+    <Content Include="user\boxed\fonts\font_icons\fontawesome-webfonte0a5.woff2" />
+    <Content Include="user\boxed\fonts\font_icons\icomoon3627.eot" />
+    <Content Include="user\boxed\fonts\font_icons\icomoon3627.ttf" />
+    <Content Include="user\boxed\fonts\font_icons\icomoon3627.woff" />
+    <Content Include="user\boxed\fonts\font_icons\icomoond41d.eot" />
+    <Content Include="user\boxed\img\videos\explore.webm" />
+    <Content Include="user\fonts\font_icons\fontawesome-webfontd41d.eot" />
+    <Content Include="user\fonts\font_icons\fontawesome-webfonte0a5.eot" />
+    <Content Include="user\fonts\font_icons\fontawesome-webfonte0a5.ttf" />
+    <Content Include="user\fonts\font_icons\fontawesome-webfonte0a5.woff" />
+    <Content Include="user\fonts\font_icons\fontawesome-webfonte0a5.woff2" />
+    <Content Include="user\fonts\font_icons\icomoon3627.eot" />
+    <Content Include="user\fonts\font_icons\icomoon3627.ttf" />
+    <Content Include="user\fonts\font_icons\icomoon3627.woff" />
+    <Content Include="user\fonts\font_icons\icomoond41d.eot" />
+    <Content Include="user\img\videos\explore.webm" />
+    <Content Include="user\assets\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="user\assets\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="user\assets\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="user\assets\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="user\assets\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="user\assets\fonts\Material-Design-Iconic-Fontd1f1.ttf" />
+    <Content Include="user\assets\fonts\Material-Design-Iconic-Fontd1f1.woff" />
+    <Content Include="user\assets\fonts\Material-Design-Iconic-Fontd1f1.woff2" />
+    <Content Include="user\assets\fonts\Simple-Line-Iconsb26c.eot" />
+    <Content Include="user\assets\fonts\Simple-Line-Iconsb26c.ttf" />
+    <Content Include="user\assets\fonts\Simple-Line-Iconsb26c.woff" />
+    <Content Include="user\assets\fonts\Simple-Line-Iconsb26c.woff2" />
+    <Content Include="user\assets\fonts\themify9f24.eot" />
+    <Content Include="user\assets\fonts\themify9f24.ttf" />
+    <Content Include="user\assets\fonts\themify9f24.woff" />
+    <Content Include="user\assets\fonts\themifyd41d.eot" />
+    <Content Include="user\assets\fonts\weathericons-regular-webfont.eot" />
+    <Content Include="user\assets\fonts\weathericons-regular-webfont.woff2" />
+    <Content Include="user\assets\fonts\weathericons-regular-webfontd41d.eot" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-brands-400.eot" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-brands-400.ttf" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-brands-400.woff" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-brands-400.woff2" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-brands-400d41d.eot" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-light-300.eot" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-light-300.ttf" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-light-300.woff" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-light-300.woff2" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-light-300d41d.eot" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-regular-400.eot" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-regular-400.ttf" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-regular-400.woff" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-regular-400.woff2" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-regular-400d41d.eot" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-solid-900.eot" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-solid-900.ttf" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-solid-900.woff" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-solid-900.woff2" />
+    <Content Include="user\gmag.kwst.net\fonts\fa-solid-900d41d.eot" />
+    <Content Include="user\gmag.kwst.net\fonts\lgd41d.eot" />
+    <Content Include="user\gmag.kwst.net\fonts\lgd641.eot" />
+    <Content Include="user\gmag.kwst.net\fonts\lgd641.ttf" />
+    <Content Include="user\gmag.kwst.net\fonts\lgd641.woff" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="admin\assets\plugins\bootstrap-datepicker\js\" />
+    <Folder Include="admin\blogimg\" />
+    <Folder Include="admin\teamimg\" />
+    <Folder Include="user\assets\plugins\bootstrap-datepicker\js\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>13935</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:13935/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
