@@ -34,13 +34,20 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
-    
+
     'stripe' => [
         'secret' => env('STRIPE_SECRET'),
         'webhookkey' => env('STRIPE_WEBHOOK_SECRET'),
     ],
-    
+
     'google_maps' => [
         'api_key' => env('GOOGLE_MAPS_API_KEY'),
     ],
+
+    'google' => [
+    'client_id' => env('GOOGLE_CLIENT_ID'),
+    'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+    'redirect' => env('GOOGLE_REDIRECT_URI'),
+],
+
 ];

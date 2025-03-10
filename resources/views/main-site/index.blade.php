@@ -3,16 +3,16 @@
 @extends('layouts.main-site')
 
 @push('styles')
-    
-    
+
+
     <!-- Animation CSS -->
-    <link rel="stylesheet" href="/assets/css/animate.css">	
+    <link rel="stylesheet" href="/assets/css/animate.css">
     <!-- Latest Bootstrap min CSS -->
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i&amp;display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet">
     <!-- Icon Font CSS -->
     <link rel="stylesheet" href="/assets/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/ionicons.min.css">
@@ -37,32 +37,103 @@
     <link rel="stylesheet" href="/assets/css/responsive.css">
     <link id="layoutstyle" rel="stylesheet" href="/assets/color/theme-red.css">
 
-    
+
     <!-- FancyBox CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
+
+<style>
+       /* Chatbot Toggle Button */
+       #chatbotToggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Chatbot Container */
+        #chatbotContainer {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 50vh;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            display: none;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+        }
+
+        .chatbot-header {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .chatbot-messages {
+            max-height: 250px;
+            overflow-y: auto;
+            padding: 5px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .chatbot-message {
+            padding: 8px;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+
+        .user-message {
+            background: #989ea4;
+            color: white;
+            text-align: right;
+        }
+
+        .bot-message {
+            background: #f1f1f1;
+            text-align: left;
+        }
+
+        .chatbot-question {
+            background: #989ea4;
+            color: white;
+            padding: 5px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+</style>
 @endpush
 
 
 @push('scripts')
-    <!-- Latest jQuery --> 
-    <script src="/assets/js/jquery-1.12.4.min.js"></script> 
-    <!-- Latest compiled and minified Bootstrap --> 
-    <script src="/assets/bootstrap/js/bootstrap.min.js"></script> 
-    <!-- owl-carousel min js  --> 
-    <script src="/assets/owlcarousel/js/owl.carousel.min.js"></script> 
-    <!-- magnific-popup min js  --> 
-    <script src="/assets/js/magnific-popup.min.js"></script> 
-    <!-- waypoints min js  --> 
-    <script src="/assets/js/waypoints.min.js"></script> 
-    <!-- parallax js  --> 
-    <script src="/assets/js/parallax.js"></script> 
-    <!-- countdown js  --> 
-    <script src="/assets/js/jquery.countdown.min.js"></script> 
+    <!-- Latest jQuery -->
+    <script src="/assets/js/jquery-1.12.4.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="/assets/owlcarousel/js/owl.carousel.min.js"></script>
+    <!-- magnific-popup min js  -->
+    <script src="/assets/js/magnific-popup.min.js"></script>
+    <!-- waypoints min js  -->
+    <script src="/assets/js/waypoints.min.js"></script>
+    <!-- parallax js  -->
+    <script src="/assets/js/parallax.js"></script>
+    <!-- countdown js  -->
+    <script src="/assets/js/jquery.countdown.min.js"></script>
     <!-- jquery.countTo js  -->
     <script src="/assets/js/jquery.countTo.js"></script>
-    <!-- imagesloaded js --> 
+    <!-- imagesloaded js -->
     <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
-    <!-- isotope min js --> 
+    <!-- isotope min js -->
     <script src="/assets/js/isotope.min.js"></script>
     <!-- jquery.appear js  -->
     <script src="/assets/js/jquery.appear.js"></script>
@@ -74,13 +145,13 @@
     <script src="/assets/js/datepicker.min.js"></script>
     <!-- TimePicker js -->
     <script src="/assets/js/mdtimepicker.min.js"></script>
-    <!-- scripts js --> 
+    <!-- scripts js -->
     <script src="/assets/js/scripts.js"></script>
 
      <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
 
 
 @if(session('success') || session('error'))
@@ -88,11 +159,11 @@
     $(document).ready(function() {
         $.fancybox.open({
             src: '<div class="row" style="width:350px; position: relative;">' +
-                    @if(session('success')) 
+                    @if(session('success'))
                         '<div class="alert alert-success" role="alert">' +
                             '<i class="fa fa-check-circle" style="font-size: 20px;"></i> {{ session('success') }}' +
                         '</div>' +
-                    @elseif(session('error')) 
+                    @elseif(session('error'))
                         '<div class="alert alert-danger" role="alert">' +
                             '<i class="fa fa-exclamation-circle" style="font-size: 20px;"></i> {{ session('error') }}' +
                         '</div>' +
@@ -108,8 +179,8 @@
                 height: 'auto',
                 maxWidth: 500,
                 maxHeight: 'auto',
-                modal: false,  
-                clickOutside: true,  
+                modal: false,
+                clickOutside: true,
                 afterShow: function(instance, current) {
                     $('.btn-close').on('click', function() {
                         $.fancybox.close();
@@ -206,8 +277,8 @@
 </div>
 <!-- END SECTION BANNER -->
 
- 
- 
+
+
 
     <!-- START SECTION OUR MENU -->
     <div class="section pb_70">
@@ -223,11 +294,11 @@
             </div>
             <div class="row">
                 <div class="col-12">
-  
+
                     <div class="row">
 
-   
-                        @forelse ($menus as $menu) 
+
+                        @forelse ($menus as $menu)
 
 
                         <div class="d-flex col-lg-3 col-sm-6">
@@ -242,15 +313,15 @@
                                         <h5><a href="{{ route('menu.item',$menu->id) }}"> {{ $menu->name }}</a></h5>
                                     </div>
                                     <p>{!! $site_settings->currency_symbol !!}{{ number_format($menu->price, 2) }}</p>
-                                </div>                    
+                                </div>
                             </div>
                         </div>
-                        
+
                         @empty
                         <b> No Menu available. </b>
-                        @endforelse                       
+                        @endforelse
 
-    
+
 
                     </div>
 
@@ -360,7 +431,7 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        
+
                                     </div>
                                     <div class="medium_divider clearfix"></div>
                                 </div>
@@ -378,7 +449,7 @@
     </div>
     <!-- END SECTION BOOK TABLE -->
 
- 
+
 <!-- START SECTION TESTIMONIAL -->
 <div class="section bg_linen pb_70">
     <div class="container">
@@ -433,7 +504,7 @@
         <div class="row justify-content-center">
 
 
-           
+
                 @forelse($blogs as $blog)
                     <div class="d-flex col-lg-4 col-md-6 animation" data-animation="fadeInUp" data-animation-delay="0.2s">
                         <div class="blog_post blog_style2 box_shadow1">
@@ -447,7 +518,7 @@
                             </div>
                             <div class="blog_content">
                                 <div class="blog_text">
-                             
+
                                     <h5 class="blog_title"><a href="#">{{ $blog->name }}</a></h5>
                                     <p>{{ Str::limit(strip_tags($blog->content), 50) }}</p>
 
@@ -458,16 +529,60 @@
                 @empty
                     <p>No blogs found.</p>
                 @endforelse
-          
-            
-            
+
+
+
         </div>
     </div>
 </div>
 <!-- END SECTION BLOG -->
 
- 
+ <!-- Chatbot Toggle Button -->
+ <button id="chatbotToggle">
+    <i class="fa fa-comments"></i>
+</button>
+
+<!-- Chatbot Container -->
+<div id="chatbotContainer">
+    <div class="chatbot-header">How can I help you?</div>
+    <div class="chatbot-messages" id="chatbotMessages"></div>
+    <div class="chatbot-question" onclick="sendMessage(0)"> Where are you located?</div>
+    <div class="chatbot-question" onclick="sendMessage(1)"> What is on the menu?</div>
+    <div class="chatbot-question" onclick="sendMessage(2)"> What are your opening hours?</div>
+    <div class="chatbot-question" onclick="sendMessage(3)"> How can I place an order?</div>
+</div>
+<script>
+        // Toggle chatbot visibility
+        document.getElementById("chatbotToggle").addEventListener("click", function () {
+            console.log("called");
+            var chatbot = document.getElementById("chatbotContainer");
+            chatbot.style.display = chatbot.style.display === "block" ? "none" : "block";
+        });
+
+        // Chatbot messages
+        const chatbotMessages = document.getElementById("chatbotMessages");
+        const responses = [
+            "We are located at 123 Main Street, City, Country.",
+            "Our menu includes pizza, burgers, sushi, and more. Visit our menu page for details.",
+            "We are open from 10:00 AM to 10:00 PM every day.",
+            "You can order online through our website or call us at (123) 456-7890."
+        ];
+
+        function sendMessage(index) {
+            const userMessage = document.createElement("div");
+            userMessage.classList.add("chatbot-message", "user-message");
+            userMessage.textContent = document.querySelectorAll(".chatbot-question")[index].textContent;
+            chatbotMessages.appendChild(userMessage);
+
+            setTimeout(() => {
+                const botMessage = document.createElement("div");
+                botMessage.classList.add("chatbot-message", "bot-message");
+                botMessage.textContent = responses[index];
+                chatbotMessages.appendChild(botMessage);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }, 500);
+        }
+</script>
 @endsection
 
 
- 

@@ -60,10 +60,10 @@ class MainSiteController extends Controller
         $addresses = RestaurantAddress::all();
         $phoneNumbers = RestaurantPhoneNumber::all();
         $workingHours = RestaurantWorkingHour::all();
-    
+
         return view('main-site.contact', [ 'addresses' => $addresses, 'phoneNumbers' => $phoneNumbers, 'workingHours' => $workingHours, ]);
     }
-    
+
 
     public function menu(Request $request)
     {
@@ -76,12 +76,12 @@ class MainSiteController extends Controller
                 $query->where('name', 'like', '%' . $request->search . '%');
             }
         }]);
-    
+
         $categories = $query->get();
-    
+
         return view('main-site.menu', compact('categories'));
     }
-    
+
 
     public function menuItem($id)
     {
@@ -96,18 +96,18 @@ class MainSiteController extends Controller
             }
             return 0; // Return 0 if item is not found
         }
-        
+
         // Usage example
         $quantity = getItemQuantity($cart, $id);
-        
-    
-    
-        // Fetch 5 random related menus  
+
+
+
+        // Fetch 5 random related menus
         $relatedMenus = Menu::where('id', '!=', $id)->inRandomOrder()->limit(5)->get();
-    
+
         return view('main-site.menu-item', compact('menu','quantity', 'relatedMenus'));
     }
-    
+
 
     public function cart()
     {
@@ -121,25 +121,26 @@ class MainSiteController extends Controller
         if (!session()->has($this->cartkey)) {
             return redirect()->route('menu')->withErrors('Your cart is empty. Please add items to your cart before checking out.');
         }
-    
+
         // Fetch the cart from the session
         $cart = session()->get($this->cartkey, []);
-    
+
         // Check if the cart is empty
         if (empty($cart)) {
             return redirect()->route('menu')->withErrors('Your cart is empty. Please add items to your cart before checking out.');
         }
-    
+
         // Calculate the subtotal
         $subtotal = array_reduce($cart, function($carry, $item) {
             return $carry + ($item['price'] * $item['quantity']);
         }, 0);
-    
+
         return view('main-site.checkout', compact('cart', 'subtotal'));
     }
-    
+
     public function proccessCheckout(CustomerDetailsRequest $request)
     {
+
         // Check if the session contains the cart key
         if (!session()->has($this->cartkey)) {
             return redirect()->route('menu')->withErrors('Your cart is empty. Please add items to your cart before checking out.');
@@ -147,7 +148,6 @@ class MainSiteController extends Controller
 
 
         $order_settings = OrderSettings::firstOrNew();
-
         if (!$order_settings->exists) {
             // OrderSettings has no data
             return redirect()->route('home')->withErrors('No order settings found.');
@@ -158,25 +158,6 @@ class MainSiteController extends Controller
         $restaurant_address = $this->firstRestaurantAddress ?? config('site.address');
         $delivery_address   = $request->address . ' ' . $request->city . ' ' . $request->state . ' ' . $request->postcode;
 
-        // Call the DistanceHelper to get the distance
-        $distanceData = DistanceHelper::getDistance($restaurant_address, $delivery_address);
-
-        // Check if there's an error
-        if (isset($distanceData['error'])) {
-            return back()->withErrors($distanceData['error']);
-        }
-
-        $distance_in_miles= $distanceData['value_in_miles'];
-
-        if ($distance_in_miles > $distance_limit_in_miles) {
-            $error_message = "We're sorry! We can only deliver within {$distance_limit_in_miles} miles. You can still place your order as a walk-in at our restaurant located at {$restaurant_address}. We look forward to serving you!";
-            return back()->withErrors($error_message)->withInput();
-        }
-        
-        $delivery_fee = ceil($price_per_mile * $distance_in_miles * 100) / 100;
-
-        // Store delivery_fee , price_per_mile and distance_in_miles in  session 
-        session()->put('delivery_details', [ 'delivery_fee' => $delivery_fee, 'distance_in_miles' => $distance_in_miles,  'price_per_mile' => $price_per_mile, ]);
 
         // Store the validated data in the session
         Session::put('customer_details', $request->validated());
@@ -186,31 +167,30 @@ class MainSiteController extends Controller
         session(['order_no' => $order_no]);
 
 
-        // redirect to payment route
         return redirect()->route('payment');
 
     }
-    
-    
+
+
 
     public function blogs(Request $request)
     {
         $validated = $request->validate([
             'search' => 'nullable|string|max:255',
         ]);
-    
+
         $query = Blog::query();
-    
+
         // Check if there's a search query
         if ($request->has('search') && $request->search != '') {
             $query->where('name', 'like', '%' . $request->search . '%')->orWhere('content', 'like', '%' . $request->search . '%');
         }
-    
+
         $blogs = $query->paginate(10);
-    
+
         return view('main-site.blogs', compact('blogs'));
     }
-    
+
     public function blogView($id)
     {
         $blog = Blog::findOrFail($id);
@@ -236,7 +216,7 @@ class MainSiteController extends Controller
         $termsAndCondition = TermsAndCondition::latest()->first();
         return view('main-site.terms-conditions', compact('termsAndCondition'));
      }
- 
 
-    
+
+
 }

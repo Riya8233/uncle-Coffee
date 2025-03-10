@@ -28,9 +28,9 @@ class GeneralSettingsController extends Controller
     public function __construct()
     {
         $this->shareAdminViewData();
-        
+
     }
-    
+
     public function index()
     {
         $addresses = RestaurantAddress::all();
@@ -40,13 +40,7 @@ class GeneralSettingsController extends Controller
         $script = LiveChatScript::latest()->first();
         $order_settings = OrderSettings::latest()->first();
 
-        $site_settings = SiteSetting::firstOrCreate([], [
-            'country' => config('site.country'),
-            'currency_symbol' => config('site.currency_symbol'),
-            'currency_code' => config('site.currency_code'),
-        ]);
-
-
+        $site_settings = SiteSetting::find(2);
 
         return view('admin.general-settings', compact('addresses', 'phoneNumbers', 'workingHours','socialMediaHandles','script','order_settings'));
     }
@@ -59,44 +53,44 @@ class GeneralSettingsController extends Controller
         if ($request->has('use_whatsapp') && $request->use_whatsapp == 1) {
             RestaurantPhoneNumber::where('use_whatsapp', 1)->update(['use_whatsapp' => 0]);
         }
-    
+
         RestaurantPhoneNumber::create([
             'phone_number' => $request->phone_number,
             'use_whatsapp' => $request->has('use_whatsapp') ? 1 : 0,
         ]);
-    
+
         return back()->with('success', 'Phone number added successfully.');
     }
-    
-    
-    
+
+
+
 
     public function updatePhoneNumber(PhoneNumberRequest $request, $id)
     {
-    
+
         $phoneNumber = RestaurantPhoneNumber::findOrFail($id);
-    
+
         // If 'use_whatsapp' is checked, set all others to 0 first
         if ($request->has('use_whatsapp') && $request->use_whatsapp == 1) {
             RestaurantPhoneNumber::where('use_whatsapp', 1)->update(['use_whatsapp' => 0]);
         }
-    
+
         $phoneNumber->update([
             'phone_number' => $request->phone_number,
             'use_whatsapp' => $request->has('use_whatsapp') ? 1 : 0,
         ]);
-    
+
         return back()->with('success', 'Phone number updated successfully.');
     }
-    
-    
+
+
 
     public function deletePhoneNumber($id)
     {
         RestaurantPhoneNumber::findOrFail($id)->delete();
         return back()->with('success', 'Phone number deleted successfully.');
     }
-    
+
 
     // Restaurant Address CRUD
     public function storeAddress(AddressRequest $request)
@@ -115,7 +109,7 @@ class GeneralSettingsController extends Controller
     {
         RestaurantAddress::findOrFail($id)->delete();
         return back()->with('success', 'Address deleted successfully.');
-    }    
+    }
 
 
     // social media handles CRUD
@@ -124,25 +118,25 @@ class GeneralSettingsController extends Controller
         SocialMediaHandle::create($request->all());
         return back()->with('success', 'Social media handle added successfully.');
     }
-    
+
     public function updateSocialMediaHandle(SocialMediaHandleRequest $request, $id)
     {
         $socialMediaHandle = SocialMediaHandle::findOrFail($id);
         $socialMediaHandle->update($request->all());
-    
+
         return back()->with('success', 'Social media handle updated successfully.');
     }
-    
+
 
     public function deleteSocialMediaHandle($id)
     {
         $socialMediaHandle = SocialMediaHandle::findOrFail($id);
         $socialMediaHandle->delete();
-    
+
         return back()->with('success', 'Social media handle deleted successfully.');
     }
-    
- 
+
+
 
 
 
@@ -152,7 +146,7 @@ class GeneralSettingsController extends Controller
         RestaurantWorkingHour::create(['working_hours' => $request->working_hours]);
         return back()->with('success', 'Working hour added successfully.');
     }
-    
+
 
     public function updateWorkingHour(WorkingHourRequest $request, $id)
     {
@@ -160,13 +154,13 @@ class GeneralSettingsController extends Controller
         $workingHour->update(['working_hours' => $request->working_hours]);
         return back()->with('success', 'Working hour updated successfully.');
     }
-    
+
     public function deleteWorkingHour($id)
     {
         RestaurantWorkingHour::findOrFail($id)->delete();
         return back()->with('success', 'Working hour deleted successfully.');
     }
-    
+
 
 
 
@@ -174,14 +168,14 @@ class GeneralSettingsController extends Controller
     public function createLiveChatScript(LiveChatScriptRequest $request)
     {
         $validated = $request->validated();
-    
+
         $validated['script_code'] = $this->sanitizeHtmlContent($validated['script_code']);
-    
+
         LiveChatScript::create($validated);
-    
+
         return redirect()->back()->with('success', 'Live chat script created successfully!');
     }
-    
+
 
 
     public function updateLiveChatScript(LiveChatScriptRequest $request, $id)
@@ -217,7 +211,7 @@ class GeneralSettingsController extends Controller
         return redirect()->back()->with('success', 'Order Settings updated successfully!');
 
     }
- 
+
     public function siteSettings(Request $request)
     {
         $validated = $request->validate([
@@ -235,6 +229,6 @@ class GeneralSettingsController extends Controller
          return redirect()->back()->with('success', 'Site settings saved successfully!');
 
     }
- 
-    
+
+
 }

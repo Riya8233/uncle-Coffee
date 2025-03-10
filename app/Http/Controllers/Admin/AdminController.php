@@ -26,42 +26,42 @@ class AdminController extends Controller
     {
         $this->shareAdminViewData();
         $this->shareOrderStatistics();
-        
+
     }
-    
+
     public function index()
     {
         $currentYear = now()->year;
-    
+
         $salesData = \DB::table('orders')
             ->selectRaw('MONTHNAME(created_at) as month, COUNT(*) as total_sales')
-            ->whereYear('created_at', $currentYear)  
+            ->whereYear('created_at', $currentYear)
             ->groupByRaw('MONTH(created_at), MONTHNAME(created_at)')
             ->orderByRaw('MONTH(created_at)')
             ->pluck('total_sales', 'month');
-    
+
         $months = [
-            'January', 'February', 'March', 'April', 'May', 'June', 
+            'January', 'February', 'March', 'April', 'May', 'June',
             'July', 'August', 'September', 'October', 'November', 'December'
         ];
         $formattedSalesData = collect($months)->mapWithKeys(function ($month) use ($salesData) {
             return [$month => $salesData->get($month, 0)];
         });
-    
+
         return view('admin.index', compact('formattedSalesData'));
     }
-    
+
 
     public function viewMyProfile()
     {
-        $user = Auth::User();  
+        $user = Auth::User();
         return view('admin.view-my-profile', compact('user'));
     }
 
 
     public function editMyProfile()
     {
-        $user = Auth::User();  
+        $user = Auth::User();
         return view('admin.edit-my-profile', compact('user'));
     }
 
@@ -69,40 +69,40 @@ class AdminController extends Controller
     {
         $user = Auth::User();
         $validated = $request->validated();
-    
+
         $user->first_name = $validated['first_name'];
         $user->middle_name = $validated['middle_name']; // Optional, so it can be null
-        $user->last_name = $validated['last_name'];        
+        $user->last_name = $validated['last_name'];
         $user->email = $validated['email'];
         $user->phone_number = $validated['phone_number'];
         $user->address = $validated['address'];
-    
+
         // Handle profile photo upload
         if ($request->hasFile('profile_photo')) {
             // Delete old profile photo if exists
             if ($user->profile_picture) {
                 Storage::delete('profile-picture/' . $user->profile_picture);
             }
-    
+
             // Store new profile photo
             $photoPath = $request->file('profile_photo')->store('profile-picture', 'public');
             $user->profile_picture = basename($photoPath);
         }
-    
+
         // Save the updated user data
         $user->save();
-    
+
         // Return success message
         return back()->with('success', 'Profile updated successfully.');
     }
-    
+
 
     public function showChangePasswordForm()
     {
         return view('admin.change-password');
     }
 
-    
+
     public function changePassword(Request $request)
     {
         $request->validate([
@@ -125,13 +125,13 @@ class AdminController extends Controller
         Mail::to($user->email)->send(new PasswordChangedNotification($user));
 
         return redirect()->route('admin.index')->with('success', 'Your password has been successfully updated.');
-    }    
+    }
 
      // Handle logout
      public function logout()
      {
          Auth::logout();
-         return redirect()->route('admin.login')->with('success', 'Logged out successfully.');
+         return redirect()->route('home')->with('success', 'Logged out successfully.');
      }
-    
+
 }

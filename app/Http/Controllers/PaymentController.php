@@ -31,11 +31,12 @@ class PaymentController extends Controller
 
     }
 
-    
+
 
 
      public function payment()
     {
+
 
         //run all required session checks
         $this->runAllChecks();
@@ -46,18 +47,9 @@ class PaymentController extends Controller
         // Retrieve cart items from session
         $cart_items = session()->get('customer', []);
 
-    
-        // Retrieve Delivery Details from the session
-        $deliveryDetails = session('delivery_details');
-        $delivery_fee = $deliveryDetails['delivery_fee'];
-        $delivery_distance = $deliveryDetails['distance_in_miles'];
-        $price_per_mile= $deliveryDetails['price_per_mile'];
-              
-              
         // Retrieve order no. from session
         $order_no = session('order_no');
 
- 
         if (Order::where('order_no', $order_no)->exists()) {
             return redirect() ->route('menu')->withErrors('The order number already exists. Please try again.');
         }
@@ -83,7 +75,7 @@ class PaymentController extends Controller
                 'quantity' => $cart_item['quantity'],
             ];
         }
- 
+
 
         // Add delivery fee in the line_items
         if (isset($delivery_fee)) {
@@ -95,7 +87,7 @@ class PaymentController extends Controller
                     ],
                     'unit_amount' => $delivery_fee * 100, // Convert to cents
                 ],
-                'quantity' => 1, 
+                'quantity' => 1,
             ];
         }
 
@@ -103,7 +95,7 @@ class PaymentController extends Controller
         Stripe::setApiKey(config('services.stripe.secret'));
 
         try {
- 
+
             // Create a Stripe Checkout session
             $checkout_session = \Stripe\Checkout\Session::create([
                 'line_items' => $line_items,
@@ -124,7 +116,7 @@ class PaymentController extends Controller
             ]);
 
             //PREPARE TO CREATE ORDER
- 
+
             $totalPrice = array_reduce($cart_items, function ($carry, $item) {
                 return $carry + ($item['price'] * $item['quantity']);
             }, 0);
@@ -137,7 +129,7 @@ class PaymentController extends Controller
                 'phone_number' => $customerDetails['phone_number'],
                 'address' => $customerDetails['address'] . " ".$customerDetails['city']." ".$customerDetails['state']." ".$customerDetails['postcode'],
             ]);
-   
+
             // Create a new order
             $order = Order::create([
                 'customer_id' => $customer->id,
@@ -154,27 +146,27 @@ class PaymentController extends Controller
                 'delivery_fee' => $delivery_fee,
                 'delivery_distance' => $delivery_distance,
                 'price_per_mile' => $price_per_mile,
-                
+
             ]);
 
             if ($order) {
                 // Create order items using the relationship
                 foreach ($cart_items as $cart_item) {
                     $order->orderItems()->create([
-                        'menu_name' => $cart_item['name'],  
+                        'menu_name' => $cart_item['name'],
                         'quantity' => $cart_item['quantity'],
                         'subtotal' => $cart_item['price'] * $cart_item['quantity'],
                     ]);
                 }
             }
-            
+
 
             // Redirect the user to the Stripe Checkout session URL
             return redirect($checkout_session->url);
 
         } catch (Exception $e) {
             $error_msg  =  $e->getMessage();
-            return redirect()->route('menu')->withErrors($error_msg);            
+            return redirect()->route('menu')->withErrors($error_msg);
         }
     }
 
@@ -183,7 +175,7 @@ class PaymentController extends Controller
         return view('main-site.payment-cancel');
     }
 
- 
+
     public function paymentSuccess(Request $request)
     {
         //run all required session checks
@@ -191,7 +183,7 @@ class PaymentController extends Controller
 
         // Set Stripe secret key
         Stripe::setApiKey(config('services.stripe.secret'));
-    
+
         // Retrieve the session ID from the request
         $session_id = $request->query('session_id');
 
@@ -205,7 +197,7 @@ class PaymentController extends Controller
                     $checkout_session = \Stripe\Checkout\Session::retrieve($session_id);
 
                     $order = Order::with(['orderItems', 'customer'])->where('session_id', $checkout_session->id)->first();
-                    
+
                     if (!$order) {
                         throw new NotFoundHttpException();
                         // return redirect()->route('menu')->withErrors('Order verification failed');
@@ -231,24 +223,21 @@ class PaymentController extends Controller
                         } catch (Exception $e) {
                             Log::error('Order email failed to send: ' . $e->getMessage());
                         }
-                        
-                        // send whatsapp message
-                        $this->sendWhatsAppNotification($order);    
 
                         // Clear the session
                         $this->clearOrderSession();
-                        
-                        return view('main-site.payment-success', compact('order'));                       
+
+                        return view('main-site.payment-success', compact('order'));
                     }
-                    elseif ($order->status_online_pay === 'paid') { 
+                    elseif ($order->status_online_pay === 'paid') {
 
                         // Clear the session
                         $this->clearOrderSession();
-                        return view('main-site.payment-success', compact('order'));                       
+                        return view('main-site.payment-success', compact('order'));
 
                     }
- 
-                    
+
+
                     return redirect()->route('menu')->withErrors("There was an issue processing your payment. Please try again.");
 
 
@@ -261,14 +250,14 @@ class PaymentController extends Controller
             return redirect()->route('menu')->withErrors('Session ID not found!');
         }
     }
-    
 
 
-    
+
+
     // Check if a session key exists and the cart is not empty, otherwise redirect with an error message
     protected function checkCart()
     {
- 
+
         if (!session()->has($this->cartkey) || empty(session()->get($this->cartkey))) {
             return redirect()->route('menu')->withErrors('Your cart is empty. Please add items to your cart before checking out.')->send();
         }
@@ -282,13 +271,6 @@ class PaymentController extends Controller
         }
     }
 
-    // Check if a session delivery_details exists, otherwise redirect with an error message
-    protected function checkDeliveryDetails()
-    {
-        if (!session()->has('delivery_details')) {
-            return redirect()->route('menu')->withErrors('We could not retrieve your delivery details. Please try again or contact support if the issue persists.')->send();
-        }
-    }
 
     // Check if a session order_no exists, otherwise redirect with an error message
     protected function checkOrderNo()
@@ -303,28 +285,28 @@ class PaymentController extends Controller
     public function handleStripeWebhook(Request $request)
     {
         $endpoint_secret =  config('services.stripe.webhookkey');
-    
+
         // Retrieve the raw payload
         $payload = @file_get_contents('php://input');
         $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];
         $event = null;
-    
-    
+
+
         try {
             // Verify the event signature
             $event = \Stripe\Webhook::constructEvent($payload, $sig_header, $endpoint_secret);
-    
+
             // Handle specific event types
             if ($event->type === 'checkout.session.completed') {
-                $session = $event->data->object;  
-     
+                $session = $event->data->object;
+
                 $order = Order::with(['orderItems', 'customer'])->where('session_id', $session->id)->first();
-    
-    
+
+
                 if ($order->status_online_pay === 'unpaid') {
                     $order->status_online_pay = 'paid';
                     $order->save();
-    
+
                     // Send the email
                     try {
                         Mail::to($order->customer->email)->send(new OrderEmail(
@@ -340,13 +322,13 @@ class PaymentController extends Controller
                     } catch (Exception $e) {
                         Log::error('Order email failed to send: ' . $e->getMessage());
                     }
-                    
+
                     // send whatsapp message
-                    $this->sendWhatsAppNotification($order);                       
+                    $this->sendWhatsAppNotification($order);
                 }
-     
+
             }
-    
+
             return response('Webhook handled', 200);
         } catch (\UnexpectedValueException $e) {
             // Invalid payload
@@ -368,7 +350,6 @@ class PaymentController extends Controller
     {
         $this->checkCart();
         $this->checkCustomerDetails();
-        $this->checkDeliveryDetails();
         $this->checkOrderNo();
     }
 
@@ -382,13 +363,6 @@ class PaymentController extends Controller
         ]);
     }
 
-    protected function sendWhatsAppNotification(Order $order)
-    {
-        try {
-            TwilioHelper::sendWhatsAppMessage($order->customer->phone_number, $order->order_no, $order->customer->name);
-        } catch (Exception $e) {
-            Log::error('Failed to send WhatsApp message: ' . $e->getMessage());
-        }
-    }    
-    
+
+
 }

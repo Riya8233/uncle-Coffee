@@ -20,7 +20,10 @@ use App\Http\Controllers\Admin\PrivacyPolicyController;
 use App\Http\Controllers\Admin\GeneralSettingsController;
 use App\Http\Controllers\Admin\TermsAndConditionController;
 use App\Http\Controllers\Admin\TableBookingController as AdminTableBookingController;
-
+use App\Http\Middleware\UserFilterMiddleware;
+use Laravel\Socialite\Facades\Socialite;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [MainSiteController::class, 'home'])->name('home');
 
@@ -29,7 +32,7 @@ Route::post('table-booking/', [TableBookingController::class, 'bookTable'])->nam
 Route::get('menu/', [MainSiteController::class, 'menu'])->name('menu');
 Route::get('menu-item/{id}', [MainSiteController::class, 'menuItem'])->name('menu.item');
 
-// Customer Cart 
+// Customer Cart
 Route::get('cart/', [MainSiteController::class, 'cart'])->name('customer.cart');
 Route::post('cart/add', [MainSiteController::class, 'addToCart'])->name('customer.cart.add');
 Route::post('cart/remove', [MainSiteController::class, 'removeFromCart'])->name('customer.cart.remove');
@@ -47,7 +50,7 @@ Route::get('payment-success', [PaymentController::class, 'paymentSuccess'])->nam
 Route::get('payment-cancel', [PaymentController::class, 'paymentCancel'])->name('payment.cancel');
 Route::post('stripe/webhook', [PaymentController::class, 'handleStripeWebhook']);
 
-  
+
 
 Route::get('about/', [MainSiteController::class, 'about'])->name('about');
 Route::get('contact/', [MainSiteController::class, 'contact'])->name('contact');
@@ -61,7 +64,10 @@ Route::get('terms-conditions/', [MainSiteController::class, 'termsConditions'])-
 
 //Resetting Password
 Route::middleware(['guest'])->group(function () {
-
+    Route::get('user/login',[AuthController::class,'showuserlogin'])->name('user.login');
+    Route::post('user/process-login',[AuthController::class,'login'])->name('user.login.process');
+    Route::get('user/signup',[AuthController::class,'showusersignup'])->name('user.signup');
+    Route::post('user/signup',[AuthController::class,'signup'])->name('user.signup.process');
     // Admin login routes
     Route::get('admin/login', [AuthController::class, 'showLoginForm'])->name('admin.login');
     Route::post('admin/process-login/', [AuthController::class, 'login'])->name('admin.login.process');
@@ -78,8 +84,6 @@ Route::middleware(['guest'])->group(function () {
     Route::post('admin/password/reset', [AuthController::class, 'resetPassword'])->name('password.update');
 });
 
-
-//Admin Dashboard routes
 Route::prefix('admin')->middleware(RedirectIfNotAdmin::class)->group(function () {
     Route::get('logout', [AdminController::class, 'logout'])->name('admin.logout');
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
@@ -101,7 +105,7 @@ Route::prefix('admin')->middleware(RedirectIfNotAdmin::class)->group(function ()
     Route::get('blog/{id}/edit', [BlogController::class, 'edit'])->name('admin.blog.edit');
     Route::put('blog/{id}', [BlogController::class, 'update'])->name('admin.blog.update');
     Route::delete('blog/{id}', [BlogController::class, 'destroy'])->name('admin.blog.destroy');
-     
+
 
 
     // Admin Cart / POS routes
@@ -112,21 +116,21 @@ Route::prefix('admin')->middleware(RedirectIfNotAdmin::class)->group(function ()
     Route::post('cart/clear', [CartController::class, 'clearCart'])->name('admin.cart.clear');
     Route::post('cart/update', [CartController::class, 'updateCartQuantity'])->name('admin.cart.update');
 
- 
+
     //Admin Order routes
     Route::get('orders/{filter?}', [OrderController::class, 'index'])->name('admin.orders.index');
     Route::get('order/{id}', [OrderController::class, 'show'])->name('admin.order.show');
     Route::post('order/create', [OrderController::class, 'createOrder'])->name('admin.order.store');
     Route::post('orders/update/{id}', [OrderController::class, 'update'])->name('admin.orders.update');
     Route::delete('orders/destroy/{id}', [OrderController::class, 'destroy'])->name('admin.orders.destroy')->middleware(CheckRole::class);
-    
+
 
     //Admin Manage Booking
     Route::get('table-bookings', [AdminTableBookingController::class, 'index'])->name('admin.table-bookings');
     Route::post('table-bookings/store', [AdminTableBookingController::class, 'store'])->name('admin.table-bookings.store');
     Route::put('table-bookings/{id}', [AdminTableBookingController::class, 'update'])->name('admin.table-bookings.update');
     Route::delete('table-bookings/{id}', [AdminTableBookingController::class, 'destroy'])->name('admin.table-bookings.destroy');
-   
+
 
     // Routes with CheckRole is Global Admin middleware
     Route::middleware(CheckRole::class)->group(function () {
@@ -142,31 +146,31 @@ Route::prefix('admin')->middleware(RedirectIfNotAdmin::class)->group(function ()
         Route::post('menu', [MenuController::class, 'store'])->name('admin.menus.store');
         Route::patch('menu/{id}', [MenuController::class, 'update'])->name('admin.menus.update');
         Route::delete('menu/{id}', [MenuController::class, 'destroy'])->name('admin.menus.destroy');
-    
+
         Route::get('general-settings', [GeneralSettingsController::class, 'index'])->name('admin.general-settings');
 
-        
+
         //Admin Settings Phone Number routes
         Route::post('phone-number', [GeneralSettingsController::class, 'storePhoneNumber'])->name('admin.phone-number.store');
         Route::put('phone-number/{id}', [GeneralSettingsController::class, 'updatePhoneNumber'])->name('admin.phone-number.update');
         Route::delete('phone-number/{id}', [GeneralSettingsController::class, 'deletePhoneNumber'])->name('admin.phone-number.delete');
 
-        //Admin Settings Address routes 
+        //Admin Settings Address routes
         Route::post('address', [GeneralSettingsController::class, 'storeAddress'])->name('admin.address.store');
         Route::put('address/{id}', [GeneralSettingsController::class, 'updateAddress'])->name('admin.address.update');
         Route::delete('address/{id}', [GeneralSettingsController::class, 'deleteAddress'])->name('admin.address.delete');
 
-        //Admin Settings Working hour routes 
+        //Admin Settings Working hour routes
         Route::post('working-hour', [GeneralSettingsController::class, 'storeWorkingHour'])->name('admin.working-hour.store');
         Route::put('working-hour/{id}', [GeneralSettingsController::class, 'updateWorkingHour'])->name('admin.working-hour.update');
         Route::delete('working-hour/{id}', [GeneralSettingsController::class, 'deleteWorkingHour'])->name('admin.working-hour.delete');
 
-        //Admin Settings Social Media routes 
+        //Admin Settings Social Media routes
         Route::post('social-media-handles', [GeneralSettingsController::class, 'storeSocialMediaHandle'])->name('admin.social-media-handles.store');
         Route::put('social-media-handles/{id}', [GeneralSettingsController::class, 'updateSocialMediaHandle'])->name('admin.social-media-handles.update');
         Route::delete('social-media-handles/{id}', [GeneralSettingsController::class, 'deleteSocialMediaHandle'])->name('admin.social-media-handles.delete');
 
-        //Admin Settings Livechat routes 
+        //Admin Settings Livechat routes
         Route::post('livechat', [GeneralSettingsController::class, 'createLiveChatScript'])->name('admin.livechat.store');
         Route::put('livechat/{id}', [GeneralSettingsController::class, 'updateLiveChatScript'])->name('admin.livechat.update');
         Route::delete('livechat/{id}', [GeneralSettingsController::class, 'destroyLiveChatScript'])->name('admin.livechat.destroy');
@@ -178,13 +182,13 @@ Route::prefix('admin')->middleware(RedirectIfNotAdmin::class)->group(function ()
         //Admin Terms And Condition routes
         Route::get('terms-and-conditions/edit', [TermsAndConditionController::class, 'edit'])->name('admin.terms.edit');
         Route::post('terms-and-conditions/update', [TermsAndConditionController::class, 'update'])->name('admin.terms.update');
-    
-    
+
+
         // Admin Privacy Policy routes
         Route::get('privacy-policy/edit', [PrivacyPolicyController::class, 'edit'])->name('admin.privacy-policy.edit');
-        Route::post('privacy-policy/update', [PrivacyPolicyController::class, 'update'])->name('admin.privacy-policy.update');  
-        
-        
+        Route::post('privacy-policy/update', [PrivacyPolicyController::class, 'update'])->name('admin.privacy-policy.update');
+
+
         //Admin testimonies routes
         Route::get('testimonies', [TestimonyController::class, 'index'])->name('admin.testimonies.index');
         Route::post('testimonies/store', [TestimonyController::class, 'store'])->name('admin.testimonies.store');
@@ -199,7 +203,37 @@ Route::prefix('admin')->middleware(RedirectIfNotAdmin::class)->group(function ()
         Route::delete('users/{id}', [UserController::class, 'destroy'])->name('admin.users.destroy');
 
     });
-        
+
 });
 
- 
+Route::post('cart/add', [MainSiteController::class, 'addToCart'])->name('customer.cart.add');
+Route::get('cart/', [MainSiteController::class, 'cart'])->name('customer.cart');
+Route::post('cart/remove', [MainSiteController::class, 'removeFromCart'])->name('customer.cart.remove');
+Route::get('cart/view', [MainSiteController::class, 'getCart'])->name('customer.cart.view');
+Route::post('cart/clear', [MainSiteController::class, 'clearCart'])->name('customer.cart.clear');
+Route::post('cart/update', [MainSiteController::class, 'updateCartQuantity'])->name('customer.cart.update');
+//Admin Dashboard routes
+Route::middleware(UserFilterMiddleware::class)->group(function () {
+    Route::get('checkout/', [MainSiteController::class, 'checkout'])->name('customer.checkout');
+});
+
+Route::get('/auth/google', function () {
+    return Socialite::driver('google')->redirect();
+})->name('google.login');
+
+Route::get('/auth/google/callback', function () {
+    $googleUser = Socialite::driver('google')->stateless()->user();
+
+    // Check if user exists
+    $user = User::firstOrCreate([
+        'email' => $googleUser->getEmail(),
+    ], [
+        'first_name' => $googleUser->getName(),
+        'last_name' => $googleUser->getName(),
+        'password' => bcrypt('password'),
+    ]);
+
+    Auth::login($user);
+
+    return redirect('/');
+})->name('google.callback');

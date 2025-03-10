@@ -1,9 +1,11 @@
-<nav class="navbar navbar-expand-lg"> 
+<nav class="navbar navbar-expand-lg">
     <a class="navbar-brand" href="{{ route('home') }}">
-        <img class="logo_light" src="/assets/images/logo_light.png" alt="logo">
-        <img class="logo_dark" src="/assets/images/logo_dark.png" alt="logo">
+        <img class="logo_light" src="/assets/images/logo_light.png" alt="logo" style="
+        height: 11vh;"">
+        <img class="logo_dark" src="/assets/images/logo_dark.png" alt="logo style="
+        height: 11vh;">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false"> 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false">
         <span class="ion-android-menu"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
@@ -20,15 +22,15 @@
 
 
         </ul>
-        
+
     </div>
     <ul class="navbar-nav attr-nav align-items-center">
         <li><a class="nav-link {{ Request::routeIs('cart') ? 'active' : '' }}" href="{{ route('customer.cart') }}" ><i class="linearicons-cart"></i><span class="cart_count" id="cart_count">{{ $customer_total_cart_items }}</span></a></li>
     </ul>
-    @if($firstRestaurantPhoneNumber)  
+    @if($firstRestaurantPhoneNumber)
     <div class="header_btn d-sm-block d-none">
         <a href="tel:{{ $firstRestaurantPhoneNumber->phone_number }}" class="btn btn-default rounded-0 ml-2 btn-sm"><i class="fa fa-phone"></i> CALL US</a>
-    </div>  
+    </div>
     @endif
 
 </nav>

@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="/admin_resources/vendors/typicons.font/font/typicons.css">
     <link rel="stylesheet" href="/admin_resources/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="/admin_resources/css/vertical-layout-light/style.css">
-    
+
 @endpush
 
 @push('scripts')
- 
+
 <script src="/admin_resources/vendors/js/vendor.bundle.base.js"></script>
 <script src="/admin_resources/js/off-canvas.js"></script>
 <script src="/admin_resources/js/hoverable-collapse.js"></script>
@@ -113,7 +113,7 @@
             $('#socialMediaForm').attr('action', actionUrl);
             $('#socialMediaFormMethod').val('PUT');
             $('#socialMediaModalLabel').text('Edit Social Media Handle');
-        };      
+        };
 
         // Phone Number Delete
         window.deletePhoneNumber = function (id) {
@@ -170,7 +170,7 @@
                         // Decode the HTML entity for the currency symbol
                         var parser = new DOMParser();
                         var decodedSymbol = parser.parseFromString(data.currency_symbol, 'text/html').body.textContent;
-                        
+
 
                         // Populate the fields with currency details
                         $('#decoded_symbol').val(decodedSymbol);
@@ -194,7 +194,7 @@
     });
 
  </script>
- 
+
 
 
 @endpush
@@ -209,13 +209,13 @@
 
 <div class="main-panel">
     <div class="content-wrapper">
- 
+
       @include('partials.message-bag')
 
- 
+
       <hr/>
       <h1>General Settings</h1>
-      
+
 
 
 
@@ -242,7 +242,7 @@
                             @forelse($phoneNumbers as $phoneNumber)
                                 <tr>
                                     <td>
-                                        <i class="fa fa-phone" aria-hidden="true"></i> 
+                                        <i class="fa fa-phone" aria-hidden="true"></i>
                                         {{ $phoneNumber->phone_number }}
                                         @if($phoneNumber->use_whatsapp == 1)
                                             <span class="badge bg-success"><i class="fab fa-whatsapp"></i></span>
@@ -264,11 +264,11 @@
                             @endforelse
                         </tbody>
                     </table>
-                    
+
                 </div>
             </div>
         </div>
-    
+
         <div class="col-md-6 grid-margin stretch-card">
             <!-- Addresses -->
             <div class="card mb-4">
@@ -290,7 +290,7 @@
                             @forelse($addresses as $address)
                                 <tr>
                                     <td>
-                                        <i class="fa fa-map-marker" aria-hidden="true"></i> 
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
                                         {{ $address->address }}
                                     </td>
                                     <td class="text-end">
@@ -309,12 +309,12 @@
                             @endforelse
                         </tbody>
                     </table>
-                    
+
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col-md-6 grid-margin stretch-card">
             <!-- Social Media Handles -->
@@ -343,11 +343,11 @@
                                         @elseif($handle->social_media === 'instagram')
                                             <i class="fab fa-instagram"></i>
                                         @elseif($handle->social_media === 'youtube')
-                                            <i class="fab fa-youtube-square"></i>         
+                                            <i class="fab fa-youtube-square"></i>
                                         @elseif($handle->social_media === 'tiktok')
-                                            <i class="fab fa-tiktok"></i>                                        
+                                            <i class="fab fa-tiktok"></i>
                                         @else
-                                            <i class="fa fa-globe"></i> 
+                                            <i class="fa fa-globe"></i>
                                         @endif
                                         {{ $handle->handle }}</td>
                                     <td>{{ ucfirst($handle->social_media) }}</td>
@@ -368,7 +368,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="col-md-6 grid-margin stretch-card">
             <!-- Working Hours -->
             <div class="card mb-4">
@@ -390,7 +390,7 @@
                             @forelse($workingHours as $workingHour)
                                 <tr>
                                     <td>
-                                        <i class="fa fa-clock" aria-hidden="true"></i> 
+                                        <i class="fa fa-clock" aria-hidden="true"></i>
                                         {{ $workingHour->working_hours }}
                                     </td>
                                     <td class="text-end">
@@ -409,18 +409,18 @@
                             @endforelse
                         </tbody>
                     </table>
-                    
+
                 </div>
             </div>
         </div>
     </div>
-    
 
 
 
 
 
-    
+
+
     <div class="row">
         <div class="col-lg-6 d-flex grid-margin stretch-card">
             <form method="POST" action="{{ $script ? route('admin.livechat.update', $script->id) : route('admin.livechat.store') }}">
@@ -464,7 +464,7 @@
     @endif
         </div>
         <div class="col-lg-6 d-flex grid-margin stretch-card">
- 
+
             <div class="card">
                 <div class="card-header">
                     Other Settings
@@ -472,7 +472,7 @@
                      <form action="{{ route('site-settings.save') }}" method="POST" style="display: contents;">
                     @csrf
                     <input value="{{ $site_settings->currency_symbol ?? '' }}" required type="hidden" id="currency_symbol" name="currency_symbol" class="form-control">
-            
+
                     <div class="card-body">
                         <table class="table table-bordered">
                             <tbody>
@@ -515,10 +515,10 @@
                                                 </option>
                                             @endforeach
                                         </select>
-                                        
+
                                     </td>
                                 </tr>
-            
+
                                 <!-- Currency Details -->
                                 <tr>
                                     <td><strong>Currency Symbol</strong></td>
@@ -540,12 +540,12 @@
                     </div>
                 </form>
             </div>
-            
-   
+
+
         </div>
       </div>
 
-    
+
 
       <div class="card mb-4">
         <div class="card-header d-flex justify-content-between align-items-center">
@@ -554,17 +554,17 @@
         <div class="card-body">
             <form action="{{ route('admin.order-settings.update') }}" method="POST">
                 @csrf
-    
+
                 <div class="form-group">
                     <label for="price_per_mile">Price per Mile ({!! $site_settings->currency_symbol !!})</label>
                     <input type="number" name="price_per_mile" id="price_per_mile" class="form-control" value="{{ $order_settings->price_per_mile ?? '' }}" step="0.01" required>
                 </div>
-    
+
                 <div class="form-group">
                     <label for="distance_limit_in_miles">Distance Limit in Miles</label>
                     <input type="number" name="distance_limit_in_miles" id="distance_limit_in_miles" class="form-control" value="{{ $order_settings->distance_limit_in_miles ?? '' }}" required>
                 </div>
-    
+
                 <button type="submit" class="btn btn-primary">Save</button>
             </form>
         </div>
@@ -630,14 +630,14 @@
                             <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="Example: +44 123 456 7654" required>
                         </div>
 
- 
-                        
+
+
                         <div class="form-check form-check-flat form-check-primary">
 
                             <label class="form-check-label" for="use_whatsapp">
                             <input type="checkbox" class="form-check-input"  id="use_whatsapp" name="use_whatsapp" value="1">  Use WhatsApp <i class="input-helper"></i>
                             </label>
-                        
+
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -649,7 +649,7 @@
         </div>
     </div>
 
-    
+
 
 
 
@@ -680,7 +680,7 @@
             </div>
         </div>
     </div>
-    
+
 
 
     <div class="modal fade" id="workingHourModal" tabindex="-1" aria-labelledby="workingHourModalLabel" aria-hidden="true">
@@ -708,8 +708,8 @@
         </div>
     </div>
 
- 
-    
+
+
 
 
 
@@ -738,7 +738,7 @@
         </div>
     </div>
 
-    
+
 
 
     <div class="modal fade" id="deleteAddressModal" tabindex="-1" aria-labelledby="deleteAddressModalLabel" aria-hidden="true">
@@ -762,8 +762,8 @@
             </div>
         </div>
     </div>
-    
-   
+
+
 
 
 
@@ -792,7 +792,7 @@
         </div>
     </div>
 
-    
+
     <div class="modal fade" id="deleteSocialMediaHandleModal" tabindex="-1" aria-labelledby="deleteAddressModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -816,7 +816,7 @@
     </div>
 
 
-    
+
     </div>
     <!-- content-wrapper ends -->
     @include('partials.admin.footer')
@@ -826,4 +826,3 @@
 
 
 
- 
