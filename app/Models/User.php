@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable implements CanResetPassword
 {
     use HasFactory, Notifiable;
-    
+
     protected $fillable = [
         'first_name',
         'middle_name',
@@ -24,11 +24,13 @@ class User extends Authenticatable implements CanResetPassword
         'profile_picture',
         'activation_token',
         'two_factor_auth',
+        'otp',
+        'otp_expires_at'
     ];
-    
+
 
     protected $hidden = [
-        'password', 
+        'password',
         'remember_token',
     ];
 
@@ -36,13 +38,13 @@ class User extends Authenticatable implements CanResetPassword
         'email_verified_at' => 'datetime',
     ];
 
-    // Get the orders created by the user. 
+    // Get the orders created by the user.
     public function createdOrders()
     {
         return $this->hasMany(Order::class, 'created_by_user_id');
     }
 
-    // Get the orders updated by the user. 
+    // Get the orders updated by the user.
     public function updatedOrders()
     {
         return $this->hasMany(Order::class, 'updated_by_user_id');

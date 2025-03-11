@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Password;
 use App\Http\Requests\ChangePasswordRequest;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
@@ -39,18 +41,31 @@ class AuthController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
         ]);
+
         $name = explode('@', $request->email)[0];
+
+        $otp = rand(100000, 999999);
+
         $user = User::create([
             'first_name' => $name,
-            'last_name'=>$name,
+            'last_name' => $name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => "user"
+            'role' => "user",
+            'otp' => $otp,
+            'otp_expires_at' => Carbon::now()->addMinutes(5),
         ]);
 
-        Auth::login($user);
+        // Send OTP to Email
+        Mail::raw("Your OTP for signup verification is: $otp", function ($message) use ($user) {
+            $message->to($user->email)
+                    ->subject('Verify Your Email');
+        });
 
-        return redirect()->intended(route('customer.checkout'))->with('success', 'Signup successful');
+        // Store user ID in session for verification
+        Session::put('otp_user_id', $user->id);
+
+        return redirect()->route('user.verify.otp')->with('success', 'OTP sent to your email.');
     }
 
     // Handle the login request
@@ -67,6 +82,9 @@ class AuthController extends Controller
             if ($request->route()->getName() == 'user.login.process' && $user->role === 'user') {
                 Auth::login($user);
                 return redirect()->route('customer.checkout');
+            }
+            if (!$user->status) {
+                return back()->with('error', 'Please verify your email before logging in.');
             }
             if ($user->status == 1) {
                 Auth::login($user);
@@ -217,4 +235,57 @@ class AuthController extends Controller
             ? redirect()->route('admin.index')->with('success', 'Your password has been reset successfully.')
             : back()->withErrors(['email' => [__($status)]]);
     }
+    public function sendOtp(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users,email',
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+        // Generate OTP
+        $otp = rand(100000, 999999);
+        $user->otp = $otp;
+        $user->otp_expires_at = Carbon::now()->addMinutes(5); // OTP expires in 5 minutes
+        $user->save();
+
+        // Send OTP via email
+        Mail::raw("Your OTP is: $otp", function ($message) use ($user) {
+            $message->to($user->email)
+                ->subject('Your OTP Code');
+        });
+
+        return response()->json(['message' => 'OTP sent successfully']);
+    }
+    public function verifyOtp(Request $request)
+    {
+        $request->validate([
+            'otp' => 'required|integer',
+        ]);
+
+        $userId = Session::get('otp_user_id');
+        if (!$userId) {
+            return redirect()->route('user.signup')->with('error', 'Session expired, please sign up again.');
+        }
+
+        $user = User::where('id', $userId)
+                    ->where('otp', $request->otp)
+                    ->where('otp_expires_at', '>', Carbon::now())
+                    ->first();
+
+        if (!$user) {
+            return redirect()->route('user.verify.otp')->with('error', 'Invalid or expired OTP');
+        }
+
+        // OTP is valid, mark user as verified
+        $user->otp = null;
+        $user->otp_expires_at = null;
+        $user->status = 1;
+        $user->save();
+
+        // Authenticate user
+        Auth::login($user);
+
+        return redirect()->route('customer.checkout')->with('success', 'Signup successful and verified!');
+    }
+
 }

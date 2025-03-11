@@ -22,7 +22,7 @@
             <a class="btn btn-block btn-warning auth-form-btn" href="{{ route('user.login') }}">Back to login</a>
         </div>
         <div class="mb-2">
-            <a class="btn btn-block btn-warning auth-form-btn" href="{{ route('google.login') }}">Sign in with Google</a>
+            <a class="btn btn-block btn-warning auth-form-btn" href="{{ route('google.login') }}">Sign up with Google</a>
         </div>
     </form>
 @endsection

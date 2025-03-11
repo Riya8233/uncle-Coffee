@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\PrivacyPolicyController;
 use App\Http\Controllers\Admin\GeneralSettingsController;
 use App\Http\Controllers\Admin\TermsAndConditionController;
 use App\Http\Controllers\Admin\TableBookingController as AdminTableBookingController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Middleware\UserFilterMiddleware;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
@@ -31,6 +32,8 @@ Route::post('table-booking/', [TableBookingController::class, 'bookTable'])->nam
 
 Route::get('menu/', [MainSiteController::class, 'menu'])->name('menu');
 Route::get('menu-item/{id}', [MainSiteController::class, 'menuItem'])->name('menu.item');
+
+Route::post('/store-review', [ReviewController::class, 'store']);
 
 // Customer Cart
 Route::get('cart/', [MainSiteController::class, 'cart'])->name('customer.cart');
@@ -231,9 +234,17 @@ Route::get('/auth/google/callback', function () {
         'first_name' => $googleUser->getName(),
         'last_name' => $googleUser->getName(),
         'password' => bcrypt('password'),
+        'role' => 'user',
+        'status'=>1
     ]);
 
     Auth::login($user);
 
     return redirect('/');
 })->name('google.callback');
+
+Route::get('/verify-otp', function () {
+    return view('auth.verify_otp');
+})->name('user.verify.otp');
+
+Route::post('/verify-otp', [AuthController::class, 'verifyOtp'])->name('user.verify.otp.post');
