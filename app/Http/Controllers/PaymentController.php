@@ -36,8 +36,6 @@ class PaymentController extends Controller
 
      public function payment()
     {
-
-
         //run all required session checks
         $this->runAllChecks();
 
@@ -143,10 +141,6 @@ class PaymentController extends Controller
                 'session_id' => $checkout_session->id,
                 'payment_method' => "STRIPE",
                 'additional_info' => $customerDetails['additional_info'],
-                'delivery_fee' => $delivery_fee,
-                'delivery_distance' => $delivery_distance,
-                'price_per_mile' => $price_per_mile,
-
             ]);
 
             if ($order) {
@@ -324,7 +318,7 @@ class PaymentController extends Controller
                     }
 
                     // send whatsapp message
-                    $this->sendWhatsAppNotification($order);
+                    // $this->sendWhatsAppNotification($order);
                 }
 
             }

@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\GeneralSettingsController;
 use App\Http\Controllers\Admin\TermsAndConditionController;
 use App\Http\Controllers\Admin\TableBookingController as AdminTableBookingController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\SubscriberController;
 use App\Http\Middleware\UserFilterMiddleware;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
@@ -35,6 +36,7 @@ Route::get('menu-item/{id}', [MainSiteController::class, 'menuItem'])->name('men
 
 Route::post('/store-review', [ReviewController::class, 'store']);
 
+Route::post('/subscribe', [SubscriberController::class, 'store']);
 // Customer Cart
 Route::get('cart/', [MainSiteController::class, 'cart'])->name('customer.cart');
 Route::post('cart/add', [MainSiteController::class, 'addToCart'])->name('customer.cart.add');
