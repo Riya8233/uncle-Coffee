@@ -9,22 +9,42 @@
         <span class="ion-android-menu"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-            <li>  <a href="{{ route('home') }}" class="nav-link {{ Request::routeIs('home') ? 'active' : '' }}">Home</a> </li>
-            <li>  <a href="{{ route('menu') }}" class="nav-link {{ Request::is('menu*') ? 'active' : '' }}">Menu</a> </li>
-            <li>  <a href="{{ route('blogs') }}" class="nav-link {{ Request::is('blog*') ? 'active' : '' }}">Blogs</a> </li>
-            <li>  <a href="{{ route('about') }}" class="nav-link {{ Request::routeIs('about') ? 'active' : '' }}">About</a> </li>
-            <li> <a href="{{ route('contact') }}" class="nav-link {{ Request::routeIs('contact') ? 'active' : '' }}">Contact</a> </li>
-            @if (Auth::check())
-            @if (Auth::user()->role === 'admin')
-                <li><a href="{{ route('admin.index') }}" class="nav-link">Admin Dashboard</a></li>
-            @endif
-            <li><a data-bs-toggle="modal" data-bs-target="#logoutModal" href="#" class="nav-link">Logout</a></li>
+    <ul class="navbar-nav">
+    <li>
+        <a href="{{ route('home') }}" class="nav-link {{ Request::routeIs('home') ? 'active' : '' }}">Home</a>
+    </li>
+    <li>
+        <a href="{{ route('menu') }}" class="nav-link {{ Request::is('menu*') ? 'active' : '' }}">Menu</a>
+    </li>
+    <li>
+        <a href="{{ route('blogs') }}" class="nav-link {{ Request::is('blog*') ? 'active' : '' }}">Blogs</a>
+    </li>
+    <li>
+        <a href="{{ route('about') }}" class="nav-link {{ Request::routeIs('about') ? 'active' : '' }}">About</a>
+    </li>
+    <li>
+        <a href="{{ route('contact') }}" class="nav-link {{ Request::routeIs('contact') ? 'active' : '' }}">Contact</a>
+    </li>
+    @guest
+        <li>
+        `            <a href="{{ route('user.signup') }}" class="nav-link {{ Request::routeIs('contact') ? 'active' : '' }}">Login</a>
+        </li>
+    @endguest
+    @auth
+        @if (Auth::user()->role === 'admin')
+            <li>
+                <a href="{{ route('admin.index') }}" class="nav-link {{ Request::is('admin*') ? 'active' : '' }}">
+                    Admin Dashboard
+                </a>
+            </li>
         @endif
-
-
-
-        </ul>
+        <li>
+            <a data-bs-toggle="modal" data-bs-target="#logoutModal" href="#" class="nav-link">
+                Logout
+            </a>
+        </li>
+    @endauth
+</ul>
 
     </div>
     <ul class="navbar-nav attr-nav align-items-center">
