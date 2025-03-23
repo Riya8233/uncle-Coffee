@@ -28,15 +28,13 @@ class PaymentController extends Controller
     public function __construct()
     {
         $this->shareMainSiteViewData();
-
     }
 
 
 
-
-     public function payment()
+    public function payment()
     {
-        //run all required session checks
+        // Run all required session checks
         $this->runAllChecks();
 
         // Retrieve customer details from the session
@@ -48,202 +46,181 @@ class PaymentController extends Controller
         // Retrieve order no. from session
         $order_no = session('order_no');
 
+        // Check if the order number already exists
         if (Order::where('order_no', $order_no)->exists()) {
-            return redirect() ->route('menu')->withErrors('The order number already exists. Please try again.');
+            return redirect()->route('menu')->withErrors('The order number already exists. Please try again.');
         }
 
-        //Get Site Settings
-        $site_settings  =   SiteSetting::latest()->first();
-        $currency_code  =   strtolower($site_settings->currency_code);
+        // Calculate total price
+        $totalPrice = array_reduce($cart_items, function ($carry, $item) {
+            return $carry + ($item['price'] * $item['quantity']);
+        }, 0);
 
+        // Get merchant UPI ID
+        $upi_id = "yourupi@upi"; // Replace with your actual UPI ID
 
-        // Initialize the line_items array
-        $line_items = [];
+        // Generate UPI payment link
+        $upi_link = "upi://pay?pa={$upi_id}&pn=YourBusinessName&mc=&tid={$order_no}&tr={$order_no}&tn=Payment for Order {$order_no}&am={$totalPrice}&cu=INR";
 
-        // Loop through the cart items to populate line_items
+        // Create customer record
+        $customer = Customer::create([
+            'name' => $customerDetails['name'],
+            'email' => $customerDetails['email'],
+            'phone_number' => $customerDetails['phone_number'],
+            'address' => $customerDetails['address'] . " " . $customerDetails['city'] . " " . $customerDetails['state'] . " " . $customerDetails['postcode'],
+        ]);
+
+        // Create a new order
+        $order = Order::create([
+            'customer_id' => $customer->id,
+            'order_no' => $order_no,
+            'order_type' => 'online',
+            'created_by_user_id' => null,
+            'updated_by_user_id' => null,
+            'total_price' => $totalPrice,
+            'status' => 'pending',
+            'status_online_pay' => 'unpaid',
+            'payment_method' => "UPI",
+            'additional_info' => $customerDetails['additional_info'],
+        ]);
+
+        // Create order items
         foreach ($cart_items as $cart_item) {
-            $line_items[] = [
-                'price_data' => [
-                    'currency' => $currency_code,
-                    'product_data' => [
-                        'name' => $cart_item['name'],
-                    ],
-                    'unit_amount' => $cart_item['price'] * 100, // Convert price to cents
-                ],
+            $order->orderItems()->create([
+                'menu_name' => $cart_item['name'],
                 'quantity' => $cart_item['quantity'],
-            ];
+                'subtotal' => $cart_item['price'] * $cart_item['quantity'],
+            ]);
         }
 
+        // Send the UPI link via email
+        // \Mail::to($customerDetails['email'])->send(new \App\Mail\UPIPaymentMail($customer->name, $upi_link));
 
-        // Add delivery fee in the line_items
-        if (isset($delivery_fee)) {
-            $line_items[] = [
-                'price_data' => [
-                    'currency' => $currency_code,
-                    'product_data' => [
-                        'name' => 'Delivery Fee',
-                    ],
-                    'unit_amount' => $delivery_fee * 100, // Convert to cents
-                ],
-                'quantity' => 1,
-            ];
-        }
-
-        // Set Stripe secret key
-        Stripe::setApiKey(config('services.stripe.secret'));
-
-        try {
-
-            // Create a Stripe Checkout session
-            $checkout_session = \Stripe\Checkout\Session::create([
-                'line_items' => $line_items,
-                'mode' => 'payment',
-                'customer_email' => $customerDetails['email'],
-                'metadata' => [
-                    'order_no' => $order_no,
-                    'name' => $customerDetails['name'],
-                    'phone' => $customerDetails['phone_number'],
-                    'address' => $customerDetails['address'],
-                    'city' => $customerDetails['city'],
-                    'state' => $customerDetails['state'],
-                    'postcode' => $customerDetails['postcode'],
-                ],
-
-                'success_url' => route('payment.success') . '?session_id={CHECKOUT_SESSION_ID}',
-                'cancel_url' => route('payment.cancel'),
-            ]);
-
-            //PREPARE TO CREATE ORDER
-
-            $totalPrice = array_reduce($cart_items, function ($carry, $item) {
-                return $carry + ($item['price'] * $item['quantity']);
-            }, 0);
-
-
-            // Create the customer
-            $customer = Customer::create([
-                'name' =>  $customerDetails['name'],
-                'email' =>  $customerDetails['email'] ,
-                'phone_number' => $customerDetails['phone_number'],
-                'address' => $customerDetails['address'] . " ".$customerDetails['city']." ".$customerDetails['state']." ".$customerDetails['postcode'],
-            ]);
-
-            // Create a new order
-            $order = Order::create([
-                'customer_id' => $customer->id,
-                'order_no' => $order_no,
-                'order_type' => 'online',
-                'created_by_user_id' => null,
-                'updated_by_user_id' => null,
-                'total_price' => $totalPrice,
-                'status' => 'pending',
-                'status_online_pay' => 'unpaid',
-                'session_id' => $checkout_session->id,
-                'payment_method' => "STRIPE",
-                'additional_info' => $customerDetails['additional_info'],
-            ]);
-
-            if ($order) {
-                // Create order items using the relationship
-                foreach ($cart_items as $cart_item) {
-                    $order->orderItems()->create([
-                        'menu_name' => $cart_item['name'],
-                        'quantity' => $cart_item['quantity'],
-                        'subtotal' => $cart_item['price'] * $cart_item['quantity'],
-                    ]);
-                }
-            }
-
-
-            // Redirect the user to the Stripe Checkout session URL
-            return redirect($checkout_session->url);
-
-        } catch (Exception $e) {
-            $error_msg  =  $e->getMessage();
-            return redirect()->route('menu')->withErrors($error_msg);
-        }
+        return redirect()->route('payment.success')->with('success', 'Payment link has been sent to your email.');
     }
+
+
+
+
 
     public function paymentCancel()
     {
         return view('main-site.payment-cancel');
     }
 
-
     public function paymentSuccess(Request $request)
     {
-        //run all required session checks
+        // Run all required session checks
         $this->runAllChecks();
 
-        // Set Stripe secret key
-        Stripe::setApiKey(config('services.stripe.secret'));
-
-        // Retrieve the session ID from the request
+        // Retrieve the session ID and payment method from the request
         $session_id = $request->query('session_id');
+        $upi_transaction_id = $request->query('upi_transaction_id'); // Assuming UPI transaction ID is sent in the request
 
         // Retrieve the order number from the session
         $order_no = session('order_no');
 
+        // Check if the order exists (via session_id, order_no for COD, or UPI transaction)
+        $order = Order::with(['orderItems', 'customer'])
+            ->when($session_id, function ($query) use ($session_id) {
+                return $query->where('session_id', $session_id);
+            }, function ($query) use ($order_no) {
+                return $query->where('order_no', $order_no);
+            })
+            ->when($upi_transaction_id, function ($query) use ($upi_transaction_id) {
+                return $query->where('upi_transaction_id', $upi_transaction_id);
+            })
+            ->first();
+
+        if (!$order) {
+            return redirect()->route('menu')->withErrors('Order verification failed');
+        }
+
+        // If the payment method is COD, mark as paid and send confirmation email
+        if ($order->payment_method === 'cod') {
+            $order->status_online_pay = 'paid';
+            $order->save();
+            $this->sendOrderEmail($order);
+            $this->clearOrderSession();
+            return view('main-site.payment-success', compact('order'));
+        }
+
+        // If the payment method is UPI, verify the payment
+        if ($order->payment_method === 'UPI' && $upi_transaction_id) {
+            if ($order->status_online_pay === 'unpaid') {
+                $order->status_online_pay = 'paid';
+                $order->upi_transaction_id = $upi_transaction_id; // Store UPI transaction ID
+                $order->save();
+                $this->sendOrderEmail($order);
+                $this->clearOrderSession();
+                return view('main-site.payment-success', compact('order'));
+            } elseif ($order->status_online_pay === 'paid') {
+                $this->clearOrderSession();
+                return view('main-site.payment-success', compact('order'));
+            }
+
+            return redirect()->route('menu')->withErrors("There was an issue verifying your UPI payment. Please try again.");
+        }
+
+        // If Stripe session ID exists, verify online payment
         if ($session_id) {
             try {
+                // Set Stripe secret key
+                Stripe::setApiKey(config('services.stripe.secret'));
 
-                    // Retrieve the checkout session
-                    $checkout_session = \Stripe\Checkout\Session::retrieve($session_id);
+                // Retrieve the checkout session
+                $checkout_session = \Stripe\Checkout\Session::retrieve($session_id);
 
-                    $order = Order::with(['orderItems', 'customer'])->where('session_id', $checkout_session->id)->first();
+                // Ensure the order matches the session ID
+                if ($order->session_id !== $checkout_session->id) {
+                    return redirect()->route('menu')->withErrors("Order verification failed.");
+                }
 
-                    if (!$order) {
-                        throw new NotFoundHttpException();
-                        // return redirect()->route('menu')->withErrors('Order verification failed');
+                // If the order is unpaid, mark it as paid
+                if ($order->status_online_pay === 'unpaid') {
+                    $order->status_online_pay = 'paid';
+                    $order->save();
+                    $this->sendOrderEmail($order);
+                    $this->clearOrderSession();
+                    return view('main-site.payment-success', compact('order'));
+                } elseif ($order->status_online_pay === 'paid') {
+                    $this->clearOrderSession();
+                    return view('main-site.payment-success', compact('order'));
+                }
 
-                    }
-
-                    if ($order->status_online_pay === 'unpaid') {
-                        $order->status_online_pay = 'paid';
-                        $order->save();
-
-                        // Send the email
-                        try {
-                            Mail::to($order->customer->email)->send(new OrderEmail(
-                                $order->orderItems,
-                                $order->customer->name,
-                                $order->customer->email,
-                                $order->order_no,
-                                $order->delivery_fee,
-                                $order->total_price,
-                                config('site.email'),
-                                RestaurantPhoneNumber::first() ? RestaurantPhoneNumber::first()->phone_number : null
-                            ));
-                        } catch (Exception $e) {
-                            Log::error('Order email failed to send: ' . $e->getMessage());
-                        }
-
-                        // Clear the session
-                        $this->clearOrderSession();
-
-                        return view('main-site.payment-success', compact('order'));
-                    }
-                    elseif ($order->status_online_pay === 'paid') {
-
-                        // Clear the session
-                        $this->clearOrderSession();
-                        return view('main-site.payment-success', compact('order'));
-
-                    }
-
-
-                    return redirect()->route('menu')->withErrors("There was an issue processing your payment. Please try again.");
-
-
-
+                return redirect()->route('menu')->withErrors("There was an issue processing your payment. Please try again.");
             } catch (Exception $e) {
-                $error_msg  =  $e->getMessage();
-                return redirect()->route('menu')->withErrors($error_msg);
+                return redirect()->route('menu')->withErrors($e->getMessage());
             }
-        } else {
-            return redirect()->route('menu')->withErrors('Session ID not found!');
+        }
+
+        return redirect()->route('menu')->withErrors('Session ID or UPI transaction ID not found!');
+    }
+
+    /**
+     * Send order confirmation email.
+     */
+    private function sendOrderEmail($order)
+    {
+        try {
+            Mail::to($order->customer->email)->send(new OrderEmail(
+                $order->orderItems,
+                $order->customer->name,
+                $order->customer->email,
+                $order->order_no,
+                $order->delivery_fee,
+                $order->total_price,
+                config('site.email'),
+                RestaurantPhoneNumber::first() ? RestaurantPhoneNumber::first()->phone_number : null
+            ));
+        } catch (Exception $e) {
+            Log::error('Order email failed to send: ' . $e->getMessage());
         }
     }
+
+
+
+
 
 
 
@@ -320,7 +297,6 @@ class PaymentController extends Controller
                     // send whatsapp message
                     // $this->sendWhatsAppNotification($order);
                 }
-
             }
 
             return response('Webhook handled', 200);
@@ -356,7 +332,4 @@ class PaymentController extends Controller
             'order_no'
         ]);
     }
-
-
-
 }

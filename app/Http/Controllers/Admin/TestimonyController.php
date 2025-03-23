@@ -14,7 +14,7 @@ class TestimonyController extends Controller
     public function __construct()
     {
         $this->shareAdminViewData();
-        
+
     }
     public function index()
     {

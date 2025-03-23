@@ -140,7 +140,7 @@ class MainSiteController extends Controller
 
     public function proccessCheckout(CustomerDetailsRequest $request)
     {
-
+        Session::put('payment_option', $request->payment_option);
         // Check if the session contains the cart key
         if (!session()->has($this->cartkey)) {
             return redirect()->route('menu')->withErrors('Your cart is empty. Please add items to your cart before checking out.');
