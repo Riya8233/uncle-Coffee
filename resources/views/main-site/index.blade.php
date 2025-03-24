@@ -280,86 +280,87 @@
 @section('content')
 
 
-    <!-- START SECTION BANNER -->
-    <div class="banner_section full_screen staggered-animation-wrap pattern_banner_bottom">
-        <div id="carouselExampleControls" class="carousel slide carousel-fade carousel_style2 light_arrow"
-            data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active background_bg overlay_bg_40" data-img-src="/assets/images/banner5.jpg">
-                    <div class="banner_slide_content">
-                        <div class="container"><!-- STRART CONTAINER -->
-                            <div class="row">
-                                <div class="col-lg-7 col-md-12 col-sm-12">
-                                    <div class="banner_content2 text_white">
-                                        <h2 class="staggered-animation" data-animation="fadeInUp"
-                                            data-animation-delay="0.2s">Tasty African Delights</h2>
-                                        <p class="staggered-animation" data-animation="fadeInUp"
-                                            data-animation-delay="0.4s">Experience the vibrant flavors of Africa with dishes
-                                            crafted to perfection. <br class="d-none d-md-block" /> Each bite takes you
-                                            closer to tradition and joy.</p>
-                                        <a class="btn btn-default rounded-0 staggered-animation" href="{{ route('menu') }}"
-                                            data-animation="fadeInUp" data-animation-delay="0.6s">Order Online</a>
-                                    </div>
+<!-- START SECTION BANNER -->
+<div class="banner_section full_screen staggered-animation-wrap pattern_banner_bottom">
+    <div id="carouselExampleControls" class="carousel slide carousel-fade carousel_style2 light_arrow"
+        data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active background_bg overlay_bg_40" data-img-src="/assets/images/banner5.jpg">
+                <div class="banner_slide_content">
+                    <div class="container"><!-- STRART CONTAINER -->
+                        <div class="row">
+                            <div class="col-lg-7 col-md-12 col-sm-12">
+                                <div class="banner_content2 text_white">
+                                    <h2 class="staggered-animation" data-animation="fadeInUp"
+                                        data-animation-delay="0.2s">Tasty Café Delights</h2>
+                                    <p class="staggered-animation" data-animation="fadeInUp"
+                                        data-animation-delay="0.4s">Experience the rich flavors of our café with dishes
+                                        crafted to perfection. <br class="d-none d-md-block" /> Each bite takes you
+                                        closer to comfort and joy.</p>
+                                    <a class="btn btn-default rounded-0 staggered-animation" href="{{ route('menu') }}"
+                                        data-animation="fadeInUp" data-animation-delay="0.6s">Order Online</a>
                                 </div>
                             </div>
-                        </div><!-- END CONTAINER-->
-                    </div>
-                </div>
-                <div class="carousel-item background_bg overlay_bg_60" data-img-src="/assets/images/banner2.jpg">
-                    <div class="banner_slide_content">
-                        <div class="container"><!-- STRART CONTAINER -->
-                            <div class="row justify-content-center">
-                                <div class="col-lg-7 col-md-12 col-sm-12 text-center">
-                                    <div class="banner_content2 text_white">
-                                        <h2 class="staggered-animation" data-animation="fadeInUp"
-                                            data-animation-delay="0.2s">Choose & Savor</h2>
-                                        <p class="staggered-animation" data-animation="fadeInUp"
-                                            data-animation-delay="0.4s">Indulge in suya and other mouthwatering dishes,
-                                            infused with authentic spices <br class="d-none d-md-block" /> and crafted to
-                                            delight your taste buds.</p>
-                                        <a class="btn btn-default rounded-0 staggered-animation" href="{{ route('menu') }}"
-                                            data-animation="fadeInUp" data-animation-delay="0.6s">Order Online</a>
-                                        <a class="btn btn-white rounded-0 staggered-animation" href="{{ route('contact') }}"
-                                            data-animation="fadeInUp" data-animation-delay="0.6s">Contact Us</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- END CONTAINER-->
-                    </div>
-                </div>
-                <div class="carousel-item background_bg overlay_bg_40" data-img-src="/assets/images/banner6.jpg">
-                    <div class="banner_slide_content">
-                        <div class="container"><!-- STRART CONTAINER -->
-                            <div class="row justify-content-md-end">
-                                <div class="col-lg-6 col-md-12 col-sm-12">
-                                    <div class="banner_content2 text_white">
-                                        <h4 class="staggered-animation text_default" data-animation="fadeInUp"
-                                            data-animation-delay="0.2s">Are You Ready</h4>
-                                        <h2 class="staggered-animation" data-animation="fadeInUp"
-                                            data-animation-delay="0.2s">Enjoy Every Bite</h2>
-                                        <p class="staggered-animation" data-animation="fadeInUp"
-                                            data-animation-delay="0.4s">From sizzling suya to hearty stews, enjoy African
-                                            dishes made to bring joy <br class="d-none d-md-block" /> to every occasion and
-                                            appetite.</p>
-                                        <a class="btn btn-default rounded-0 staggered-animation"
-                                            href="{{ route('menu') }}" data-animation="fadeInUp"
-                                            data-animation-delay="0.6s">Order Online</a>
-                                        <a class="btn btn-white rounded-0 staggered-animation"
-                                            href="{{ route('contact') }}" data-animation="fadeInUp"
-                                            data-animation-delay="0.6s">Contact Us</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- END CONTAINER-->
-                    </div>
+                        </div>
+                    </div><!-- END CONTAINER-->
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev"><i
-                    class="ion-chevron-left"></i></a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next"><i
-                    class="ion-chevron-right"></i></a>
+            <div class="carousel-item background_bg overlay_bg_60" data-img-src="/assets/images/banner2.jpg">
+                <div class="banner_slide_content">
+                    <div class="container"><!-- STRART CONTAINER -->
+                        <div class="row justify-content-center">
+                            <div class="col-lg-7 col-md-12 col-sm-12 text-center">
+                                <div class="banner_content2 text_white">
+                                    <h2 class="staggered-animation" data-animation="fadeInUp"
+                                        data-animation-delay="0.2s">Choose & Savor</h2>
+                                    <p class="staggered-animation" data-animation="fadeInUp"
+                                        data-animation-delay="0.4s">Indulge in handcrafted pastries and fresh brews,
+                                        infused with rich flavors <br class="d-none d-md-block" /> and crafted to
+                                        delight your taste buds.</p>
+                                    <a class="btn btn-default rounded-0 staggered-animation" href="{{ route('menu') }}"
+                                        data-animation="fadeInUp" data-animation-delay="0.6s">Order Online</a>
+                                    <a class="btn btn-white rounded-0 staggered-animation" href="{{ route('contact') }}"
+                                        data-animation="fadeInUp" data-animation-delay="0.6s">Contact Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- END CONTAINER-->
+                </div>
+            </div>
+            <div class="carousel-item background_bg overlay_bg_40" data-img-src="/assets/images/banner2.jpg">
+                <div class="banner_slide_content">
+                    <div class="container"><!-- STRART CONTAINER -->
+                        <div class="row justify-content-md-end">
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <div class="banner_content2 text_white">
+                                    <h4 class="staggered-animation text_default" data-animation="fadeInUp"
+                                        data-animation-delay="0.2s">Are You Ready</h4>
+                                    <h2 class="staggered-animation" data-animation="fadeInUp"
+                                        data-animation-delay="0.2s">Enjoy Every Bite</h2>
+                                    <p class="staggered-animation" data-animation="fadeInUp"
+                                        data-animation-delay="0.4s">From freshly brewed coffee to warm pastries, enjoy café
+                                        treats made to bring joy <br class="d-none d-md-block" /> to every occasion and
+                                        appetite.</p>
+                                    <a class="btn btn-default rounded-0 staggered-animation"
+                                        href="{{ route('menu') }}" data-animation="fadeInUp"
+                                        data-animation-delay="0.6s">Order Online</a>
+                                    <a class="btn btn-white rounded-0 staggered-animation"
+                                        href="{{ route('contact') }}" data-animation="fadeInUp"
+                                        data-animation-delay="0.6s">Contact Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- END CONTAINER-->
+                </div>
+            </div>
         </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev"><i
+                class="ion-chevron-left"></i></a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next"><i
+                class="ion-chevron-right"></i></a>
     </div>
+</div>
+
     <!-- END SECTION BANNER -->
 
 

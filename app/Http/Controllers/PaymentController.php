@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Traits\CartTrait;
 use App\Http\Controllers\Traits\MainSiteViewSharedDataTrait;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Illuminate\Support\Facades\Storage;
+
 
 class PaymentController extends Controller
 {
@@ -46,6 +49,9 @@ class PaymentController extends Controller
         // Retrieve order no. from session
         $order_no = session('order_no');
 
+        // Retrieve selected payment option
+        $payment_option = Session::get('payment_option');
+
         // Check if the order number already exists
         if (Order::where('order_no', $order_no)->exists()) {
             return redirect()->route('menu')->withErrors('The order number already exists. Please try again.');
@@ -55,12 +61,6 @@ class PaymentController extends Controller
         $totalPrice = array_reduce($cart_items, function ($carry, $item) {
             return $carry + ($item['price'] * $item['quantity']);
         }, 0);
-
-        // Get merchant UPI ID
-        $upi_id = "yourupi@upi"; // Replace with your actual UPI ID
-
-        // Generate UPI payment link
-        $upi_link = "upi://pay?pa={$upi_id}&pn=YourBusinessName&mc=&tid={$order_no}&tr={$order_no}&tn=Payment for Order {$order_no}&am={$totalPrice}&cu=INR";
 
         // Create customer record
         $customer = Customer::create([
@@ -80,7 +80,7 @@ class PaymentController extends Controller
             'total_price' => $totalPrice,
             'status' => 'pending',
             'status_online_pay' => 'unpaid',
-            'payment_method' => "UPI",
+            'payment_method' => $payment_option,  // Use selected payment option
             'additional_info' => $customerDetails['additional_info'],
         ]);
 
@@ -93,10 +93,16 @@ class PaymentController extends Controller
             ]);
         }
 
-        // Send the UPI link via email
-        // \Mail::to($customerDetails['email'])->send(new \App\Mail\UPIPaymentMail($customer->name, $upi_link));
+        if ($payment_option === "upi") {
+            // Get merchant UPI ID
+            $upi_id = "riyapatel180904@okicici";
 
-        return redirect()->route('payment.success')->with('success', 'Payment link has been sent to your email.');
+            $upi_link = "upi://pay?pa={$upi_id}&pn=Uncle_coffee&mc=&tid={$order_no}&tr={$order_no}&tn=Payment_for_Order{$order_no}&am={$totalPrice}&cu=INR";
+
+            \Mail::to($customerDetails['email'])->send(new \App\Mail\UPIPaymentMail($customer->name, $upi_link));
+        }
+
+        return redirect()->route('payment.success')->with('success', 'Your order has been placed successfully.');
     }
 
 
@@ -113,43 +119,30 @@ class PaymentController extends Controller
         // Run all required session checks
         $this->runAllChecks();
 
-        // Retrieve the session ID and payment method from the request
-        $session_id = $request->query('session_id');
-        $upi_transaction_id = $request->query('upi_transaction_id'); // Assuming UPI transaction ID is sent in the request
-
         // Retrieve the order number from the session
         $order_no = session('order_no');
 
-        // Check if the order exists (via session_id, order_no for COD, or UPI transaction)
+        // Check if the order exists using order_no (for COD) or UPI transaction
         $order = Order::with(['orderItems', 'customer'])
-            ->when($session_id, function ($query) use ($session_id) {
-                return $query->where('session_id', $session_id);
-            }, function ($query) use ($order_no) {
-                return $query->where('order_no', $order_no);
-            })
-            ->when($upi_transaction_id, function ($query) use ($upi_transaction_id) {
-                return $query->where('upi_transaction_id', $upi_transaction_id);
-            })
+            ->where('order_no', $order_no)
             ->first();
 
         if (!$order) {
             return redirect()->route('menu')->withErrors('Order verification failed');
         }
 
-        // If the payment method is COD, mark as paid and send confirmation email
+        // If the payment method is COD, mark as unpaid and send confirmation email
         if ($order->payment_method === 'cod') {
-            $order->status_online_pay = 'paid';
+            $order->status_online_pay = 'unpaid';
             $order->save();
             $this->sendOrderEmail($order);
             $this->clearOrderSession();
             return view('main-site.payment-success', compact('order'));
         }
-
-        // If the payment method is UPI, verify the payment
-        if ($order->payment_method === 'UPI' && $upi_transaction_id) {
+        // If the payment method is UPI, verify the payment status
+        if ($order->payment_method === 'upi') {
             if ($order->status_online_pay === 'unpaid') {
                 $order->status_online_pay = 'paid';
-                $order->upi_transaction_id = $upi_transaction_id; // Store UPI transaction ID
                 $order->save();
                 $this->sendOrderEmail($order);
                 $this->clearOrderSession();
@@ -162,40 +155,9 @@ class PaymentController extends Controller
             return redirect()->route('menu')->withErrors("There was an issue verifying your UPI payment. Please try again.");
         }
 
-        // If Stripe session ID exists, verify online payment
-        if ($session_id) {
-            try {
-                // Set Stripe secret key
-                Stripe::setApiKey(config('services.stripe.secret'));
-
-                // Retrieve the checkout session
-                $checkout_session = \Stripe\Checkout\Session::retrieve($session_id);
-
-                // Ensure the order matches the session ID
-                if ($order->session_id !== $checkout_session->id) {
-                    return redirect()->route('menu')->withErrors("Order verification failed.");
-                }
-
-                // If the order is unpaid, mark it as paid
-                if ($order->status_online_pay === 'unpaid') {
-                    $order->status_online_pay = 'paid';
-                    $order->save();
-                    $this->sendOrderEmail($order);
-                    $this->clearOrderSession();
-                    return view('main-site.payment-success', compact('order'));
-                } elseif ($order->status_online_pay === 'paid') {
-                    $this->clearOrderSession();
-                    return view('main-site.payment-success', compact('order'));
-                }
-
-                return redirect()->route('menu')->withErrors("There was an issue processing your payment. Please try again.");
-            } catch (Exception $e) {
-                return redirect()->route('menu')->withErrors($e->getMessage());
-            }
-        }
-
-        return redirect()->route('menu')->withErrors('Session ID or UPI transaction ID not found!');
+        return redirect()->route('menu')->withErrors('Order verification failed!');
     }
+
 
     /**
      * Send order confirmation email.

@@ -2,59 +2,64 @@
     <a class="navbar-brand" href="{{ route('home') }}">
         <img class="logo_light" src="/assets/images/logo_light.png" alt="logo" style="
         height: 11vh;"">
-        <img class="logo_dark" src="/assets/images/logo_dark.png" alt="logo style="
-        height: 11vh;">
+        <img class="logo_dark" src="/assets/images/logo_dark.png" alt="logo style=" height: 11vh;">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-expanded="false">
         <span class="ion-android-menu"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-    <ul class="navbar-nav">
-    <li>
-        <a href="{{ route('home') }}" class="nav-link {{ Request::routeIs('home') ? 'active' : '' }}">Home</a>
-    </li>
-    <li>
-        <a href="{{ route('menu') }}" class="nav-link {{ Request::is('menu*') ? 'active' : '' }}">Menu</a>
-    </li>
-    <li>
-        <a href="{{ route('blogs') }}" class="nav-link {{ Request::is('blog*') ? 'active' : '' }}">Blogs</a>
-    </li>
-    <li>
-        <a href="{{ route('about') }}" class="nav-link {{ Request::routeIs('about') ? 'active' : '' }}">About</a>
-    </li>
-    <li>
-        <a href="{{ route('contact') }}" class="nav-link {{ Request::routeIs('contact') ? 'active' : '' }}">Contact</a>
-    </li>
-    @guest
-        <li>
-        `            <a href="{{ route('user.signup') }}" class="nav-link {{ Request::routeIs('contact') ? 'active' : '' }}">Login</a>
-        </li>
-    @endguest
-    @auth
-        @if (Auth::user()->role === 'admin')
+        <ul class="navbar-nav">
             <li>
-                <a href="{{ route('admin.index') }}" class="nav-link {{ Request::is('admin*') ? 'active' : '' }}">
-                    Admin Dashboard
-                </a>
+                <a href="{{ route('home') }}" class="nav-link {{ Request::routeIs('home') ? 'active' : '' }}">Home</a>
             </li>
-        @endif
-        <li>
-            <a data-bs-toggle="modal" data-bs-target="#logoutModal" href="#" class="nav-link">
-                Logout
-            </a>
-        </li>
-    @endauth
-</ul>
+            <li>
+                <a href="{{ route('menu') }}" class="nav-link {{ Request::is('menu*') ? 'active' : '' }}">Menu</a>
+            </li>
+            <li>
+                <a href="{{ route('blogs') }}" class="nav-link {{ Request::is('blog*') ? 'active' : '' }}">Blogs</a>
+            </li>
+            <li>
+                <a href="{{ route('about') }}"
+                    class="nav-link {{ Request::routeIs('about') ? 'active' : '' }}">About</a>
+            </li>
+            <li>
+                <a href="{{ route('contact') }}"
+                    class="nav-link {{ Request::routeIs('contact') ? 'active' : '' }}">Contact</a>
+            </li>
+            @guest
+                <li>
+                    <a href="{{ route('user.login') }}"
+                        class="nav-link {{ Request::routeIs('contact') ? 'active' : '' }}">Login</a>
+                </li>
+            @endguest
+            @auth
+                @if (Auth::user()->role === 'admin')
+                    <li>
+                        <a href="{{ route('admin.index') }}" class="nav-link {{ Request::is('admin*') ? 'active' : '' }}">
+                            Admin Dashboard
+                        </a>
+                    </li>
+                @endif
+                <li>
+                    <a data-bs-toggle="modal" data-bs-target="#logoutModal" href="#" class="nav-link">
+                        Logout
+                    </a>
+                </li>
+            @endauth
+        </ul>
 
     </div>
     <ul class="navbar-nav attr-nav align-items-center">
-        <li><a class="nav-link {{ Request::routeIs('cart') ? 'active' : '' }}" href="{{ route('customer.cart') }}" ><i class="linearicons-cart"></i><span class="cart_count" id="cart_count">{{ $customer_total_cart_items }}</span></a></li>
+        <li><a class="nav-link {{ Request::routeIs('cart') ? 'active' : '' }}" href="{{ route('customer.cart') }}"><i
+                    class="linearicons-cart"></i><span class="cart_count"
+                    id="cart_count">{{ $customer_total_cart_items }}</span></a></li>
     </ul>
-    @if($firstRestaurantPhoneNumber)
-    <div class="header_btn d-sm-block d-none">
-        <a href="tel:{{ $firstRestaurantPhoneNumber->phone_number }}" class="btn btn-default rounded-0 ml-2 btn-sm"><i class="fa fa-phone"></i> CALL US</a>
-    </div>
+    @if ($firstRestaurantPhoneNumber)
+        <div class="header_btn d-sm-block d-none">
+            <a href="tel:{{ $firstRestaurantPhoneNumber->phone_number }}"
+                class="btn btn-default rounded-0 ml-2 btn-sm"><i class="fa fa-phone"></i> CALL US</a>
+        </div>
     @endif
 
 </nav>
-

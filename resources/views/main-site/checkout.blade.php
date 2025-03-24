@@ -211,8 +211,8 @@
                         </div>
                         <div class="payment_option">
                             <div class="custome-radio">
-                                <input class="form-check-input" type="radio" name="payment_option" id="stripe" value="stripe" checked>
-                                <label class="form-check-label" for="stripe">Stripe Payment</label>
+                                <input class="form-check-input" type="radio" name="payment_option" id="upi" value="upi" checked>
+                                <label class="form-check-label" for="upi">UPI Payment</label>
                             </div>
                             <div class="custome-radio">
                                 <input class="form-check-input" type="radio" name="payment_option" id="cod" value="cod">

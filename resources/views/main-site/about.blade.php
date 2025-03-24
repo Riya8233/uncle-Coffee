@@ -2,15 +2,15 @@
 @extends('layouts.main-site')
 
 @push('styles')
-    
+
     <!-- Animation CSS -->
-    <link rel="stylesheet" href="/assets/css/animate.css">	
+    <link rel="stylesheet" href="/assets/css/animate.css">
     <!-- Latest Bootstrap min CSS -->
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i&amp;display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet">
     <!-- Icon Font CSS -->
     <link rel="stylesheet" href="/assets/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/ionicons.min.css">
@@ -37,25 +37,25 @@
 @endpush
 
 @push('scripts')
-    <!-- Latest jQuery --> 
-    <script src="/assets/js/jquery-1.12.4.min.js"></script> 
-    <!-- Latest compiled and minified Bootstrap --> 
-    <script src="/assets/bootstrap/js/bootstrap.min.js"></script> 
-    <!-- owl-carousel min js  --> 
-    <script src="/assets/owlcarousel/js/owl.carousel.min.js"></script> 
-    <!-- magnific-popup min js  --> 
-    <script src="/assets/js/magnific-popup.min.js"></script> 
-    <!-- waypoints min js  --> 
-    <script src="/assets/js/waypoints.min.js"></script> 
-    <!-- parallax js  --> 
-    <script src="/assets/js/parallax.js"></script> 
-    <!-- countdown js  --> 
-    <script src="/assets/js/jquery.countdown.min.js"></script> 
+    <!-- Latest jQuery -->
+    <script src="/assets/js/jquery-1.12.4.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="/assets/owlcarousel/js/owl.carousel.min.js"></script>
+    <!-- magnific-popup min js  -->
+    <script src="/assets/js/magnific-popup.min.js"></script>
+    <!-- waypoints min js  -->
+    <script src="/assets/js/waypoints.min.js"></script>
+    <!-- parallax js  -->
+    <script src="/assets/js/parallax.js"></script>
+    <!-- countdown js  -->
+    <script src="/assets/js/jquery.countdown.min.js"></script>
     <!-- jquery.countTo js  -->
     <script src="/assets/js/jquery.countTo.js"></script>
-    <!-- imagesloaded js --> 
+    <!-- imagesloaded js -->
     <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
-    <!-- isotope min js --> 
+    <!-- isotope min js -->
     <script src="/assets/js/isotope.min.js"></script>
     <!-- jquery.appear js  -->
     <script src="/assets/js/jquery.appear.js"></script>
@@ -67,7 +67,7 @@
     <script src="/assets/js/datepicker.min.js"></script>
     <!-- TimePicker js -->
     <script src="/assets/js/mdtimepicker.min.js"></script>
-    <!-- scripts js --> 
+    <!-- scripts js -->
     <script src="/assets/js/scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -122,8 +122,8 @@
                     <p>At {{ config('site.name') }}, we are dedicated to serving authentic and innovative dishes crafted from the freshest ingredients. Come experience the best of West African culinary tradition with us!</p>
                 </div>
             </div>
-            
-        	<div class="col-lg-6">	
+
+        	<div class="col-lg-6">
                 <div class="fancy_style1 overlay_bg_20">
                     <img src="assets/images/about_img5.jpg" alt="about_img5" />
                     <a href="https://www.youtube.com/watch?v=ZE2HxTmxfrI" class="btn btn-ripple ripple_center video_popup animation" data-animation="fadeInUp" data-animation-delay="0.6s"><span class="ripple"><i class="ion-play"></i></span></a>
@@ -132,7 +132,7 @@
         </div>
     </div>
 </div>
-<!-- END SECTION ABOUT --> 
+<!-- END SECTION ABOUT -->
         <!-- START SECTION CTA -->
         <div class="section background_bg" data-img-src="/assets/images/cta_bg.jpg">
             <div class="container">
@@ -161,8 +161,8 @@
                         <i class="flaticon-dining-table"></i>
                     </div>
                     <div class="icon_box_content">
-                        <h5 class="text-uppercase">Authentic African Cuisine</h5>
-                        <p>Relish the flavors of traditional African meals, lovingly prepared to preserve our rich culinary heritage.</p>
+                        <h5 class="text-uppercase">Premium Coffee Selection</h5>
+                        <p>Indulge in the finest coffee, brewed to perfection using carefully selected beans for an unforgettable taste.</p>
                     </div>
                 </div>
             </div>
@@ -174,8 +174,8 @@
                         <i class="flaticon-contact"></i>
                     </div>
                     <div class="icon_box_content">
-                        <h5 class="text-uppercase">Homemade Goodness</h5>
-                        <p>Our meals are prepared with care, blending homemade recipes and fresh ingredients to make you feel right at home.</p>
+                        <h5 class="text-uppercase">Homemade Treats</h5>
+                        <p>Pair your coffee with our delicious homemade treats, freshly baked to complement every sip.</p>
                     </div>
                 </div>
             </div>
@@ -187,8 +187,8 @@
                         <i class="flaticon-restaurant"></i>
                     </div>
                     <div class="icon_box_content">
-                        <h5 class="text-uppercase">Satisfying Every Bite</h5>
-                        <p>Enjoy meals that are not just delicious but crafted to leave you completely satisfied with every bite.</p>
+                        <h5 class="text-uppercase">A Cozy Café Experience</h5>
+                        <p>Relax and unwind in a warm, inviting ambiance designed for coffee lovers and casual meet-ups alike.</p>
                     </div>
                 </div>
             </div>
@@ -197,9 +197,8 @@
 </div>
 <!-- END SECTION FEATURES -->
 
-         
- 
+
+
 @endsection
 
 
- 
