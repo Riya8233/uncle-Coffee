@@ -1,4 +1,4 @@
- 
+
 <!-- START FOOTER -->
 <footer class="footer_dark pattern_top background_bg overlay_bg_80" data-img-src="assets/images/footer_bg.jpg">
 	<div class="footer_top">
@@ -25,7 +25,7 @@
                                         <a href="{{ "https://www.tiktok.com/@" . $handle->handle }}" target="_blank"><i class="fa fa-globe"></i></a>
                                     @endif
                                 </li>
-                                @endforeach                      
+                                @endforeach
                         </ul>
                     </div>
         		</div>
@@ -37,7 +37,7 @@
                             <li><a href="{{ route('menu') }}">Our Menu</a></li>
                             <li><a href="{{ route('about') }}">About us</a> </li>
                             <li><a href="{{ route('contact') }}">Contact us</a></li>
-                            
+
                             @if($whatsAppNumber)
                             <li> <a href="https://wa.me/{{ $whatsAppNumber->phone_number }}" target="_blank" ><i class="fa fa-whatsapp"></i> Chat us on Whatsapp</a></li>
                             @endif
@@ -51,7 +51,7 @@
                             @if($firstRestaurantAddress) <li> <i class="ti-location-pin"></i> <p>{{ $firstRestaurantAddress->address }}</p></li> @endif
 
                             <li> <i class="ti-email"></i>  <a href="mailto:{{ config('site.email') }}">{{ config('site.email') }}</a> </li>
-                        
+
                             @if($firstRestaurantPhoneNumber) <li> <i class="ti-mobile"></i> <p>{{ $firstRestaurantPhoneNumber->phone_number }}</p> </li> @endif
 
 

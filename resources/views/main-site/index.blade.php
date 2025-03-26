@@ -305,7 +305,7 @@
                     </div><!-- END CONTAINER-->
                 </div>
             </div>
-            <div class="carousel-item background_bg overlay_bg_60" data-img-src="/assets/images/banner2.jpg">
+            <div class="carousel-item background_bg overlay_bg_60" data-img-src="/assets/images/GGS.webp">
                 <div class="banner_slide_content">
                     <div class="container"><!-- STRART CONTAINER -->
                         <div class="row justify-content-center">

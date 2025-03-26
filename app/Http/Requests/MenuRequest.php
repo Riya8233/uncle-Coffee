@@ -8,7 +8,7 @@ class MenuRequest extends FormRequest
 {
     public function authorize()
     {
-        return true;  
+        return true;
     }
 
     public function rules()
@@ -21,15 +21,16 @@ class MenuRequest extends FormRequest
         ];
 
         if ($this->isMethod('post')) {
-            $rules['image'] = 'required|image|max:2048';
+            $rules['media'] = 'required|file|mimes:jpeg,png,jpg,gif,mp4,mov,avi|max:20480';
         }
 
         if ($this->isMethod('put') || $this->isMethod('patch')) {
-            $rules['image'] = 'nullable|image|max:2048';
+            $rules['media'] = 'nullable|file|mimes:jpeg,png,jpg,gif,mp4,mov,avi|max:20480';
         }
 
         return $rules;
     }
+
     protected function prepareForValidation()
     {
         $this->merge([

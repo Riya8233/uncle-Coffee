@@ -20,6 +20,8 @@ use App\Http\Controllers\Admin\PrivacyPolicyController;
 use App\Http\Controllers\Admin\GeneralSettingsController;
 use App\Http\Controllers\Admin\TermsAndConditionController;
 use App\Http\Controllers\Admin\TableBookingController as AdminTableBookingController;
+use App\Http\Controllers\GalaryController;
+use App\Http\Controllers\OfferController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Middleware\UserFilterMiddleware;
@@ -66,6 +68,8 @@ Route::get('blog/view/{id}', [MainSiteController::class, 'blogView'])->name('blo
 Route::get('privacy-policy/', [MainSiteController::class, 'privacyPolicy'])->name('privacy.policy');
 Route::get('terms-conditions/', [MainSiteController::class, 'termsConditions'])->name('terms.conditions');
 
+Route::get('offers', [OfferController::class, 'index'])->name('offers');
+Route::get('gallery', [GalaryController::class, 'index'])->name('gallery');
 
 //Resetting Password
 Route::middleware(['guest'])->group(function () {
@@ -114,7 +118,7 @@ Route::prefix('admin')->middleware(RedirectIfNotAdmin::class)->group(function ()
 
 
     // Admin Cart / POS routes
-    Route::get('pos/', [CartController::class, 'index'])->name('admin.pos.index');
+    Route::get('`pos`/', [CartController::class, 'index'])->name('admin.pos.index');
     Route::post('cart/add', [CartController::class, 'addToCart'])->name('admin.cart.add');
     Route::post('cart/remove', [CartController::class, 'removeFromCart'])->name('admin.cart.remove');
     Route::get('cart/view', [CartController::class, 'getCart'])->name('admin.cart.view');

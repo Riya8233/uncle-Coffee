@@ -2,6 +2,7 @@
 
 @push('styles')
 
+
     <!-- Animation CSS -->
     <link rel="stylesheet" href="/assets/css/animate.css">
     <!-- Latest Bootstrap min CSS -->
@@ -70,19 +71,10 @@
     <script src="/assets/js/scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-
-    <script>
-    $(document).ready(function() {
-        $('#cart_count').text(0);
-    });
-    </script>
-
-
-
 @endpush
 
 
-@section('title', 'Payment Successful')
+@section('title', 'Offres')
 
 
 @section('header')
@@ -96,46 +88,32 @@
 @endsection
 
 @section('content')
-    <!-- START SECTION BREADCRUMB -->
-    <div class="breadcrumb_section background_bg overlay_bg_50 page_title_light" data-img-src="/assets/images/about_bg.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="page-title text-center">
-                        <h1>Order Stored</h1>
+<div class="section py-5" >
+    <div class="container">
+        <h2 class="text-center mb-4" style="font-weight: bold; letter-spacing: 1px;">🔥 Exclusive Offers 🔥</h2>
+        <div class="row">
+            @foreach ($offers as $offer)
+                <div class="col-md-6">
+                    <div class="card my-3 border-0 shadow-lg"
+                        style=" transition: transform 0.3s, box-shadow 0.3s; border-radius: 10px;">
+                        <div class="card-body text-center py-4"
+                            style="border-radius: 10px; border: 2px solid transparent; transition: all 0.3s;">
+                            <h4 class="mb-2" style="font-weight: bold; text-transform: uppercase;">{{ $offer['title'] }}</h4>
+                            <p class="mb-0">{{ $offer['description'] }}</p>
+                        </div>
                     </div>
-                    <ol class="breadcrumb justify-content-center">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                        <li class="breadcrumb-item active">Order Stored</li>
-                    </ol>
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
-    <!-- END SECTION BREADCRUMB -->
+</div>
 
-    <!-- START SECTION CONFIRMATION -->
-    <div class="section">
-        <div class="container">
-            <div class="alert alert-default text-center">
-                <hr>
-                <img src="/assets/images/thumbs.png" alt="Image description" style="width:20%" class="img-fluid rounded my-3">
-                <p>Thank you for your order, {{ $order->customer->name }}!</p>
-                <p><strong>Your order has been successfully stored.</strong></p>
-                <p>Your order number is <strong>#{{ $order->order_no }}</strong>.</p>
-                <p>You will receive an email with the details shortly.</p>
-                <p>If you have any questions , please contact us at
-                    @if($firstRestaurantPhoneNumber)
-                        <a href="tel:{{ $firstRestaurantPhoneNumber->phone_number }}">{{ $firstRestaurantPhoneNumber->phone_number }}</a>
-                    @endif
-                    or email us at
-                    <a href="mailto:{{ config('site.email') }}">{{ config('site.email') }}</a>.
-                </p>
-                <hr>
-                <a href="{{ route('home') }}" class="btn btn-danger">Return to Homepage</a>
-            </div>
-        </div>
-    </div>
-    <!-- END SECTION CONFIRMATION -->
+<style>
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 4px 15px rgba(255, 215, 0, 0.4);
+        border: 2px solid gold;
+    }
+</style>
 @endsection
 
